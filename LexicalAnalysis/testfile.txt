@@ -1,0 +1,10 @@
+//music}
+//单行注释
+/*多行注释*/
+const int array[2] = {1,2};
+int main(){
+    int c;
+    c = getint();
+    printf("output is %d",c);
+    return c;
+}
