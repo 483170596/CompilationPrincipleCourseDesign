@@ -2,7 +2,7 @@ package grammar;
 
 public enum SymbolType {
     // terminals
-    IDENFR("IDENFR"),	//identifer
+    IDENFR("IDENFR"),	//identifier
     INTCON("INTCON"),	//int const
     STRCON("STRCON"),	//string const
     MAINTK("MAINTK"),	//main
@@ -23,7 +23,7 @@ public enum SymbolType {
     MINU("MINU"),		//-
     VOIDTK("VOIDTK"),	//void
     MULT("MULT"),		//*
-    DIV("DIV"),			///
+    DIV("DIV"),			// /
     MOD("MOD"),			//%
     LSS("LSS"),			//<
     LEQ("LEQ"),			//<=
@@ -89,7 +89,7 @@ public enum SymbolType {
     ConstExp("<ConstExp>","NonTerminal"),
     ;
 	
-    private String symbol;	//the symbol string for output, such as '<ConstExp>'
+    private String symbol;	//用于输出的符号字符串，例如'<ConstExp>'
     private String type;	//terminal,NonTerminal,epsilon
     
     private SymbolType(String string) {
