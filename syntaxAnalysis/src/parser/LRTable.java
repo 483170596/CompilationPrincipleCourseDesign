@@ -29,11 +29,11 @@ public class LRTable {
 		addItem(1, SymbolType.PRINTFTK, new LRTableEntry('s',3));
 		addItem(1, SymbolType.IDENFR, new LRTableEntry('s',4));
 		*/
-        CFGBlock grammar = new CFGBlock();
-        grammar.init();
+        LR1Automata lr1Automata = new LR1Automata();
+        lr1Automata.Init();
+        // TODO 由自动机lr1Automata求LR(1)分析表
 
     }
-
 
     public void addItem(int row, SymbolType column, LRTableEntry entry) {
         HashMap<SymbolType, LRTableEntry> tmp = null;
@@ -43,6 +43,7 @@ public class LRTable {
         table.put(row, tmp);
     }
 
+    //从分析表获取[row,column]
     public LRTableEntry get(int row, SymbolType column) {
         HashMap<SymbolType, LRTableEntry> tmp = null;
         tmp = table.get(row);

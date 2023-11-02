@@ -87,10 +87,19 @@ public enum SymbolType {
     LAndExp("<LAndExp>","NonTerminal"),
     LOrExp("<LOrExp>","NonTerminal"),
     ConstExp("<ConstExp>","NonTerminal"),
+
+    //acc
+    ACC("ACC","acc"),
+    //规约
+    REDUCE("REDUCE","reduce"),
+    //action，终
+    SHIFT("SHIFT","shift"),
+    //goto 非
+    GOTO("GOTO","goto"),
     ;
 	
     private String symbol;	//the symbol string for output, such as '<ConstExp>'
-    private String type;	//terminal,NonTerminal,epsilon
+    private String type;	//终结符terminal,非终结符NonTerminal,空epsilon
     
     private SymbolType(String string) {
         this.symbol = string;
@@ -111,6 +120,22 @@ public enum SymbolType {
     
     public boolean isEpsilon() {
     	return this.type.equalsIgnoreCase("epsilon");
+    }
+
+    public boolean isACC() {
+        return this.type.equalsIgnoreCase("acc");
+    }
+
+    public boolean isREDUCE() {
+        return this.type.equalsIgnoreCase("reduce");
+    }
+
+    public boolean isSHIFT() {
+        return this.type.equalsIgnoreCase("shift");
+    }
+
+    public boolean isGOTO() {
+        return this.type.equalsIgnoreCase("goto");
     }
     
     public String toString() {
