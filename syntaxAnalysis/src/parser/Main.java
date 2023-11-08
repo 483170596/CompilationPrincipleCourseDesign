@@ -10,6 +10,63 @@ public class Main {
     //文法首符集
     private static CFGBlock grammar = new CFGBlock();
 
+    private static class A {
+        private ArrayList<Integer> nums = new ArrayList<>();
+        private HashMap<Integer, HashMap<Integer, Integer>> f = new HashMap<>();
+
+
+        public A() {
+            nums.add(0);
+            nums.add(1);
+            nums.add(2);
+        }
+
+        public A(ArrayList<Integer> nums, HashMap<Integer, HashMap<Integer, Integer>> f) {
+            this.nums = nums;
+            this.f = f;
+        }
+
+        /**
+         * 获取
+         *
+         * @return nums
+         */
+        public ArrayList<Integer> getNums() {
+            return nums;
+        }
+
+        /**
+         * 设置
+         *
+         * @param nums
+         */
+        public void setNums(ArrayList<Integer> nums) {
+            this.nums = nums;
+        }
+
+        /**
+         * 获取
+         *
+         * @return f
+         */
+        public HashMap<Integer, HashMap<Integer, Integer>> getF() {
+            return f;
+        }
+
+        /**
+         * 设置
+         *
+         * @param f
+         */
+        public void setF(HashMap<Integer, HashMap<Integer, Integer>> f) {
+            this.f = f;
+        }
+
+        public String toString() {
+            return "A{nums = " + nums + ", f = " + f + "}";
+        }
+    }
+
     public static void main(String[] args) {/*
         grammar.init();
         System.out.println(getFirst(grammar.getProductions().get(22).getLeft()));
@@ -50,15 +107,9 @@ public class Main {
                 System.out.println(production.getLeft()+"not exist");
             }
         }*/
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
-        hashMap.put(1, 0);
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(1);
-        int a = hashMap.get(1);
-        int b = hashMap.get(2);
-        int c = arrayList.get(0);
-        int d = arrayList.get(1);
-        System.out.println(a + "\n" + b + "\n" + c + "\n" + d);
+        ArrayList<Integer> list1 = new ArrayList<>(List.of(1, 2, 3, 4, 5));
+        ArrayList<Integer> list2 = new ArrayList<>(List.of(1, 2, 3, 4, 5));
+        System.out.println(list2.equals(list1));
     }
 
     //判断文法是否可以推为空

@@ -206,6 +206,76 @@ public class CFGBlock extends CFG {
         addProduction(p);
     }
 
+    public void initTest(){
+        this.setStartSymbol(SymbolType.CompUnit);
+        Production p = null;
+
+        //0) E'->E
+        p = new Production(SymbolType.E_, SymbolType.E);
+        addProduction(p);
+
+        //2) E->E+T
+        p = new Production(SymbolType.E, SymbolType.E, SymbolType.ADD, SymbolType.T);
+        addProduction(p);
+
+        //3)E->T
+        p = new Production(SymbolType.E, SymbolType.T);
+        addProduction(p);
+
+        //4)T->TF
+        p = new Production(SymbolType.T, SymbolType.T,SymbolType.F);
+        addProduction(p);
+
+        //5) T->F
+        p = new Production(SymbolType.T, SymbolType.F);
+        addProduction(p);
+
+        //6) F->F*
+        p = new Production(SymbolType.F, SymbolType.F, SymbolType.MUL);
+        addProduction(p);
+
+        //7) F->(E)
+        p = new Production(SymbolType.F, SymbolType.LEFT, SymbolType.E, SymbolType.RIGHT);
+        addProduction(p);
+
+        //8)F->a
+        p = new Production(SymbolType.F, SymbolType.a);
+        addProduction(p);
+
+        //9)F->b
+        p =  new Production(SymbolType.F, SymbolType.b);
+        addProduction(p);
+    }
+
+    public void initTest1(){
+        this.setStartSymbol(SymbolType.CompUnit);
+        Production p = null;
+
+        //0) S'->S
+        p = new Production(SymbolType.S_, SymbolType.S);
+        addProduction(p);
+
+        //1)S->aAd
+        p = new Production(SymbolType.S, SymbolType.a, SymbolType.A,SymbolType.d);
+        addProduction(p);
+
+        //2)S->bAc
+        p = new Production(SymbolType.S, SymbolType.b, SymbolType.A,SymbolType.c);
+        addProduction(p);
+
+        //3)S->aec
+        p = new Production(SymbolType.S, SymbolType.a, SymbolType.e, SymbolType.c);
+        addProduction(p);
+
+        //4)S->bed
+        p = new Production(SymbolType.S, SymbolType.b, SymbolType.e, SymbolType.d);
+        addProduction(p);
+
+        //A->e
+        p = new Production(SymbolType.A, SymbolType.e);
+        addProduction(p);
+    }
+
     public static void main(String[] args) {
 
         // TODO 生成该文法

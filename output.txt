@@ -1,0 +1,6561 @@
+Block . { BlockItemList } # 
+CompUnit . Block # 
+
+
+-----------------------------------------------------------
+CompUnit Block . # 
+
+
+-----------------------------------------------------------
+Block { . BlockItemList } # 
+BlockItemList . ( 
+BlockItemList . ; 
+BlockItemList . BlockItemList BlockItem ( 
+BlockItemList . BlockItemList BlockItem ; 
+BlockItemList . BlockItemList BlockItem Ident 
+BlockItemList . BlockItemList BlockItem IntConst 
+BlockItemList . BlockItemList BlockItem if 
+BlockItemList . BlockItemList BlockItem int 
+BlockItemList . BlockItemList BlockItem printf 
+BlockItemList . BlockItemList BlockItem while 
+BlockItemList . BlockItemList BlockItem { 
+BlockItemList . BlockItemList BlockItem } 
+BlockItemList . Ident 
+BlockItemList . IntConst 
+BlockItemList . if 
+BlockItemList . int 
+BlockItemList . printf 
+BlockItemList . while 
+BlockItemList . { 
+BlockItemList . } 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp ; 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp ; 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp ; 
+Block . { BlockItemList } ( 
+Block . { BlockItemList } ; 
+Block . { BlockItemList } Ident 
+Block . { BlockItemList } IntConst 
+Block . { BlockItemList } if 
+Block . { BlockItemList } int 
+Block . { BlockItemList } printf 
+Block . { BlockItemList } while 
+Block . { BlockItemList } { 
+Block . { BlockItemList } } 
+Block { BlockItemList . } # 
+BlockItem . Stmt ( 
+BlockItem . Stmt ; 
+BlockItem . Stmt Ident 
+BlockItem . Stmt IntConst 
+BlockItem . Stmt if 
+BlockItem . Stmt int 
+BlockItem . Stmt printf 
+BlockItem . Stmt while 
+BlockItem . Stmt { 
+BlockItem . Stmt } 
+BlockItem . VarDecl ( 
+BlockItem . VarDecl ; 
+BlockItem . VarDecl Ident 
+BlockItem . VarDecl IntConst 
+BlockItem . VarDecl if 
+BlockItem . VarDecl int 
+BlockItem . VarDecl printf 
+BlockItem . VarDecl while 
+BlockItem . VarDecl { 
+BlockItem . VarDecl } 
+BlockItemList BlockItemList . BlockItem ( 
+BlockItemList BlockItemList . BlockItem ; 
+BlockItemList BlockItemList . BlockItem Ident 
+BlockItemList BlockItemList . BlockItem IntConst 
+BlockItemList BlockItemList . BlockItem if 
+BlockItemList BlockItemList . BlockItem int 
+BlockItemList BlockItemList . BlockItem printf 
+BlockItemList BlockItemList . BlockItem while 
+BlockItemList BlockItemList . BlockItem { 
+BlockItemList BlockItemList . BlockItem } 
+Exp . AddExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+Stmt . ; ( 
+Stmt . ; ; 
+Stmt . ; Ident 
+Stmt . ; IntConst 
+Stmt . ; if 
+Stmt . ; int 
+Stmt . ; printf 
+Stmt . ; while 
+Stmt . ; { 
+Stmt . ; } 
+Stmt . Block ( 
+Stmt . Block ; 
+Stmt . Block Ident 
+Stmt . Block IntConst 
+Stmt . Block if 
+Stmt . Block int 
+Stmt . Block printf 
+Stmt . Block while 
+Stmt . Block { 
+Stmt . Block } 
+Stmt . Exp ; ( 
+Stmt . Exp ; ; 
+Stmt . Exp ; Ident 
+Stmt . Exp ; IntConst 
+Stmt . Exp ; if 
+Stmt . Exp ; int 
+Stmt . Exp ; printf 
+Stmt . Exp ; while 
+Stmt . Exp ; { 
+Stmt . Exp ; } 
+Stmt . Ident = Exp ; ( 
+Stmt . Ident = Exp ; ; 
+Stmt . Ident = Exp ; Ident 
+Stmt . Ident = Exp ; IntConst 
+Stmt . Ident = Exp ; if 
+Stmt . Ident = Exp ; int 
+Stmt . Ident = Exp ; printf 
+Stmt . Ident = Exp ; while 
+Stmt . Ident = Exp ; { 
+Stmt . Ident = Exp ; } 
+Stmt . Ident = getint ( ) ; ( 
+Stmt . Ident = getint ( ) ; ; 
+Stmt . Ident = getint ( ) ; Ident 
+Stmt . Ident = getint ( ) ; IntConst 
+Stmt . Ident = getint ( ) ; if 
+Stmt . Ident = getint ( ) ; int 
+Stmt . Ident = getint ( ) ; printf 
+Stmt . Ident = getint ( ) ; while 
+Stmt . Ident = getint ( ) ; { 
+Stmt . Ident = getint ( ) ; } 
+Stmt . if ( Cond ) Block ( 
+Stmt . if ( Cond ) Block ; 
+Stmt . if ( Cond ) Block Ident 
+Stmt . if ( Cond ) Block IntConst 
+Stmt . if ( Cond ) Block else Block ( 
+Stmt . if ( Cond ) Block else Block ; 
+Stmt . if ( Cond ) Block else Block Ident 
+Stmt . if ( Cond ) Block else Block IntConst 
+Stmt . if ( Cond ) Block else Block if 
+Stmt . if ( Cond ) Block else Block int 
+Stmt . if ( Cond ) Block else Block printf 
+Stmt . if ( Cond ) Block else Block while 
+Stmt . if ( Cond ) Block else Block { 
+Stmt . if ( Cond ) Block else Block } 
+Stmt . if ( Cond ) Block if 
+Stmt . if ( Cond ) Block int 
+Stmt . if ( Cond ) Block printf 
+Stmt . if ( Cond ) Block while 
+Stmt . if ( Cond ) Block { 
+Stmt . if ( Cond ) Block } 
+Stmt . printf ( FormatString ExpList ) ; ( 
+Stmt . printf ( FormatString ExpList ) ; ; 
+Stmt . printf ( FormatString ExpList ) ; Ident 
+Stmt . printf ( FormatString ExpList ) ; IntConst 
+Stmt . printf ( FormatString ExpList ) ; if 
+Stmt . printf ( FormatString ExpList ) ; int 
+Stmt . printf ( FormatString ExpList ) ; printf 
+Stmt . printf ( FormatString ExpList ) ; while 
+Stmt . printf ( FormatString ExpList ) ; { 
+Stmt . printf ( FormatString ExpList ) ; } 
+Stmt . while ( Cond ) Block ( 
+Stmt . while ( Cond ) Block ; 
+Stmt . while ( Cond ) Block Ident 
+Stmt . while ( Cond ) Block IntConst 
+Stmt . while ( Cond ) Block if 
+Stmt . while ( Cond ) Block int 
+Stmt . while ( Cond ) Block printf 
+Stmt . while ( Cond ) Block while 
+Stmt . while ( Cond ) Block { 
+Stmt . while ( Cond ) Block } 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+VarDecl . int VarDeclList ; ( 
+VarDecl . int VarDeclList ; ; 
+VarDecl . int VarDeclList ; Ident 
+VarDecl . int VarDeclList ; IntConst 
+VarDecl . int VarDeclList ; if 
+VarDecl . int VarDeclList ; int 
+VarDecl . int VarDeclList ; printf 
+VarDecl . int VarDeclList ; while 
+VarDecl . int VarDeclList ; { 
+VarDecl . int VarDeclList ; } 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+Exp . AddExp ) 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp ( . Exp ) % 
+PrimaryExp ( . Exp ) * 
+PrimaryExp ( . Exp ) + 
+PrimaryExp ( . Exp ) - 
+PrimaryExp ( . Exp ) / 
+PrimaryExp ( . Exp ) ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+Exp . AddExp ) 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp ( . Exp ) % 
+PrimaryExp ( . Exp ) ) 
+PrimaryExp ( . Exp ) * 
+PrimaryExp ( . Exp ) + 
+PrimaryExp ( . Exp ) - 
+PrimaryExp ( . Exp ) / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp ) 
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . - MulExp ) 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp - 
+Exp AddExp . ) 
+
+
+-----------------------------------------------------------
+AddExp AddExp + . MulExp ) 
+AddExp AddExp + . MulExp + 
+AddExp AddExp + . MulExp - 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+PrimaryExp Ident . % 
+PrimaryExp Ident . ) 
+PrimaryExp Ident . * 
+PrimaryExp Ident . + 
+PrimaryExp Ident . - 
+PrimaryExp Ident . / 
+
+
+-----------------------------------------------------------
+PrimaryExp IntConst . % 
+PrimaryExp IntConst . ) 
+PrimaryExp IntConst . * 
+PrimaryExp IntConst . + 
+PrimaryExp IntConst . - 
+PrimaryExp IntConst . / 
+
+
+-----------------------------------------------------------
+AddExp AddExp + MulExp . ) 
+AddExp AddExp + MulExp . + 
+AddExp AddExp + MulExp . - 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+
+
+-----------------------------------------------------------
+MulExp MulExp % . UnaryExp % 
+MulExp MulExp % . UnaryExp ) 
+MulExp MulExp % . UnaryExp * 
+MulExp MulExp % . UnaryExp + 
+MulExp MulExp % . UnaryExp - 
+MulExp MulExp % . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+UnaryExp PrimaryExp . % 
+UnaryExp PrimaryExp . ) 
+UnaryExp PrimaryExp . * 
+UnaryExp PrimaryExp . + 
+UnaryExp PrimaryExp . - 
+UnaryExp PrimaryExp . / 
+
+
+-----------------------------------------------------------
+MulExp MulExp % UnaryExp . % 
+MulExp MulExp % UnaryExp . ) 
+MulExp MulExp % UnaryExp . * 
+MulExp MulExp % UnaryExp . + 
+MulExp MulExp % UnaryExp . - 
+MulExp MulExp % UnaryExp . / 
+
+
+-----------------------------------------------------------
+MulExp MulExp * . UnaryExp % 
+MulExp MulExp * . UnaryExp ) 
+MulExp MulExp * . UnaryExp * 
+MulExp MulExp * . UnaryExp + 
+MulExp MulExp * . UnaryExp - 
+MulExp MulExp * . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+MulExp MulExp * UnaryExp . % 
+MulExp MulExp * UnaryExp . ) 
+MulExp MulExp * UnaryExp . * 
+MulExp MulExp * UnaryExp . + 
+MulExp MulExp * UnaryExp . - 
+MulExp MulExp * UnaryExp . / 
+
+
+-----------------------------------------------------------
+MulExp MulExp / . UnaryExp % 
+MulExp MulExp / . UnaryExp ) 
+MulExp MulExp / . UnaryExp * 
+MulExp MulExp / . UnaryExp + 
+MulExp MulExp / . UnaryExp - 
+MulExp MulExp / . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+MulExp MulExp / UnaryExp . % 
+MulExp MulExp / UnaryExp . ) 
+MulExp MulExp / UnaryExp . * 
+MulExp MulExp / UnaryExp . + 
+MulExp MulExp / UnaryExp . - 
+MulExp MulExp / UnaryExp . / 
+
+
+-----------------------------------------------------------
+MulExp UnaryExp . % 
+MulExp UnaryExp . ) 
+MulExp UnaryExp . * 
+MulExp UnaryExp . + 
+MulExp UnaryExp . - 
+MulExp UnaryExp . / 
+
+
+-----------------------------------------------------------
+AddExp AddExp - . MulExp ) 
+AddExp AddExp - . MulExp + 
+AddExp AddExp - . MulExp - 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+AddExp AddExp - MulExp . ) 
+AddExp AddExp - MulExp . + 
+AddExp AddExp - MulExp . - 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp . ) % 
+PrimaryExp ( Exp . ) ) 
+PrimaryExp ( Exp . ) * 
+PrimaryExp ( Exp . ) + 
+PrimaryExp ( Exp . ) - 
+PrimaryExp ( Exp . ) / 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp ) . % 
+PrimaryExp ( Exp ) . ) 
+PrimaryExp ( Exp ) . * 
+PrimaryExp ( Exp ) . + 
+PrimaryExp ( Exp ) . - 
+PrimaryExp ( Exp ) . / 
+
+
+-----------------------------------------------------------
+AddExp MulExp . ) 
+AddExp MulExp . + 
+AddExp MulExp . - 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp . ) % 
+PrimaryExp ( Exp . ) * 
+PrimaryExp ( Exp . ) + 
+PrimaryExp ( Exp . ) - 
+PrimaryExp ( Exp . ) / 
+PrimaryExp ( Exp . ) ; 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp ) . % 
+PrimaryExp ( Exp ) . * 
+PrimaryExp ( Exp ) . + 
+PrimaryExp ( Exp ) . - 
+PrimaryExp ( Exp ) . / 
+PrimaryExp ( Exp ) . ; 
+
+
+-----------------------------------------------------------
+Stmt ; . ( 
+Stmt ; . ; 
+Stmt ; . Ident 
+Stmt ; . IntConst 
+Stmt ; . if 
+Stmt ; . int 
+Stmt ; . printf 
+Stmt ; . while 
+Stmt ; . { 
+Stmt ; . } 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . + MulExp ; 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp - 
+AddExp AddExp . - MulExp ; 
+Exp AddExp . ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp + . MulExp + 
+AddExp AddExp + . MulExp - 
+AddExp AddExp + . MulExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+PrimaryExp Ident . % 
+PrimaryExp Ident . * 
+PrimaryExp Ident . + 
+PrimaryExp Ident . - 
+PrimaryExp Ident . / 
+PrimaryExp Ident . ; 
+
+
+-----------------------------------------------------------
+PrimaryExp IntConst . % 
+PrimaryExp IntConst . * 
+PrimaryExp IntConst . + 
+PrimaryExp IntConst . - 
+PrimaryExp IntConst . / 
+PrimaryExp IntConst . ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp + MulExp . + 
+AddExp AddExp + MulExp . - 
+AddExp AddExp + MulExp . ; 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp ; 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp ; 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp % . UnaryExp % 
+MulExp MulExp % . UnaryExp * 
+MulExp MulExp % . UnaryExp + 
+MulExp MulExp % . UnaryExp - 
+MulExp MulExp % . UnaryExp / 
+MulExp MulExp % . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+UnaryExp PrimaryExp . % 
+UnaryExp PrimaryExp . * 
+UnaryExp PrimaryExp . + 
+UnaryExp PrimaryExp . - 
+UnaryExp PrimaryExp . / 
+UnaryExp PrimaryExp . ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp % UnaryExp . % 
+MulExp MulExp % UnaryExp . * 
+MulExp MulExp % UnaryExp . + 
+MulExp MulExp % UnaryExp . - 
+MulExp MulExp % UnaryExp . / 
+MulExp MulExp % UnaryExp . ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp * . UnaryExp % 
+MulExp MulExp * . UnaryExp * 
+MulExp MulExp * . UnaryExp + 
+MulExp MulExp * . UnaryExp - 
+MulExp MulExp * . UnaryExp / 
+MulExp MulExp * . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp * UnaryExp . % 
+MulExp MulExp * UnaryExp . * 
+MulExp MulExp * UnaryExp . + 
+MulExp MulExp * UnaryExp . - 
+MulExp MulExp * UnaryExp . / 
+MulExp MulExp * UnaryExp . ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp / . UnaryExp % 
+MulExp MulExp / . UnaryExp * 
+MulExp MulExp / . UnaryExp + 
+MulExp MulExp / . UnaryExp - 
+MulExp MulExp / . UnaryExp / 
+MulExp MulExp / . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp / UnaryExp . % 
+MulExp MulExp / UnaryExp . * 
+MulExp MulExp / UnaryExp . + 
+MulExp MulExp / UnaryExp . - 
+MulExp MulExp / UnaryExp . / 
+MulExp MulExp / UnaryExp . ; 
+
+
+-----------------------------------------------------------
+MulExp UnaryExp . % 
+MulExp UnaryExp . * 
+MulExp UnaryExp . + 
+MulExp UnaryExp . - 
+MulExp UnaryExp . / 
+MulExp UnaryExp . ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp - . MulExp + 
+AddExp AddExp - . MulExp - 
+AddExp AddExp - . MulExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp - MulExp . + 
+AddExp AddExp - MulExp . - 
+AddExp AddExp - MulExp . ; 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp ; 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp ; 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp ; 
+
+
+-----------------------------------------------------------
+Stmt Block . ( 
+Stmt Block . ; 
+Stmt Block . Ident 
+Stmt Block . IntConst 
+Stmt Block . if 
+Stmt Block . int 
+Stmt Block . printf 
+Stmt Block . while 
+Stmt Block . { 
+Stmt Block . } 
+
+
+-----------------------------------------------------------
+BlockItemList BlockItemList BlockItem . ( 
+BlockItemList BlockItemList BlockItem . ; 
+BlockItemList BlockItemList BlockItem . Ident 
+BlockItemList BlockItemList BlockItem . IntConst 
+BlockItemList BlockItemList BlockItem . if 
+BlockItemList BlockItemList BlockItem . int 
+BlockItemList BlockItemList BlockItem . printf 
+BlockItemList BlockItemList BlockItem . while 
+BlockItemList BlockItemList BlockItem . { 
+BlockItemList BlockItemList BlockItem . } 
+
+
+-----------------------------------------------------------
+Stmt Exp . ; ( 
+Stmt Exp . ; ; 
+Stmt Exp . ; Ident 
+Stmt Exp . ; IntConst 
+Stmt Exp . ; if 
+Stmt Exp . ; int 
+Stmt Exp . ; printf 
+Stmt Exp . ; while 
+Stmt Exp . ; { 
+Stmt Exp . ; } 
+
+
+-----------------------------------------------------------
+Stmt Exp ; . ( 
+Stmt Exp ; . ; 
+Stmt Exp ; . Ident 
+Stmt Exp ; . IntConst 
+Stmt Exp ; . if 
+Stmt Exp ; . int 
+Stmt Exp ; . printf 
+Stmt Exp ; . while 
+Stmt Exp ; . { 
+Stmt Exp ; . } 
+
+
+-----------------------------------------------------------
+PrimaryExp Ident . % 
+PrimaryExp Ident . * 
+PrimaryExp Ident . + 
+PrimaryExp Ident . - 
+PrimaryExp Ident . / 
+PrimaryExp Ident . ; 
+Stmt Ident . = Exp ; ( 
+Stmt Ident . = Exp ; ; 
+Stmt Ident . = Exp ; Ident 
+Stmt Ident . = Exp ; IntConst 
+Stmt Ident . = Exp ; if 
+Stmt Ident . = Exp ; int 
+Stmt Ident . = Exp ; printf 
+Stmt Ident . = Exp ; while 
+Stmt Ident . = Exp ; { 
+Stmt Ident . = Exp ; } 
+Stmt Ident . = getint ( ) ; ( 
+Stmt Ident . = getint ( ) ; ; 
+Stmt Ident . = getint ( ) ; Ident 
+Stmt Ident . = getint ( ) ; IntConst 
+Stmt Ident . = getint ( ) ; if 
+Stmt Ident . = getint ( ) ; int 
+Stmt Ident . = getint ( ) ; printf 
+Stmt Ident . = getint ( ) ; while 
+Stmt Ident . = getint ( ) ; { 
+Stmt Ident . = getint ( ) ; } 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp ; 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp ; 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp ; 
+Exp . AddExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+Stmt Ident = . Exp ; ( 
+Stmt Ident = . Exp ; ; 
+Stmt Ident = . Exp ; Ident 
+Stmt Ident = . Exp ; IntConst 
+Stmt Ident = . Exp ; if 
+Stmt Ident = . Exp ; int 
+Stmt Ident = . Exp ; printf 
+Stmt Ident = . Exp ; while 
+Stmt Ident = . Exp ; { 
+Stmt Ident = . Exp ; } 
+Stmt Ident = . getint ( ) ; ( 
+Stmt Ident = . getint ( ) ; ; 
+Stmt Ident = . getint ( ) ; Ident 
+Stmt Ident = . getint ( ) ; IntConst 
+Stmt Ident = . getint ( ) ; if 
+Stmt Ident = . getint ( ) ; int 
+Stmt Ident = . getint ( ) ; printf 
+Stmt Ident = . getint ( ) ; while 
+Stmt Ident = . getint ( ) ; { 
+Stmt Ident = . getint ( ) ; } 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+Stmt Ident = Exp . ; ( 
+Stmt Ident = Exp . ; ; 
+Stmt Ident = Exp . ; Ident 
+Stmt Ident = Exp . ; IntConst 
+Stmt Ident = Exp . ; if 
+Stmt Ident = Exp . ; int 
+Stmt Ident = Exp . ; printf 
+Stmt Ident = Exp . ; while 
+Stmt Ident = Exp . ; { 
+Stmt Ident = Exp . ; } 
+
+
+-----------------------------------------------------------
+Stmt Ident = Exp ; . ( 
+Stmt Ident = Exp ; . ; 
+Stmt Ident = Exp ; . Ident 
+Stmt Ident = Exp ; . IntConst 
+Stmt Ident = Exp ; . if 
+Stmt Ident = Exp ; . int 
+Stmt Ident = Exp ; . printf 
+Stmt Ident = Exp ; . while 
+Stmt Ident = Exp ; . { 
+Stmt Ident = Exp ; . } 
+
+
+-----------------------------------------------------------
+AddExp MulExp . + 
+AddExp MulExp . - 
+AddExp MulExp . ; 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp ; 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp ; 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp ; 
+
+
+-----------------------------------------------------------
+Stmt Ident = getint . ( ) ; ( 
+Stmt Ident = getint . ( ) ; ; 
+Stmt Ident = getint . ( ) ; Ident 
+Stmt Ident = getint . ( ) ; IntConst 
+Stmt Ident = getint . ( ) ; if 
+Stmt Ident = getint . ( ) ; int 
+Stmt Ident = getint . ( ) ; printf 
+Stmt Ident = getint . ( ) ; while 
+Stmt Ident = getint . ( ) ; { 
+Stmt Ident = getint . ( ) ; } 
+
+
+-----------------------------------------------------------
+Stmt Ident = getint ( . ) ; ( 
+Stmt Ident = getint ( . ) ; ; 
+Stmt Ident = getint ( . ) ; Ident 
+Stmt Ident = getint ( . ) ; IntConst 
+Stmt Ident = getint ( . ) ; if 
+Stmt Ident = getint ( . ) ; int 
+Stmt Ident = getint ( . ) ; printf 
+Stmt Ident = getint ( . ) ; while 
+Stmt Ident = getint ( . ) ; { 
+Stmt Ident = getint ( . ) ; } 
+
+
+-----------------------------------------------------------
+Stmt Ident = getint ( ) . ; ( 
+Stmt Ident = getint ( ) . ; ; 
+Stmt Ident = getint ( ) . ; Ident 
+Stmt Ident = getint ( ) . ; IntConst 
+Stmt Ident = getint ( ) . ; if 
+Stmt Ident = getint ( ) . ; int 
+Stmt Ident = getint ( ) . ; printf 
+Stmt Ident = getint ( ) . ; while 
+Stmt Ident = getint ( ) . ; { 
+Stmt Ident = getint ( ) . ; } 
+
+
+-----------------------------------------------------------
+Stmt Ident = getint ( ) ; . ( 
+Stmt Ident = getint ( ) ; . ; 
+Stmt Ident = getint ( ) ; . Ident 
+Stmt Ident = getint ( ) ; . IntConst 
+Stmt Ident = getint ( ) ; . if 
+Stmt Ident = getint ( ) ; . int 
+Stmt Ident = getint ( ) ; . printf 
+Stmt Ident = getint ( ) ; . while 
+Stmt Ident = getint ( ) ; . { 
+Stmt Ident = getint ( ) ; . } 
+
+
+-----------------------------------------------------------
+BlockItem Stmt . ( 
+BlockItem Stmt . ; 
+BlockItem Stmt . Ident 
+BlockItem Stmt . IntConst 
+BlockItem Stmt . if 
+BlockItem Stmt . int 
+BlockItem Stmt . printf 
+BlockItem Stmt . while 
+BlockItem Stmt . { 
+BlockItem Stmt . } 
+
+
+-----------------------------------------------------------
+BlockItem VarDecl . ( 
+BlockItem VarDecl . ; 
+BlockItem VarDecl . Ident 
+BlockItem VarDecl . IntConst 
+BlockItem VarDecl . if 
+BlockItem VarDecl . int 
+BlockItem VarDecl . printf 
+BlockItem VarDecl . while 
+BlockItem VarDecl . { 
+BlockItem VarDecl . } 
+
+
+-----------------------------------------------------------
+Stmt if . ( Cond ) Block ( 
+Stmt if . ( Cond ) Block ; 
+Stmt if . ( Cond ) Block Ident 
+Stmt if . ( Cond ) Block IntConst 
+Stmt if . ( Cond ) Block else Block ( 
+Stmt if . ( Cond ) Block else Block ; 
+Stmt if . ( Cond ) Block else Block Ident 
+Stmt if . ( Cond ) Block else Block IntConst 
+Stmt if . ( Cond ) Block else Block if 
+Stmt if . ( Cond ) Block else Block int 
+Stmt if . ( Cond ) Block else Block printf 
+Stmt if . ( Cond ) Block else Block while 
+Stmt if . ( Cond ) Block else Block { 
+Stmt if . ( Cond ) Block else Block } 
+Stmt if . ( Cond ) Block if 
+Stmt if . ( Cond ) Block int 
+Stmt if . ( Cond ) Block printf 
+Stmt if . ( Cond ) Block while 
+Stmt if . ( Cond ) Block { 
+Stmt if . ( Cond ) Block } 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+Cond . LOrExp ) 
+EqExp . EqExp != RelExp != 
+EqExp . EqExp != RelExp && 
+EqExp . EqExp != RelExp ) 
+EqExp . EqExp != RelExp == 
+EqExp . EqExp != RelExp || 
+EqExp . EqExp == RelExp != 
+EqExp . EqExp == RelExp && 
+EqExp . EqExp == RelExp ) 
+EqExp . EqExp == RelExp == 
+EqExp . EqExp == RelExp || 
+EqExp . RelExp != 
+EqExp . RelExp && 
+EqExp . RelExp ) 
+EqExp . RelExp == 
+EqExp . RelExp || 
+LAndExp . EqExp && 
+LAndExp . EqExp ) 
+LAndExp . EqExp || 
+LAndExp . LAndExp && EqExp && 
+LAndExp . LAndExp && EqExp ) 
+LAndExp . LAndExp && EqExp || 
+LOrExp . LAndExp ) 
+LOrExp . LAndExp || 
+LOrExp . LOrExp || LAndExp ) 
+LOrExp . LOrExp || LAndExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp . AddExp != 
+RelExp . AddExp && 
+RelExp . AddExp ) 
+RelExp . AddExp < 
+RelExp . AddExp <= 
+RelExp . AddExp == 
+RelExp . AddExp > 
+RelExp . AddExp >= 
+RelExp . AddExp || 
+RelExp . RelExp < AddExp != 
+RelExp . RelExp < AddExp && 
+RelExp . RelExp < AddExp ) 
+RelExp . RelExp < AddExp < 
+RelExp . RelExp < AddExp <= 
+RelExp . RelExp < AddExp == 
+RelExp . RelExp < AddExp > 
+RelExp . RelExp < AddExp >= 
+RelExp . RelExp < AddExp || 
+RelExp . RelExp <= AddExp != 
+RelExp . RelExp <= AddExp && 
+RelExp . RelExp <= AddExp ) 
+RelExp . RelExp <= AddExp < 
+RelExp . RelExp <= AddExp <= 
+RelExp . RelExp <= AddExp == 
+RelExp . RelExp <= AddExp > 
+RelExp . RelExp <= AddExp >= 
+RelExp . RelExp <= AddExp || 
+RelExp . RelExp > AddExp != 
+RelExp . RelExp > AddExp && 
+RelExp . RelExp > AddExp ) 
+RelExp . RelExp > AddExp < 
+RelExp . RelExp > AddExp <= 
+RelExp . RelExp > AddExp == 
+RelExp . RelExp > AddExp > 
+RelExp . RelExp > AddExp >= 
+RelExp . RelExp > AddExp || 
+RelExp . RelExp >= AddExp != 
+RelExp . RelExp >= AddExp && 
+RelExp . RelExp >= AddExp ) 
+RelExp . RelExp >= AddExp < 
+RelExp . RelExp >= AddExp <= 
+RelExp . RelExp >= AddExp == 
+RelExp . RelExp >= AddExp > 
+RelExp . RelExp >= AddExp >= 
+RelExp . RelExp >= AddExp || 
+Stmt if ( . Cond ) Block ( 
+Stmt if ( . Cond ) Block ; 
+Stmt if ( . Cond ) Block Ident 
+Stmt if ( . Cond ) Block IntConst 
+Stmt if ( . Cond ) Block else Block ( 
+Stmt if ( . Cond ) Block else Block ; 
+Stmt if ( . Cond ) Block else Block Ident 
+Stmt if ( . Cond ) Block else Block IntConst 
+Stmt if ( . Cond ) Block else Block if 
+Stmt if ( . Cond ) Block else Block int 
+Stmt if ( . Cond ) Block else Block printf 
+Stmt if ( . Cond ) Block else Block while 
+Stmt if ( . Cond ) Block else Block { 
+Stmt if ( . Cond ) Block else Block } 
+Stmt if ( . Cond ) Block if 
+Stmt if ( . Cond ) Block int 
+Stmt if ( . Cond ) Block printf 
+Stmt if ( . Cond ) Block while 
+Stmt if ( . Cond ) Block { 
+Stmt if ( . Cond ) Block } 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+Exp . AddExp ) 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp ( . Exp ) != 
+PrimaryExp ( . Exp ) % 
+PrimaryExp ( . Exp ) && 
+PrimaryExp ( . Exp ) ) 
+PrimaryExp ( . Exp ) * 
+PrimaryExp ( . Exp ) + 
+PrimaryExp ( . Exp ) - 
+PrimaryExp ( . Exp ) / 
+PrimaryExp ( . Exp ) < 
+PrimaryExp ( . Exp ) <= 
+PrimaryExp ( . Exp ) == 
+PrimaryExp ( . Exp ) > 
+PrimaryExp ( . Exp ) >= 
+PrimaryExp ( . Exp ) || 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp . ) != 
+PrimaryExp ( Exp . ) % 
+PrimaryExp ( Exp . ) && 
+PrimaryExp ( Exp . ) ) 
+PrimaryExp ( Exp . ) * 
+PrimaryExp ( Exp . ) + 
+PrimaryExp ( Exp . ) - 
+PrimaryExp ( Exp . ) / 
+PrimaryExp ( Exp . ) < 
+PrimaryExp ( Exp . ) <= 
+PrimaryExp ( Exp . ) == 
+PrimaryExp ( Exp . ) > 
+PrimaryExp ( Exp . ) >= 
+PrimaryExp ( Exp . ) || 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp ) . != 
+PrimaryExp ( Exp ) . % 
+PrimaryExp ( Exp ) . && 
+PrimaryExp ( Exp ) . ) 
+PrimaryExp ( Exp ) . * 
+PrimaryExp ( Exp ) . + 
+PrimaryExp ( Exp ) . - 
+PrimaryExp ( Exp ) . / 
+PrimaryExp ( Exp ) . < 
+PrimaryExp ( Exp ) . <= 
+PrimaryExp ( Exp ) . == 
+PrimaryExp ( Exp ) . > 
+PrimaryExp ( Exp ) . >= 
+PrimaryExp ( Exp ) . || 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp != 
+AddExp AddExp . + MulExp && 
+AddExp AddExp . + MulExp ) 
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . + MulExp < 
+AddExp AddExp . + MulExp <= 
+AddExp AddExp . + MulExp == 
+AddExp AddExp . + MulExp > 
+AddExp AddExp . + MulExp >= 
+AddExp AddExp . + MulExp || 
+AddExp AddExp . - MulExp != 
+AddExp AddExp . - MulExp && 
+AddExp AddExp . - MulExp ) 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp - 
+AddExp AddExp . - MulExp < 
+AddExp AddExp . - MulExp <= 
+AddExp AddExp . - MulExp == 
+AddExp AddExp . - MulExp > 
+AddExp AddExp . - MulExp >= 
+AddExp AddExp . - MulExp || 
+RelExp AddExp . != 
+RelExp AddExp . && 
+RelExp AddExp . ) 
+RelExp AddExp . < 
+RelExp AddExp . <= 
+RelExp AddExp . == 
+RelExp AddExp . > 
+RelExp AddExp . >= 
+RelExp AddExp . || 
+
+
+-----------------------------------------------------------
+AddExp AddExp + . MulExp != 
+AddExp AddExp + . MulExp && 
+AddExp AddExp + . MulExp ) 
+AddExp AddExp + . MulExp + 
+AddExp AddExp + . MulExp - 
+AddExp AddExp + . MulExp < 
+AddExp AddExp + . MulExp <= 
+AddExp AddExp + . MulExp == 
+AddExp AddExp + . MulExp > 
+AddExp AddExp + . MulExp >= 
+AddExp AddExp + . MulExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+PrimaryExp Ident . != 
+PrimaryExp Ident . % 
+PrimaryExp Ident . && 
+PrimaryExp Ident . ) 
+PrimaryExp Ident . * 
+PrimaryExp Ident . + 
+PrimaryExp Ident . - 
+PrimaryExp Ident . / 
+PrimaryExp Ident . < 
+PrimaryExp Ident . <= 
+PrimaryExp Ident . == 
+PrimaryExp Ident . > 
+PrimaryExp Ident . >= 
+PrimaryExp Ident . || 
+
+
+-----------------------------------------------------------
+PrimaryExp IntConst . != 
+PrimaryExp IntConst . % 
+PrimaryExp IntConst . && 
+PrimaryExp IntConst . ) 
+PrimaryExp IntConst . * 
+PrimaryExp IntConst . + 
+PrimaryExp IntConst . - 
+PrimaryExp IntConst . / 
+PrimaryExp IntConst . < 
+PrimaryExp IntConst . <= 
+PrimaryExp IntConst . == 
+PrimaryExp IntConst . > 
+PrimaryExp IntConst . >= 
+PrimaryExp IntConst . || 
+
+
+-----------------------------------------------------------
+AddExp AddExp + MulExp . != 
+AddExp AddExp + MulExp . && 
+AddExp AddExp + MulExp . ) 
+AddExp AddExp + MulExp . + 
+AddExp AddExp + MulExp . - 
+AddExp AddExp + MulExp . < 
+AddExp AddExp + MulExp . <= 
+AddExp AddExp + MulExp . == 
+AddExp AddExp + MulExp . > 
+AddExp AddExp + MulExp . >= 
+AddExp AddExp + MulExp . || 
+MulExp MulExp . % UnaryExp != 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp && 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp < 
+MulExp MulExp . % UnaryExp <= 
+MulExp MulExp . % UnaryExp == 
+MulExp MulExp . % UnaryExp > 
+MulExp MulExp . % UnaryExp >= 
+MulExp MulExp . % UnaryExp || 
+MulExp MulExp . * UnaryExp != 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp && 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp < 
+MulExp MulExp . * UnaryExp <= 
+MulExp MulExp . * UnaryExp == 
+MulExp MulExp . * UnaryExp > 
+MulExp MulExp . * UnaryExp >= 
+MulExp MulExp . * UnaryExp || 
+MulExp MulExp . / UnaryExp != 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp && 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp < 
+MulExp MulExp . / UnaryExp <= 
+MulExp MulExp . / UnaryExp == 
+MulExp MulExp . / UnaryExp > 
+MulExp MulExp . / UnaryExp >= 
+MulExp MulExp . / UnaryExp || 
+
+
+-----------------------------------------------------------
+MulExp MulExp % . UnaryExp != 
+MulExp MulExp % . UnaryExp % 
+MulExp MulExp % . UnaryExp && 
+MulExp MulExp % . UnaryExp ) 
+MulExp MulExp % . UnaryExp * 
+MulExp MulExp % . UnaryExp + 
+MulExp MulExp % . UnaryExp - 
+MulExp MulExp % . UnaryExp / 
+MulExp MulExp % . UnaryExp < 
+MulExp MulExp % . UnaryExp <= 
+MulExp MulExp % . UnaryExp == 
+MulExp MulExp % . UnaryExp > 
+MulExp MulExp % . UnaryExp >= 
+MulExp MulExp % . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+UnaryExp PrimaryExp . != 
+UnaryExp PrimaryExp . % 
+UnaryExp PrimaryExp . && 
+UnaryExp PrimaryExp . ) 
+UnaryExp PrimaryExp . * 
+UnaryExp PrimaryExp . + 
+UnaryExp PrimaryExp . - 
+UnaryExp PrimaryExp . / 
+UnaryExp PrimaryExp . < 
+UnaryExp PrimaryExp . <= 
+UnaryExp PrimaryExp . == 
+UnaryExp PrimaryExp . > 
+UnaryExp PrimaryExp . >= 
+UnaryExp PrimaryExp . || 
+
+
+-----------------------------------------------------------
+MulExp MulExp % UnaryExp . != 
+MulExp MulExp % UnaryExp . % 
+MulExp MulExp % UnaryExp . && 
+MulExp MulExp % UnaryExp . ) 
+MulExp MulExp % UnaryExp . * 
+MulExp MulExp % UnaryExp . + 
+MulExp MulExp % UnaryExp . - 
+MulExp MulExp % UnaryExp . / 
+MulExp MulExp % UnaryExp . < 
+MulExp MulExp % UnaryExp . <= 
+MulExp MulExp % UnaryExp . == 
+MulExp MulExp % UnaryExp . > 
+MulExp MulExp % UnaryExp . >= 
+MulExp MulExp % UnaryExp . || 
+
+
+-----------------------------------------------------------
+MulExp MulExp * . UnaryExp != 
+MulExp MulExp * . UnaryExp % 
+MulExp MulExp * . UnaryExp && 
+MulExp MulExp * . UnaryExp ) 
+MulExp MulExp * . UnaryExp * 
+MulExp MulExp * . UnaryExp + 
+MulExp MulExp * . UnaryExp - 
+MulExp MulExp * . UnaryExp / 
+MulExp MulExp * . UnaryExp < 
+MulExp MulExp * . UnaryExp <= 
+MulExp MulExp * . UnaryExp == 
+MulExp MulExp * . UnaryExp > 
+MulExp MulExp * . UnaryExp >= 
+MulExp MulExp * . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+MulExp MulExp * UnaryExp . != 
+MulExp MulExp * UnaryExp . % 
+MulExp MulExp * UnaryExp . && 
+MulExp MulExp * UnaryExp . ) 
+MulExp MulExp * UnaryExp . * 
+MulExp MulExp * UnaryExp . + 
+MulExp MulExp * UnaryExp . - 
+MulExp MulExp * UnaryExp . / 
+MulExp MulExp * UnaryExp . < 
+MulExp MulExp * UnaryExp . <= 
+MulExp MulExp * UnaryExp . == 
+MulExp MulExp * UnaryExp . > 
+MulExp MulExp * UnaryExp . >= 
+MulExp MulExp * UnaryExp . || 
+
+
+-----------------------------------------------------------
+MulExp MulExp / . UnaryExp != 
+MulExp MulExp / . UnaryExp % 
+MulExp MulExp / . UnaryExp && 
+MulExp MulExp / . UnaryExp ) 
+MulExp MulExp / . UnaryExp * 
+MulExp MulExp / . UnaryExp + 
+MulExp MulExp / . UnaryExp - 
+MulExp MulExp / . UnaryExp / 
+MulExp MulExp / . UnaryExp < 
+MulExp MulExp / . UnaryExp <= 
+MulExp MulExp / . UnaryExp == 
+MulExp MulExp / . UnaryExp > 
+MulExp MulExp / . UnaryExp >= 
+MulExp MulExp / . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+MulExp MulExp / UnaryExp . != 
+MulExp MulExp / UnaryExp . % 
+MulExp MulExp / UnaryExp . && 
+MulExp MulExp / UnaryExp . ) 
+MulExp MulExp / UnaryExp . * 
+MulExp MulExp / UnaryExp . + 
+MulExp MulExp / UnaryExp . - 
+MulExp MulExp / UnaryExp . / 
+MulExp MulExp / UnaryExp . < 
+MulExp MulExp / UnaryExp . <= 
+MulExp MulExp / UnaryExp . == 
+MulExp MulExp / UnaryExp . > 
+MulExp MulExp / UnaryExp . >= 
+MulExp MulExp / UnaryExp . || 
+
+
+-----------------------------------------------------------
+MulExp UnaryExp . != 
+MulExp UnaryExp . % 
+MulExp UnaryExp . && 
+MulExp UnaryExp . ) 
+MulExp UnaryExp . * 
+MulExp UnaryExp . + 
+MulExp UnaryExp . - 
+MulExp UnaryExp . / 
+MulExp UnaryExp . < 
+MulExp UnaryExp . <= 
+MulExp UnaryExp . == 
+MulExp UnaryExp . > 
+MulExp UnaryExp . >= 
+MulExp UnaryExp . || 
+
+
+-----------------------------------------------------------
+AddExp AddExp - . MulExp != 
+AddExp AddExp - . MulExp && 
+AddExp AddExp - . MulExp ) 
+AddExp AddExp - . MulExp + 
+AddExp AddExp - . MulExp - 
+AddExp AddExp - . MulExp < 
+AddExp AddExp - . MulExp <= 
+AddExp AddExp - . MulExp == 
+AddExp AddExp - . MulExp > 
+AddExp AddExp - . MulExp >= 
+AddExp AddExp - . MulExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+AddExp AddExp - MulExp . != 
+AddExp AddExp - MulExp . && 
+AddExp AddExp - MulExp . ) 
+AddExp AddExp - MulExp . + 
+AddExp AddExp - MulExp . - 
+AddExp AddExp - MulExp . < 
+AddExp AddExp - MulExp . <= 
+AddExp AddExp - MulExp . == 
+AddExp AddExp - MulExp . > 
+AddExp AddExp - MulExp . >= 
+AddExp AddExp - MulExp . || 
+MulExp MulExp . % UnaryExp != 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp && 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp < 
+MulExp MulExp . % UnaryExp <= 
+MulExp MulExp . % UnaryExp == 
+MulExp MulExp . % UnaryExp > 
+MulExp MulExp . % UnaryExp >= 
+MulExp MulExp . % UnaryExp || 
+MulExp MulExp . * UnaryExp != 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp && 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp < 
+MulExp MulExp . * UnaryExp <= 
+MulExp MulExp . * UnaryExp == 
+MulExp MulExp . * UnaryExp > 
+MulExp MulExp . * UnaryExp >= 
+MulExp MulExp . * UnaryExp || 
+MulExp MulExp . / UnaryExp != 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp && 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp < 
+MulExp MulExp . / UnaryExp <= 
+MulExp MulExp . / UnaryExp == 
+MulExp MulExp . / UnaryExp > 
+MulExp MulExp . / UnaryExp >= 
+MulExp MulExp . / UnaryExp || 
+
+
+-----------------------------------------------------------
+Stmt if ( Cond . ) Block ( 
+Stmt if ( Cond . ) Block ; 
+Stmt if ( Cond . ) Block Ident 
+Stmt if ( Cond . ) Block IntConst 
+Stmt if ( Cond . ) Block else Block ( 
+Stmt if ( Cond . ) Block else Block ; 
+Stmt if ( Cond . ) Block else Block Ident 
+Stmt if ( Cond . ) Block else Block IntConst 
+Stmt if ( Cond . ) Block else Block if 
+Stmt if ( Cond . ) Block else Block int 
+Stmt if ( Cond . ) Block else Block printf 
+Stmt if ( Cond . ) Block else Block while 
+Stmt if ( Cond . ) Block else Block { 
+Stmt if ( Cond . ) Block else Block } 
+Stmt if ( Cond . ) Block if 
+Stmt if ( Cond . ) Block int 
+Stmt if ( Cond . ) Block printf 
+Stmt if ( Cond . ) Block while 
+Stmt if ( Cond . ) Block { 
+Stmt if ( Cond . ) Block } 
+
+
+-----------------------------------------------------------
+Block . { BlockItemList } ( 
+Block . { BlockItemList } ; 
+Block . { BlockItemList } Ident 
+Block . { BlockItemList } IntConst 
+Block . { BlockItemList } else 
+Block . { BlockItemList } if 
+Block . { BlockItemList } int 
+Block . { BlockItemList } printf 
+Block . { BlockItemList } while 
+Block . { BlockItemList } { 
+Block . { BlockItemList } } 
+Stmt if ( Cond ) . Block ( 
+Stmt if ( Cond ) . Block ; 
+Stmt if ( Cond ) . Block Ident 
+Stmt if ( Cond ) . Block IntConst 
+Stmt if ( Cond ) . Block else Block ( 
+Stmt if ( Cond ) . Block else Block ; 
+Stmt if ( Cond ) . Block else Block Ident 
+Stmt if ( Cond ) . Block else Block IntConst 
+Stmt if ( Cond ) . Block else Block if 
+Stmt if ( Cond ) . Block else Block int 
+Stmt if ( Cond ) . Block else Block printf 
+Stmt if ( Cond ) . Block else Block while 
+Stmt if ( Cond ) . Block else Block { 
+Stmt if ( Cond ) . Block else Block } 
+Stmt if ( Cond ) . Block if 
+Stmt if ( Cond ) . Block int 
+Stmt if ( Cond ) . Block printf 
+Stmt if ( Cond ) . Block while 
+Stmt if ( Cond ) . Block { 
+Stmt if ( Cond ) . Block } 
+
+
+-----------------------------------------------------------
+Stmt if ( Cond ) Block . ( 
+Stmt if ( Cond ) Block . ; 
+Stmt if ( Cond ) Block . Ident 
+Stmt if ( Cond ) Block . IntConst 
+Stmt if ( Cond ) Block . else Block ( 
+Stmt if ( Cond ) Block . else Block ; 
+Stmt if ( Cond ) Block . else Block Ident 
+Stmt if ( Cond ) Block . else Block IntConst 
+Stmt if ( Cond ) Block . else Block if 
+Stmt if ( Cond ) Block . else Block int 
+Stmt if ( Cond ) Block . else Block printf 
+Stmt if ( Cond ) Block . else Block while 
+Stmt if ( Cond ) Block . else Block { 
+Stmt if ( Cond ) Block . else Block } 
+Stmt if ( Cond ) Block . if 
+Stmt if ( Cond ) Block . int 
+Stmt if ( Cond ) Block . printf 
+Stmt if ( Cond ) Block . while 
+Stmt if ( Cond ) Block . { 
+Stmt if ( Cond ) Block . } 
+
+
+-----------------------------------------------------------
+Block . { BlockItemList } ( 
+Block . { BlockItemList } ; 
+Block . { BlockItemList } Ident 
+Block . { BlockItemList } IntConst 
+Block . { BlockItemList } if 
+Block . { BlockItemList } int 
+Block . { BlockItemList } printf 
+Block . { BlockItemList } while 
+Block . { BlockItemList } { 
+Block . { BlockItemList } } 
+Stmt if ( Cond ) Block else . Block ( 
+Stmt if ( Cond ) Block else . Block ; 
+Stmt if ( Cond ) Block else . Block Ident 
+Stmt if ( Cond ) Block else . Block IntConst 
+Stmt if ( Cond ) Block else . Block if 
+Stmt if ( Cond ) Block else . Block int 
+Stmt if ( Cond ) Block else . Block printf 
+Stmt if ( Cond ) Block else . Block while 
+Stmt if ( Cond ) Block else . Block { 
+Stmt if ( Cond ) Block else . Block } 
+
+
+-----------------------------------------------------------
+Stmt if ( Cond ) Block else Block . ( 
+Stmt if ( Cond ) Block else Block . ; 
+Stmt if ( Cond ) Block else Block . Ident 
+Stmt if ( Cond ) Block else Block . IntConst 
+Stmt if ( Cond ) Block else Block . if 
+Stmt if ( Cond ) Block else Block . int 
+Stmt if ( Cond ) Block else Block . printf 
+Stmt if ( Cond ) Block else Block . while 
+Stmt if ( Cond ) Block else Block . { 
+Stmt if ( Cond ) Block else Block . } 
+
+
+-----------------------------------------------------------
+Block { . BlockItemList } ( 
+Block { . BlockItemList } ; 
+Block { . BlockItemList } Ident 
+Block { . BlockItemList } IntConst 
+Block { . BlockItemList } if 
+Block { . BlockItemList } int 
+Block { . BlockItemList } printf 
+Block { . BlockItemList } while 
+Block { . BlockItemList } { 
+Block { . BlockItemList } } 
+BlockItemList . ( 
+BlockItemList . ; 
+BlockItemList . BlockItemList BlockItem ( 
+BlockItemList . BlockItemList BlockItem ; 
+BlockItemList . BlockItemList BlockItem Ident 
+BlockItemList . BlockItemList BlockItem IntConst 
+BlockItemList . BlockItemList BlockItem if 
+BlockItemList . BlockItemList BlockItem int 
+BlockItemList . BlockItemList BlockItem printf 
+BlockItemList . BlockItemList BlockItem while 
+BlockItemList . BlockItemList BlockItem { 
+BlockItemList . BlockItemList BlockItem } 
+BlockItemList . Ident 
+BlockItemList . IntConst 
+BlockItemList . if 
+BlockItemList . int 
+BlockItemList . printf 
+BlockItemList . while 
+BlockItemList . { 
+BlockItemList . } 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp ; 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp ; 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp ; 
+Block . { BlockItemList } ( 
+Block . { BlockItemList } ; 
+Block . { BlockItemList } Ident 
+Block . { BlockItemList } IntConst 
+Block . { BlockItemList } if 
+Block . { BlockItemList } int 
+Block . { BlockItemList } printf 
+Block . { BlockItemList } while 
+Block . { BlockItemList } { 
+Block . { BlockItemList } } 
+Block { BlockItemList . } ( 
+Block { BlockItemList . } ; 
+Block { BlockItemList . } Ident 
+Block { BlockItemList . } IntConst 
+Block { BlockItemList . } if 
+Block { BlockItemList . } int 
+Block { BlockItemList . } printf 
+Block { BlockItemList . } while 
+Block { BlockItemList . } { 
+Block { BlockItemList . } } 
+BlockItem . Stmt ( 
+BlockItem . Stmt ; 
+BlockItem . Stmt Ident 
+BlockItem . Stmt IntConst 
+BlockItem . Stmt if 
+BlockItem . Stmt int 
+BlockItem . Stmt printf 
+BlockItem . Stmt while 
+BlockItem . Stmt { 
+BlockItem . Stmt } 
+BlockItem . VarDecl ( 
+BlockItem . VarDecl ; 
+BlockItem . VarDecl Ident 
+BlockItem . VarDecl IntConst 
+BlockItem . VarDecl if 
+BlockItem . VarDecl int 
+BlockItem . VarDecl printf 
+BlockItem . VarDecl while 
+BlockItem . VarDecl { 
+BlockItem . VarDecl } 
+BlockItemList BlockItemList . BlockItem ( 
+BlockItemList BlockItemList . BlockItem ; 
+BlockItemList BlockItemList . BlockItem Ident 
+BlockItemList BlockItemList . BlockItem IntConst 
+BlockItemList BlockItemList . BlockItem if 
+BlockItemList BlockItemList . BlockItem int 
+BlockItemList BlockItemList . BlockItem printf 
+BlockItemList BlockItemList . BlockItem while 
+BlockItemList BlockItemList . BlockItem { 
+BlockItemList BlockItemList . BlockItem } 
+Exp . AddExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+Stmt . ; ( 
+Stmt . ; ; 
+Stmt . ; Ident 
+Stmt . ; IntConst 
+Stmt . ; if 
+Stmt . ; int 
+Stmt . ; printf 
+Stmt . ; while 
+Stmt . ; { 
+Stmt . ; } 
+Stmt . Block ( 
+Stmt . Block ; 
+Stmt . Block Ident 
+Stmt . Block IntConst 
+Stmt . Block if 
+Stmt . Block int 
+Stmt . Block printf 
+Stmt . Block while 
+Stmt . Block { 
+Stmt . Block } 
+Stmt . Exp ; ( 
+Stmt . Exp ; ; 
+Stmt . Exp ; Ident 
+Stmt . Exp ; IntConst 
+Stmt . Exp ; if 
+Stmt . Exp ; int 
+Stmt . Exp ; printf 
+Stmt . Exp ; while 
+Stmt . Exp ; { 
+Stmt . Exp ; } 
+Stmt . Ident = Exp ; ( 
+Stmt . Ident = Exp ; ; 
+Stmt . Ident = Exp ; Ident 
+Stmt . Ident = Exp ; IntConst 
+Stmt . Ident = Exp ; if 
+Stmt . Ident = Exp ; int 
+Stmt . Ident = Exp ; printf 
+Stmt . Ident = Exp ; while 
+Stmt . Ident = Exp ; { 
+Stmt . Ident = Exp ; } 
+Stmt . Ident = getint ( ) ; ( 
+Stmt . Ident = getint ( ) ; ; 
+Stmt . Ident = getint ( ) ; Ident 
+Stmt . Ident = getint ( ) ; IntConst 
+Stmt . Ident = getint ( ) ; if 
+Stmt . Ident = getint ( ) ; int 
+Stmt . Ident = getint ( ) ; printf 
+Stmt . Ident = getint ( ) ; while 
+Stmt . Ident = getint ( ) ; { 
+Stmt . Ident = getint ( ) ; } 
+Stmt . if ( Cond ) Block ( 
+Stmt . if ( Cond ) Block ; 
+Stmt . if ( Cond ) Block Ident 
+Stmt . if ( Cond ) Block IntConst 
+Stmt . if ( Cond ) Block else Block ( 
+Stmt . if ( Cond ) Block else Block ; 
+Stmt . if ( Cond ) Block else Block Ident 
+Stmt . if ( Cond ) Block else Block IntConst 
+Stmt . if ( Cond ) Block else Block if 
+Stmt . if ( Cond ) Block else Block int 
+Stmt . if ( Cond ) Block else Block printf 
+Stmt . if ( Cond ) Block else Block while 
+Stmt . if ( Cond ) Block else Block { 
+Stmt . if ( Cond ) Block else Block } 
+Stmt . if ( Cond ) Block if 
+Stmt . if ( Cond ) Block int 
+Stmt . if ( Cond ) Block printf 
+Stmt . if ( Cond ) Block while 
+Stmt . if ( Cond ) Block { 
+Stmt . if ( Cond ) Block } 
+Stmt . printf ( FormatString ExpList ) ; ( 
+Stmt . printf ( FormatString ExpList ) ; ; 
+Stmt . printf ( FormatString ExpList ) ; Ident 
+Stmt . printf ( FormatString ExpList ) ; IntConst 
+Stmt . printf ( FormatString ExpList ) ; if 
+Stmt . printf ( FormatString ExpList ) ; int 
+Stmt . printf ( FormatString ExpList ) ; printf 
+Stmt . printf ( FormatString ExpList ) ; while 
+Stmt . printf ( FormatString ExpList ) ; { 
+Stmt . printf ( FormatString ExpList ) ; } 
+Stmt . while ( Cond ) Block ( 
+Stmt . while ( Cond ) Block ; 
+Stmt . while ( Cond ) Block Ident 
+Stmt . while ( Cond ) Block IntConst 
+Stmt . while ( Cond ) Block if 
+Stmt . while ( Cond ) Block int 
+Stmt . while ( Cond ) Block printf 
+Stmt . while ( Cond ) Block while 
+Stmt . while ( Cond ) Block { 
+Stmt . while ( Cond ) Block } 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+VarDecl . int VarDeclList ; ( 
+VarDecl . int VarDeclList ; ; 
+VarDecl . int VarDeclList ; Ident 
+VarDecl . int VarDeclList ; IntConst 
+VarDecl . int VarDeclList ; if 
+VarDecl . int VarDeclList ; int 
+VarDecl . int VarDeclList ; printf 
+VarDecl . int VarDeclList ; while 
+VarDecl . int VarDeclList ; { 
+VarDecl . int VarDeclList ; } 
+
+
+-----------------------------------------------------------
+VarDecl int . VarDeclList ; ( 
+VarDecl int . VarDeclList ; ; 
+VarDecl int . VarDeclList ; Ident 
+VarDecl int . VarDeclList ; IntConst 
+VarDecl int . VarDeclList ; if 
+VarDecl int . VarDeclList ; int 
+VarDecl int . VarDeclList ; printf 
+VarDecl int . VarDeclList ; while 
+VarDecl int . VarDeclList ; { 
+VarDecl int . VarDeclList ; } 
+VarDeclList . VarDeclList , VarDef , 
+VarDeclList . VarDeclList , VarDef ; 
+VarDeclList . VarDef , 
+VarDeclList . VarDef ; 
+VarDef . Ident , 
+VarDef . Ident ; 
+VarDef . Ident = Exp , 
+VarDef . Ident = Exp ; 
+
+
+-----------------------------------------------------------
+VarDef Ident . , 
+VarDef Ident . ; 
+VarDef Ident . = Exp , 
+VarDef Ident . = Exp ; 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp , 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp ; 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp , 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp ; 
+AddExp . MulExp + 
+AddExp . MulExp , 
+AddExp . MulExp - 
+AddExp . MulExp ; 
+Exp . AddExp , 
+Exp . AddExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp , 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp , 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp , 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp , 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+VarDef Ident = . Exp , 
+VarDef Ident = . Exp ; 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+Exp . AddExp ) 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp ( . Exp ) % 
+PrimaryExp ( . Exp ) * 
+PrimaryExp ( . Exp ) + 
+PrimaryExp ( . Exp ) , 
+PrimaryExp ( . Exp ) - 
+PrimaryExp ( . Exp ) / 
+PrimaryExp ( . Exp ) ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp . ) % 
+PrimaryExp ( Exp . ) * 
+PrimaryExp ( Exp . ) + 
+PrimaryExp ( Exp . ) , 
+PrimaryExp ( Exp . ) - 
+PrimaryExp ( Exp . ) / 
+PrimaryExp ( Exp . ) ; 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp ) . % 
+PrimaryExp ( Exp ) . * 
+PrimaryExp ( Exp ) . + 
+PrimaryExp ( Exp ) . , 
+PrimaryExp ( Exp ) . - 
+PrimaryExp ( Exp ) . / 
+PrimaryExp ( Exp ) . ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp , 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . + MulExp ; 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp , 
+AddExp AddExp . - MulExp - 
+AddExp AddExp . - MulExp ; 
+Exp AddExp . , 
+Exp AddExp . ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp + . MulExp + 
+AddExp AddExp + . MulExp , 
+AddExp AddExp + . MulExp - 
+AddExp AddExp + . MulExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp , 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp , 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp , 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp , 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+PrimaryExp Ident . % 
+PrimaryExp Ident . * 
+PrimaryExp Ident . + 
+PrimaryExp Ident . , 
+PrimaryExp Ident . - 
+PrimaryExp Ident . / 
+PrimaryExp Ident . ; 
+
+
+-----------------------------------------------------------
+PrimaryExp IntConst . % 
+PrimaryExp IntConst . * 
+PrimaryExp IntConst . + 
+PrimaryExp IntConst . , 
+PrimaryExp IntConst . - 
+PrimaryExp IntConst . / 
+PrimaryExp IntConst . ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp + MulExp . + 
+AddExp AddExp + MulExp . , 
+AddExp AddExp + MulExp . - 
+AddExp AddExp + MulExp . ; 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp , 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp ; 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp , 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp ; 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp , 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp % . UnaryExp % 
+MulExp MulExp % . UnaryExp * 
+MulExp MulExp % . UnaryExp + 
+MulExp MulExp % . UnaryExp , 
+MulExp MulExp % . UnaryExp - 
+MulExp MulExp % . UnaryExp / 
+MulExp MulExp % . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+UnaryExp PrimaryExp . % 
+UnaryExp PrimaryExp . * 
+UnaryExp PrimaryExp . + 
+UnaryExp PrimaryExp . , 
+UnaryExp PrimaryExp . - 
+UnaryExp PrimaryExp . / 
+UnaryExp PrimaryExp . ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp % UnaryExp . % 
+MulExp MulExp % UnaryExp . * 
+MulExp MulExp % UnaryExp . + 
+MulExp MulExp % UnaryExp . , 
+MulExp MulExp % UnaryExp . - 
+MulExp MulExp % UnaryExp . / 
+MulExp MulExp % UnaryExp . ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp * . UnaryExp % 
+MulExp MulExp * . UnaryExp * 
+MulExp MulExp * . UnaryExp + 
+MulExp MulExp * . UnaryExp , 
+MulExp MulExp * . UnaryExp - 
+MulExp MulExp * . UnaryExp / 
+MulExp MulExp * . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp * UnaryExp . % 
+MulExp MulExp * UnaryExp . * 
+MulExp MulExp * UnaryExp . + 
+MulExp MulExp * UnaryExp . , 
+MulExp MulExp * UnaryExp . - 
+MulExp MulExp * UnaryExp . / 
+MulExp MulExp * UnaryExp . ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp / . UnaryExp % 
+MulExp MulExp / . UnaryExp * 
+MulExp MulExp / . UnaryExp + 
+MulExp MulExp / . UnaryExp , 
+MulExp MulExp / . UnaryExp - 
+MulExp MulExp / . UnaryExp / 
+MulExp MulExp / . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+MulExp MulExp / UnaryExp . % 
+MulExp MulExp / UnaryExp . * 
+MulExp MulExp / UnaryExp . + 
+MulExp MulExp / UnaryExp . , 
+MulExp MulExp / UnaryExp . - 
+MulExp MulExp / UnaryExp . / 
+MulExp MulExp / UnaryExp . ; 
+
+
+-----------------------------------------------------------
+MulExp UnaryExp . % 
+MulExp UnaryExp . * 
+MulExp UnaryExp . + 
+MulExp UnaryExp . , 
+MulExp UnaryExp . - 
+MulExp UnaryExp . / 
+MulExp UnaryExp . ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp - . MulExp + 
+AddExp AddExp - . MulExp , 
+AddExp AddExp - . MulExp - 
+AddExp AddExp - . MulExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp , 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp , 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp , 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp , 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+
+
+-----------------------------------------------------------
+AddExp AddExp - MulExp . + 
+AddExp AddExp - MulExp . , 
+AddExp AddExp - MulExp . - 
+AddExp AddExp - MulExp . ; 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp , 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp ; 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp , 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp ; 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp , 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp ; 
+
+
+-----------------------------------------------------------
+VarDef Ident = Exp . , 
+VarDef Ident = Exp . ; 
+
+
+-----------------------------------------------------------
+AddExp MulExp . + 
+AddExp MulExp . , 
+AddExp MulExp . - 
+AddExp MulExp . ; 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp , 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp ; 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp , 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp ; 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp , 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp ; 
+
+
+-----------------------------------------------------------
+VarDecl int VarDeclList . ; ( 
+VarDecl int VarDeclList . ; ; 
+VarDecl int VarDeclList . ; Ident 
+VarDecl int VarDeclList . ; IntConst 
+VarDecl int VarDeclList . ; if 
+VarDecl int VarDeclList . ; int 
+VarDecl int VarDeclList . ; printf 
+VarDecl int VarDeclList . ; while 
+VarDecl int VarDeclList . ; { 
+VarDecl int VarDeclList . ; } 
+VarDeclList VarDeclList . , VarDef , 
+VarDeclList VarDeclList . , VarDef ; 
+
+
+-----------------------------------------------------------
+VarDeclList VarDeclList , . VarDef , 
+VarDeclList VarDeclList , . VarDef ; 
+VarDef . Ident , 
+VarDef . Ident ; 
+VarDef . Ident = Exp , 
+VarDef . Ident = Exp ; 
+
+
+-----------------------------------------------------------
+VarDeclList VarDeclList , VarDef . , 
+VarDeclList VarDeclList , VarDef . ; 
+
+
+-----------------------------------------------------------
+VarDecl int VarDeclList ; . ( 
+VarDecl int VarDeclList ; . ; 
+VarDecl int VarDeclList ; . Ident 
+VarDecl int VarDeclList ; . IntConst 
+VarDecl int VarDeclList ; . if 
+VarDecl int VarDeclList ; . int 
+VarDecl int VarDeclList ; . printf 
+VarDecl int VarDeclList ; . while 
+VarDecl int VarDeclList ; . { 
+VarDecl int VarDeclList ; . } 
+
+
+-----------------------------------------------------------
+VarDeclList VarDef . , 
+VarDeclList VarDef . ; 
+
+
+-----------------------------------------------------------
+Stmt printf . ( FormatString ExpList ) ; ( 
+Stmt printf . ( FormatString ExpList ) ; ; 
+Stmt printf . ( FormatString ExpList ) ; Ident 
+Stmt printf . ( FormatString ExpList ) ; IntConst 
+Stmt printf . ( FormatString ExpList ) ; if 
+Stmt printf . ( FormatString ExpList ) ; int 
+Stmt printf . ( FormatString ExpList ) ; printf 
+Stmt printf . ( FormatString ExpList ) ; while 
+Stmt printf . ( FormatString ExpList ) ; { 
+Stmt printf . ( FormatString ExpList ) ; } 
+
+
+-----------------------------------------------------------
+Stmt printf ( . FormatString ExpList ) ; ( 
+Stmt printf ( . FormatString ExpList ) ; ; 
+Stmt printf ( . FormatString ExpList ) ; Ident 
+Stmt printf ( . FormatString ExpList ) ; IntConst 
+Stmt printf ( . FormatString ExpList ) ; if 
+Stmt printf ( . FormatString ExpList ) ; int 
+Stmt printf ( . FormatString ExpList ) ; printf 
+Stmt printf ( . FormatString ExpList ) ; while 
+Stmt printf ( . FormatString ExpList ) ; { 
+Stmt printf ( . FormatString ExpList ) ; } 
+
+
+-----------------------------------------------------------
+ExpList . ) 
+ExpList . , 
+ExpList . ExpList , Exp ) 
+ExpList . ExpList , Exp , 
+Stmt printf ( FormatString . ExpList ) ; ( 
+Stmt printf ( FormatString . ExpList ) ; ; 
+Stmt printf ( FormatString . ExpList ) ; Ident 
+Stmt printf ( FormatString . ExpList ) ; IntConst 
+Stmt printf ( FormatString . ExpList ) ; if 
+Stmt printf ( FormatString . ExpList ) ; int 
+Stmt printf ( FormatString . ExpList ) ; printf 
+Stmt printf ( FormatString . ExpList ) ; while 
+Stmt printf ( FormatString . ExpList ) ; { 
+Stmt printf ( FormatString . ExpList ) ; } 
+
+
+-----------------------------------------------------------
+ExpList ExpList . , Exp ) 
+ExpList ExpList . , Exp , 
+Stmt printf ( FormatString ExpList . ) ; ( 
+Stmt printf ( FormatString ExpList . ) ; ; 
+Stmt printf ( FormatString ExpList . ) ; Ident 
+Stmt printf ( FormatString ExpList . ) ; IntConst 
+Stmt printf ( FormatString ExpList . ) ; if 
+Stmt printf ( FormatString ExpList . ) ; int 
+Stmt printf ( FormatString ExpList . ) ; printf 
+Stmt printf ( FormatString ExpList . ) ; while 
+Stmt printf ( FormatString ExpList . ) ; { 
+Stmt printf ( FormatString ExpList . ) ; } 
+
+
+-----------------------------------------------------------
+Stmt printf ( FormatString ExpList ) . ; ( 
+Stmt printf ( FormatString ExpList ) . ; ; 
+Stmt printf ( FormatString ExpList ) . ; Ident 
+Stmt printf ( FormatString ExpList ) . ; IntConst 
+Stmt printf ( FormatString ExpList ) . ; if 
+Stmt printf ( FormatString ExpList ) . ; int 
+Stmt printf ( FormatString ExpList ) . ; printf 
+Stmt printf ( FormatString ExpList ) . ; while 
+Stmt printf ( FormatString ExpList ) . ; { 
+Stmt printf ( FormatString ExpList ) . ; } 
+
+
+-----------------------------------------------------------
+Stmt printf ( FormatString ExpList ) ; . ( 
+Stmt printf ( FormatString ExpList ) ; . ; 
+Stmt printf ( FormatString ExpList ) ; . Ident 
+Stmt printf ( FormatString ExpList ) ; . IntConst 
+Stmt printf ( FormatString ExpList ) ; . if 
+Stmt printf ( FormatString ExpList ) ; . int 
+Stmt printf ( FormatString ExpList ) ; . printf 
+Stmt printf ( FormatString ExpList ) ; . while 
+Stmt printf ( FormatString ExpList ) ; . { 
+Stmt printf ( FormatString ExpList ) ; . } 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp , 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp , 
+AddExp . AddExp - MulExp - 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp , 
+AddExp . MulExp - 
+Exp . AddExp ) 
+Exp . AddExp , 
+ExpList ExpList , . Exp ) 
+ExpList ExpList , . Exp , 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp , 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp , 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp , 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp , 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+Exp . AddExp ) 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp ( . Exp ) % 
+PrimaryExp ( . Exp ) ) 
+PrimaryExp ( . Exp ) * 
+PrimaryExp ( . Exp ) + 
+PrimaryExp ( . Exp ) , 
+PrimaryExp ( . Exp ) - 
+PrimaryExp ( . Exp ) / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp . ) % 
+PrimaryExp ( Exp . ) ) 
+PrimaryExp ( Exp . ) * 
+PrimaryExp ( Exp . ) + 
+PrimaryExp ( Exp . ) , 
+PrimaryExp ( Exp . ) - 
+PrimaryExp ( Exp . ) / 
+
+
+-----------------------------------------------------------
+PrimaryExp ( Exp ) . % 
+PrimaryExp ( Exp ) . ) 
+PrimaryExp ( Exp ) . * 
+PrimaryExp ( Exp ) . + 
+PrimaryExp ( Exp ) . , 
+PrimaryExp ( Exp ) . - 
+PrimaryExp ( Exp ) . / 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp ) 
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp , 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . - MulExp ) 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp , 
+AddExp AddExp . - MulExp - 
+Exp AddExp . ) 
+Exp AddExp . , 
+
+
+-----------------------------------------------------------
+AddExp AddExp + . MulExp ) 
+AddExp AddExp + . MulExp + 
+AddExp AddExp + . MulExp , 
+AddExp AddExp + . MulExp - 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp , 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp , 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp , 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp , 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+PrimaryExp Ident . % 
+PrimaryExp Ident . ) 
+PrimaryExp Ident . * 
+PrimaryExp Ident . + 
+PrimaryExp Ident . , 
+PrimaryExp Ident . - 
+PrimaryExp Ident . / 
+
+
+-----------------------------------------------------------
+PrimaryExp IntConst . % 
+PrimaryExp IntConst . ) 
+PrimaryExp IntConst . * 
+PrimaryExp IntConst . + 
+PrimaryExp IntConst . , 
+PrimaryExp IntConst . - 
+PrimaryExp IntConst . / 
+
+
+-----------------------------------------------------------
+AddExp AddExp + MulExp . ) 
+AddExp AddExp + MulExp . + 
+AddExp AddExp + MulExp . , 
+AddExp AddExp + MulExp . - 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp , 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp , 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp , 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+
+
+-----------------------------------------------------------
+MulExp MulExp % . UnaryExp % 
+MulExp MulExp % . UnaryExp ) 
+MulExp MulExp % . UnaryExp * 
+MulExp MulExp % . UnaryExp + 
+MulExp MulExp % . UnaryExp , 
+MulExp MulExp % . UnaryExp - 
+MulExp MulExp % . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+UnaryExp PrimaryExp . % 
+UnaryExp PrimaryExp . ) 
+UnaryExp PrimaryExp . * 
+UnaryExp PrimaryExp . + 
+UnaryExp PrimaryExp . , 
+UnaryExp PrimaryExp . - 
+UnaryExp PrimaryExp . / 
+
+
+-----------------------------------------------------------
+MulExp MulExp % UnaryExp . % 
+MulExp MulExp % UnaryExp . ) 
+MulExp MulExp % UnaryExp . * 
+MulExp MulExp % UnaryExp . + 
+MulExp MulExp % UnaryExp . , 
+MulExp MulExp % UnaryExp . - 
+MulExp MulExp % UnaryExp . / 
+
+
+-----------------------------------------------------------
+MulExp MulExp * . UnaryExp % 
+MulExp MulExp * . UnaryExp ) 
+MulExp MulExp * . UnaryExp * 
+MulExp MulExp * . UnaryExp + 
+MulExp MulExp * . UnaryExp , 
+MulExp MulExp * . UnaryExp - 
+MulExp MulExp * . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+MulExp MulExp * UnaryExp . % 
+MulExp MulExp * UnaryExp . ) 
+MulExp MulExp * UnaryExp . * 
+MulExp MulExp * UnaryExp . + 
+MulExp MulExp * UnaryExp . , 
+MulExp MulExp * UnaryExp . - 
+MulExp MulExp * UnaryExp . / 
+
+
+-----------------------------------------------------------
+MulExp MulExp / . UnaryExp % 
+MulExp MulExp / . UnaryExp ) 
+MulExp MulExp / . UnaryExp * 
+MulExp MulExp / . UnaryExp + 
+MulExp MulExp / . UnaryExp , 
+MulExp MulExp / . UnaryExp - 
+MulExp MulExp / . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+MulExp MulExp / UnaryExp . % 
+MulExp MulExp / UnaryExp . ) 
+MulExp MulExp / UnaryExp . * 
+MulExp MulExp / UnaryExp . + 
+MulExp MulExp / UnaryExp . , 
+MulExp MulExp / UnaryExp . - 
+MulExp MulExp / UnaryExp . / 
+
+
+-----------------------------------------------------------
+MulExp UnaryExp . % 
+MulExp UnaryExp . ) 
+MulExp UnaryExp . * 
+MulExp UnaryExp . + 
+MulExp UnaryExp . , 
+MulExp UnaryExp . - 
+MulExp UnaryExp . / 
+
+
+-----------------------------------------------------------
+AddExp AddExp - . MulExp ) 
+AddExp AddExp - . MulExp + 
+AddExp AddExp - . MulExp , 
+AddExp AddExp - . MulExp - 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp , 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp , 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp , 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . UnaryExp % 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp , 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) , 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . Ident % 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident , 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst , 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp , 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+
+
+-----------------------------------------------------------
+AddExp AddExp - MulExp . ) 
+AddExp AddExp - MulExp . + 
+AddExp AddExp - MulExp . , 
+AddExp AddExp - MulExp . - 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp , 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp , 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp , 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+
+
+-----------------------------------------------------------
+ExpList ExpList , Exp . ) 
+ExpList ExpList , Exp . , 
+
+
+-----------------------------------------------------------
+AddExp MulExp . ) 
+AddExp MulExp . + 
+AddExp MulExp . , 
+AddExp MulExp . - 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp , 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp , 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp , 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+
+
+-----------------------------------------------------------
+Stmt while . ( Cond ) Block ( 
+Stmt while . ( Cond ) Block ; 
+Stmt while . ( Cond ) Block Ident 
+Stmt while . ( Cond ) Block IntConst 
+Stmt while . ( Cond ) Block if 
+Stmt while . ( Cond ) Block int 
+Stmt while . ( Cond ) Block printf 
+Stmt while . ( Cond ) Block while 
+Stmt while . ( Cond ) Block { 
+Stmt while . ( Cond ) Block } 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+Cond . LOrExp ) 
+EqExp . EqExp != RelExp != 
+EqExp . EqExp != RelExp && 
+EqExp . EqExp != RelExp ) 
+EqExp . EqExp != RelExp == 
+EqExp . EqExp != RelExp || 
+EqExp . EqExp == RelExp != 
+EqExp . EqExp == RelExp && 
+EqExp . EqExp == RelExp ) 
+EqExp . EqExp == RelExp == 
+EqExp . EqExp == RelExp || 
+EqExp . RelExp != 
+EqExp . RelExp && 
+EqExp . RelExp ) 
+EqExp . RelExp == 
+EqExp . RelExp || 
+LAndExp . EqExp && 
+LAndExp . EqExp ) 
+LAndExp . EqExp || 
+LAndExp . LAndExp && EqExp && 
+LAndExp . LAndExp && EqExp ) 
+LAndExp . LAndExp && EqExp || 
+LOrExp . LAndExp ) 
+LOrExp . LAndExp || 
+LOrExp . LOrExp || LAndExp ) 
+LOrExp . LOrExp || LAndExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp . AddExp != 
+RelExp . AddExp && 
+RelExp . AddExp ) 
+RelExp . AddExp < 
+RelExp . AddExp <= 
+RelExp . AddExp == 
+RelExp . AddExp > 
+RelExp . AddExp >= 
+RelExp . AddExp || 
+RelExp . RelExp < AddExp != 
+RelExp . RelExp < AddExp && 
+RelExp . RelExp < AddExp ) 
+RelExp . RelExp < AddExp < 
+RelExp . RelExp < AddExp <= 
+RelExp . RelExp < AddExp == 
+RelExp . RelExp < AddExp > 
+RelExp . RelExp < AddExp >= 
+RelExp . RelExp < AddExp || 
+RelExp . RelExp <= AddExp != 
+RelExp . RelExp <= AddExp && 
+RelExp . RelExp <= AddExp ) 
+RelExp . RelExp <= AddExp < 
+RelExp . RelExp <= AddExp <= 
+RelExp . RelExp <= AddExp == 
+RelExp . RelExp <= AddExp > 
+RelExp . RelExp <= AddExp >= 
+RelExp . RelExp <= AddExp || 
+RelExp . RelExp > AddExp != 
+RelExp . RelExp > AddExp && 
+RelExp . RelExp > AddExp ) 
+RelExp . RelExp > AddExp < 
+RelExp . RelExp > AddExp <= 
+RelExp . RelExp > AddExp == 
+RelExp . RelExp > AddExp > 
+RelExp . RelExp > AddExp >= 
+RelExp . RelExp > AddExp || 
+RelExp . RelExp >= AddExp != 
+RelExp . RelExp >= AddExp && 
+RelExp . RelExp >= AddExp ) 
+RelExp . RelExp >= AddExp < 
+RelExp . RelExp >= AddExp <= 
+RelExp . RelExp >= AddExp == 
+RelExp . RelExp >= AddExp > 
+RelExp . RelExp >= AddExp >= 
+RelExp . RelExp >= AddExp || 
+Stmt while ( . Cond ) Block ( 
+Stmt while ( . Cond ) Block ; 
+Stmt while ( . Cond ) Block Ident 
+Stmt while ( . Cond ) Block IntConst 
+Stmt while ( . Cond ) Block if 
+Stmt while ( . Cond ) Block int 
+Stmt while ( . Cond ) Block printf 
+Stmt while ( . Cond ) Block while 
+Stmt while ( . Cond ) Block { 
+Stmt while ( . Cond ) Block } 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+Stmt while ( Cond . ) Block ( 
+Stmt while ( Cond . ) Block ; 
+Stmt while ( Cond . ) Block Ident 
+Stmt while ( Cond . ) Block IntConst 
+Stmt while ( Cond . ) Block if 
+Stmt while ( Cond . ) Block int 
+Stmt while ( Cond . ) Block printf 
+Stmt while ( Cond . ) Block while 
+Stmt while ( Cond . ) Block { 
+Stmt while ( Cond . ) Block } 
+
+
+-----------------------------------------------------------
+Block . { BlockItemList } ( 
+Block . { BlockItemList } ; 
+Block . { BlockItemList } Ident 
+Block . { BlockItemList } IntConst 
+Block . { BlockItemList } if 
+Block . { BlockItemList } int 
+Block . { BlockItemList } printf 
+Block . { BlockItemList } while 
+Block . { BlockItemList } { 
+Block . { BlockItemList } } 
+Stmt while ( Cond ) . Block ( 
+Stmt while ( Cond ) . Block ; 
+Stmt while ( Cond ) . Block Ident 
+Stmt while ( Cond ) . Block IntConst 
+Stmt while ( Cond ) . Block if 
+Stmt while ( Cond ) . Block int 
+Stmt while ( Cond ) . Block printf 
+Stmt while ( Cond ) . Block while 
+Stmt while ( Cond ) . Block { 
+Stmt while ( Cond ) . Block } 
+
+
+-----------------------------------------------------------
+Stmt while ( Cond ) Block . ( 
+Stmt while ( Cond ) Block . ; 
+Stmt while ( Cond ) Block . Ident 
+Stmt while ( Cond ) Block . IntConst 
+Stmt while ( Cond ) Block . if 
+Stmt while ( Cond ) Block . int 
+Stmt while ( Cond ) Block . printf 
+Stmt while ( Cond ) Block . while 
+Stmt while ( Cond ) Block . { 
+Stmt while ( Cond ) Block . } 
+
+
+-----------------------------------------------------------
+EqExp EqExp . != RelExp != 
+EqExp EqExp . != RelExp && 
+EqExp EqExp . != RelExp ) 
+EqExp EqExp . != RelExp == 
+EqExp EqExp . != RelExp || 
+EqExp EqExp . == RelExp != 
+EqExp EqExp . == RelExp && 
+EqExp EqExp . == RelExp ) 
+EqExp EqExp . == RelExp == 
+EqExp EqExp . == RelExp || 
+LAndExp EqExp . && 
+LAndExp EqExp . ) 
+LAndExp EqExp . || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+EqExp EqExp != . RelExp != 
+EqExp EqExp != . RelExp && 
+EqExp EqExp != . RelExp ) 
+EqExp EqExp != . RelExp == 
+EqExp EqExp != . RelExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp . AddExp != 
+RelExp . AddExp && 
+RelExp . AddExp ) 
+RelExp . AddExp < 
+RelExp . AddExp <= 
+RelExp . AddExp == 
+RelExp . AddExp > 
+RelExp . AddExp >= 
+RelExp . AddExp || 
+RelExp . RelExp < AddExp != 
+RelExp . RelExp < AddExp && 
+RelExp . RelExp < AddExp ) 
+RelExp . RelExp < AddExp < 
+RelExp . RelExp < AddExp <= 
+RelExp . RelExp < AddExp == 
+RelExp . RelExp < AddExp > 
+RelExp . RelExp < AddExp >= 
+RelExp . RelExp < AddExp || 
+RelExp . RelExp <= AddExp != 
+RelExp . RelExp <= AddExp && 
+RelExp . RelExp <= AddExp ) 
+RelExp . RelExp <= AddExp < 
+RelExp . RelExp <= AddExp <= 
+RelExp . RelExp <= AddExp == 
+RelExp . RelExp <= AddExp > 
+RelExp . RelExp <= AddExp >= 
+RelExp . RelExp <= AddExp || 
+RelExp . RelExp > AddExp != 
+RelExp . RelExp > AddExp && 
+RelExp . RelExp > AddExp ) 
+RelExp . RelExp > AddExp < 
+RelExp . RelExp > AddExp <= 
+RelExp . RelExp > AddExp == 
+RelExp . RelExp > AddExp > 
+RelExp . RelExp > AddExp >= 
+RelExp . RelExp > AddExp || 
+RelExp . RelExp >= AddExp != 
+RelExp . RelExp >= AddExp && 
+RelExp . RelExp >= AddExp ) 
+RelExp . RelExp >= AddExp < 
+RelExp . RelExp >= AddExp <= 
+RelExp . RelExp >= AddExp == 
+RelExp . RelExp >= AddExp > 
+RelExp . RelExp >= AddExp >= 
+RelExp . RelExp >= AddExp || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+AddExp MulExp . != 
+AddExp MulExp . && 
+AddExp MulExp . ) 
+AddExp MulExp . + 
+AddExp MulExp . - 
+AddExp MulExp . < 
+AddExp MulExp . <= 
+AddExp MulExp . == 
+AddExp MulExp . > 
+AddExp MulExp . >= 
+AddExp MulExp . || 
+MulExp MulExp . % UnaryExp != 
+MulExp MulExp . % UnaryExp % 
+MulExp MulExp . % UnaryExp && 
+MulExp MulExp . % UnaryExp ) 
+MulExp MulExp . % UnaryExp * 
+MulExp MulExp . % UnaryExp + 
+MulExp MulExp . % UnaryExp - 
+MulExp MulExp . % UnaryExp / 
+MulExp MulExp . % UnaryExp < 
+MulExp MulExp . % UnaryExp <= 
+MulExp MulExp . % UnaryExp == 
+MulExp MulExp . % UnaryExp > 
+MulExp MulExp . % UnaryExp >= 
+MulExp MulExp . % UnaryExp || 
+MulExp MulExp . * UnaryExp != 
+MulExp MulExp . * UnaryExp % 
+MulExp MulExp . * UnaryExp && 
+MulExp MulExp . * UnaryExp ) 
+MulExp MulExp . * UnaryExp * 
+MulExp MulExp . * UnaryExp + 
+MulExp MulExp . * UnaryExp - 
+MulExp MulExp . * UnaryExp / 
+MulExp MulExp . * UnaryExp < 
+MulExp MulExp . * UnaryExp <= 
+MulExp MulExp . * UnaryExp == 
+MulExp MulExp . * UnaryExp > 
+MulExp MulExp . * UnaryExp >= 
+MulExp MulExp . * UnaryExp || 
+MulExp MulExp . / UnaryExp != 
+MulExp MulExp . / UnaryExp % 
+MulExp MulExp . / UnaryExp && 
+MulExp MulExp . / UnaryExp ) 
+MulExp MulExp . / UnaryExp * 
+MulExp MulExp . / UnaryExp + 
+MulExp MulExp . / UnaryExp - 
+MulExp MulExp . / UnaryExp / 
+MulExp MulExp . / UnaryExp < 
+MulExp MulExp . / UnaryExp <= 
+MulExp MulExp . / UnaryExp == 
+MulExp MulExp . / UnaryExp > 
+MulExp MulExp . / UnaryExp >= 
+MulExp MulExp . / UnaryExp || 
+
+
+-----------------------------------------------------------
+EqExp EqExp != RelExp . != 
+EqExp EqExp != RelExp . && 
+EqExp EqExp != RelExp . ) 
+EqExp EqExp != RelExp . == 
+EqExp EqExp != RelExp . || 
+RelExp RelExp . < AddExp != 
+RelExp RelExp . < AddExp && 
+RelExp RelExp . < AddExp ) 
+RelExp RelExp . < AddExp < 
+RelExp RelExp . < AddExp <= 
+RelExp RelExp . < AddExp == 
+RelExp RelExp . < AddExp > 
+RelExp RelExp . < AddExp >= 
+RelExp RelExp . < AddExp || 
+RelExp RelExp . <= AddExp != 
+RelExp RelExp . <= AddExp && 
+RelExp RelExp . <= AddExp ) 
+RelExp RelExp . <= AddExp < 
+RelExp RelExp . <= AddExp <= 
+RelExp RelExp . <= AddExp == 
+RelExp RelExp . <= AddExp > 
+RelExp RelExp . <= AddExp >= 
+RelExp RelExp . <= AddExp || 
+RelExp RelExp . > AddExp != 
+RelExp RelExp . > AddExp && 
+RelExp RelExp . > AddExp ) 
+RelExp RelExp . > AddExp < 
+RelExp RelExp . > AddExp <= 
+RelExp RelExp . > AddExp == 
+RelExp RelExp . > AddExp > 
+RelExp RelExp . > AddExp >= 
+RelExp RelExp . > AddExp || 
+RelExp RelExp . >= AddExp != 
+RelExp RelExp . >= AddExp && 
+RelExp RelExp . >= AddExp ) 
+RelExp RelExp . >= AddExp < 
+RelExp RelExp . >= AddExp <= 
+RelExp RelExp . >= AddExp == 
+RelExp RelExp . >= AddExp > 
+RelExp RelExp . >= AddExp >= 
+RelExp RelExp . >= AddExp || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp RelExp < . AddExp != 
+RelExp RelExp < . AddExp && 
+RelExp RelExp < . AddExp ) 
+RelExp RelExp < . AddExp < 
+RelExp RelExp < . AddExp <= 
+RelExp RelExp < . AddExp == 
+RelExp RelExp < . AddExp > 
+RelExp RelExp < . AddExp >= 
+RelExp RelExp < . AddExp || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp != 
+AddExp AddExp . + MulExp && 
+AddExp AddExp . + MulExp ) 
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . + MulExp < 
+AddExp AddExp . + MulExp <= 
+AddExp AddExp . + MulExp == 
+AddExp AddExp . + MulExp > 
+AddExp AddExp . + MulExp >= 
+AddExp AddExp . + MulExp || 
+AddExp AddExp . - MulExp != 
+AddExp AddExp . - MulExp && 
+AddExp AddExp . - MulExp ) 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp - 
+AddExp AddExp . - MulExp < 
+AddExp AddExp . - MulExp <= 
+AddExp AddExp . - MulExp == 
+AddExp AddExp . - MulExp > 
+AddExp AddExp . - MulExp >= 
+AddExp AddExp . - MulExp || 
+RelExp RelExp < AddExp . != 
+RelExp RelExp < AddExp . && 
+RelExp RelExp < AddExp . ) 
+RelExp RelExp < AddExp . < 
+RelExp RelExp < AddExp . <= 
+RelExp RelExp < AddExp . == 
+RelExp RelExp < AddExp . > 
+RelExp RelExp < AddExp . >= 
+RelExp RelExp < AddExp . || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp RelExp <= . AddExp != 
+RelExp RelExp <= . AddExp && 
+RelExp RelExp <= . AddExp ) 
+RelExp RelExp <= . AddExp < 
+RelExp RelExp <= . AddExp <= 
+RelExp RelExp <= . AddExp == 
+RelExp RelExp <= . AddExp > 
+RelExp RelExp <= . AddExp >= 
+RelExp RelExp <= . AddExp || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp != 
+AddExp AddExp . + MulExp && 
+AddExp AddExp . + MulExp ) 
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . + MulExp < 
+AddExp AddExp . + MulExp <= 
+AddExp AddExp . + MulExp == 
+AddExp AddExp . + MulExp > 
+AddExp AddExp . + MulExp >= 
+AddExp AddExp . + MulExp || 
+AddExp AddExp . - MulExp != 
+AddExp AddExp . - MulExp && 
+AddExp AddExp . - MulExp ) 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp - 
+AddExp AddExp . - MulExp < 
+AddExp AddExp . - MulExp <= 
+AddExp AddExp . - MulExp == 
+AddExp AddExp . - MulExp > 
+AddExp AddExp . - MulExp >= 
+AddExp AddExp . - MulExp || 
+RelExp RelExp <= AddExp . != 
+RelExp RelExp <= AddExp . && 
+RelExp RelExp <= AddExp . ) 
+RelExp RelExp <= AddExp . < 
+RelExp RelExp <= AddExp . <= 
+RelExp RelExp <= AddExp . == 
+RelExp RelExp <= AddExp . > 
+RelExp RelExp <= AddExp . >= 
+RelExp RelExp <= AddExp . || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp RelExp > . AddExp != 
+RelExp RelExp > . AddExp && 
+RelExp RelExp > . AddExp ) 
+RelExp RelExp > . AddExp < 
+RelExp RelExp > . AddExp <= 
+RelExp RelExp > . AddExp == 
+RelExp RelExp > . AddExp > 
+RelExp RelExp > . AddExp >= 
+RelExp RelExp > . AddExp || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp != 
+AddExp AddExp . + MulExp && 
+AddExp AddExp . + MulExp ) 
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . + MulExp < 
+AddExp AddExp . + MulExp <= 
+AddExp AddExp . + MulExp == 
+AddExp AddExp . + MulExp > 
+AddExp AddExp . + MulExp >= 
+AddExp AddExp . + MulExp || 
+AddExp AddExp . - MulExp != 
+AddExp AddExp . - MulExp && 
+AddExp AddExp . - MulExp ) 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp - 
+AddExp AddExp . - MulExp < 
+AddExp AddExp . - MulExp <= 
+AddExp AddExp . - MulExp == 
+AddExp AddExp . - MulExp > 
+AddExp AddExp . - MulExp >= 
+AddExp AddExp . - MulExp || 
+RelExp RelExp > AddExp . != 
+RelExp RelExp > AddExp . && 
+RelExp RelExp > AddExp . ) 
+RelExp RelExp > AddExp . < 
+RelExp RelExp > AddExp . <= 
+RelExp RelExp > AddExp . == 
+RelExp RelExp > AddExp . > 
+RelExp RelExp > AddExp . >= 
+RelExp RelExp > AddExp . || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp RelExp >= . AddExp != 
+RelExp RelExp >= . AddExp && 
+RelExp RelExp >= . AddExp ) 
+RelExp RelExp >= . AddExp < 
+RelExp RelExp >= . AddExp <= 
+RelExp RelExp >= . AddExp == 
+RelExp RelExp >= . AddExp > 
+RelExp RelExp >= . AddExp >= 
+RelExp RelExp >= . AddExp || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+AddExp AddExp . + MulExp != 
+AddExp AddExp . + MulExp && 
+AddExp AddExp . + MulExp ) 
+AddExp AddExp . + MulExp + 
+AddExp AddExp . + MulExp - 
+AddExp AddExp . + MulExp < 
+AddExp AddExp . + MulExp <= 
+AddExp AddExp . + MulExp == 
+AddExp AddExp . + MulExp > 
+AddExp AddExp . + MulExp >= 
+AddExp AddExp . + MulExp || 
+AddExp AddExp . - MulExp != 
+AddExp AddExp . - MulExp && 
+AddExp AddExp . - MulExp ) 
+AddExp AddExp . - MulExp + 
+AddExp AddExp . - MulExp - 
+AddExp AddExp . - MulExp < 
+AddExp AddExp . - MulExp <= 
+AddExp AddExp . - MulExp == 
+AddExp AddExp . - MulExp > 
+AddExp AddExp . - MulExp >= 
+AddExp AddExp . - MulExp || 
+RelExp RelExp >= AddExp . != 
+RelExp RelExp >= AddExp . && 
+RelExp RelExp >= AddExp . ) 
+RelExp RelExp >= AddExp . < 
+RelExp RelExp >= AddExp . <= 
+RelExp RelExp >= AddExp . == 
+RelExp RelExp >= AddExp . > 
+RelExp RelExp >= AddExp . >= 
+RelExp RelExp >= AddExp . || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+EqExp EqExp == . RelExp != 
+EqExp EqExp == . RelExp && 
+EqExp EqExp == . RelExp ) 
+EqExp EqExp == . RelExp == 
+EqExp EqExp == . RelExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp . AddExp != 
+RelExp . AddExp && 
+RelExp . AddExp ) 
+RelExp . AddExp < 
+RelExp . AddExp <= 
+RelExp . AddExp == 
+RelExp . AddExp > 
+RelExp . AddExp >= 
+RelExp . AddExp || 
+RelExp . RelExp < AddExp != 
+RelExp . RelExp < AddExp && 
+RelExp . RelExp < AddExp ) 
+RelExp . RelExp < AddExp < 
+RelExp . RelExp < AddExp <= 
+RelExp . RelExp < AddExp == 
+RelExp . RelExp < AddExp > 
+RelExp . RelExp < AddExp >= 
+RelExp . RelExp < AddExp || 
+RelExp . RelExp <= AddExp != 
+RelExp . RelExp <= AddExp && 
+RelExp . RelExp <= AddExp ) 
+RelExp . RelExp <= AddExp < 
+RelExp . RelExp <= AddExp <= 
+RelExp . RelExp <= AddExp == 
+RelExp . RelExp <= AddExp > 
+RelExp . RelExp <= AddExp >= 
+RelExp . RelExp <= AddExp || 
+RelExp . RelExp > AddExp != 
+RelExp . RelExp > AddExp && 
+RelExp . RelExp > AddExp ) 
+RelExp . RelExp > AddExp < 
+RelExp . RelExp > AddExp <= 
+RelExp . RelExp > AddExp == 
+RelExp . RelExp > AddExp > 
+RelExp . RelExp > AddExp >= 
+RelExp . RelExp > AddExp || 
+RelExp . RelExp >= AddExp != 
+RelExp . RelExp >= AddExp && 
+RelExp . RelExp >= AddExp ) 
+RelExp . RelExp >= AddExp < 
+RelExp . RelExp >= AddExp <= 
+RelExp . RelExp >= AddExp == 
+RelExp . RelExp >= AddExp > 
+RelExp . RelExp >= AddExp >= 
+RelExp . RelExp >= AddExp || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+EqExp EqExp == RelExp . != 
+EqExp EqExp == RelExp . && 
+EqExp EqExp == RelExp . ) 
+EqExp EqExp == RelExp . == 
+EqExp EqExp == RelExp . || 
+RelExp RelExp . < AddExp != 
+RelExp RelExp . < AddExp && 
+RelExp RelExp . < AddExp ) 
+RelExp RelExp . < AddExp < 
+RelExp RelExp . < AddExp <= 
+RelExp RelExp . < AddExp == 
+RelExp RelExp . < AddExp > 
+RelExp RelExp . < AddExp >= 
+RelExp RelExp . < AddExp || 
+RelExp RelExp . <= AddExp != 
+RelExp RelExp . <= AddExp && 
+RelExp RelExp . <= AddExp ) 
+RelExp RelExp . <= AddExp < 
+RelExp RelExp . <= AddExp <= 
+RelExp RelExp . <= AddExp == 
+RelExp RelExp . <= AddExp > 
+RelExp RelExp . <= AddExp >= 
+RelExp RelExp . <= AddExp || 
+RelExp RelExp . > AddExp != 
+RelExp RelExp . > AddExp && 
+RelExp RelExp . > AddExp ) 
+RelExp RelExp . > AddExp < 
+RelExp RelExp . > AddExp <= 
+RelExp RelExp . > AddExp == 
+RelExp RelExp . > AddExp > 
+RelExp RelExp . > AddExp >= 
+RelExp RelExp . > AddExp || 
+RelExp RelExp . >= AddExp != 
+RelExp RelExp . >= AddExp && 
+RelExp RelExp . >= AddExp ) 
+RelExp RelExp . >= AddExp < 
+RelExp RelExp . >= AddExp <= 
+RelExp RelExp . >= AddExp == 
+RelExp RelExp . >= AddExp > 
+RelExp RelExp . >= AddExp >= 
+RelExp RelExp . >= AddExp || 
+
+
+-----------------------------------------------------------
+LAndExp LAndExp . && EqExp && 
+LAndExp LAndExp . && EqExp ) 
+LAndExp LAndExp . && EqExp || 
+LOrExp LAndExp . ) 
+LOrExp LAndExp . || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+EqExp . EqExp != RelExp != 
+EqExp . EqExp != RelExp && 
+EqExp . EqExp != RelExp ) 
+EqExp . EqExp != RelExp == 
+EqExp . EqExp != RelExp || 
+EqExp . EqExp == RelExp != 
+EqExp . EqExp == RelExp && 
+EqExp . EqExp == RelExp ) 
+EqExp . EqExp == RelExp == 
+EqExp . EqExp == RelExp || 
+EqExp . RelExp != 
+EqExp . RelExp && 
+EqExp . RelExp ) 
+EqExp . RelExp == 
+EqExp . RelExp || 
+LAndExp LAndExp && . EqExp && 
+LAndExp LAndExp && . EqExp ) 
+LAndExp LAndExp && . EqExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp . AddExp != 
+RelExp . AddExp && 
+RelExp . AddExp ) 
+RelExp . AddExp < 
+RelExp . AddExp <= 
+RelExp . AddExp == 
+RelExp . AddExp > 
+RelExp . AddExp >= 
+RelExp . AddExp || 
+RelExp . RelExp < AddExp != 
+RelExp . RelExp < AddExp && 
+RelExp . RelExp < AddExp ) 
+RelExp . RelExp < AddExp < 
+RelExp . RelExp < AddExp <= 
+RelExp . RelExp < AddExp == 
+RelExp . RelExp < AddExp > 
+RelExp . RelExp < AddExp >= 
+RelExp . RelExp < AddExp || 
+RelExp . RelExp <= AddExp != 
+RelExp . RelExp <= AddExp && 
+RelExp . RelExp <= AddExp ) 
+RelExp . RelExp <= AddExp < 
+RelExp . RelExp <= AddExp <= 
+RelExp . RelExp <= AddExp == 
+RelExp . RelExp <= AddExp > 
+RelExp . RelExp <= AddExp >= 
+RelExp . RelExp <= AddExp || 
+RelExp . RelExp > AddExp != 
+RelExp . RelExp > AddExp && 
+RelExp . RelExp > AddExp ) 
+RelExp . RelExp > AddExp < 
+RelExp . RelExp > AddExp <= 
+RelExp . RelExp > AddExp == 
+RelExp . RelExp > AddExp > 
+RelExp . RelExp > AddExp >= 
+RelExp . RelExp > AddExp || 
+RelExp . RelExp >= AddExp != 
+RelExp . RelExp >= AddExp && 
+RelExp . RelExp >= AddExp ) 
+RelExp . RelExp >= AddExp < 
+RelExp . RelExp >= AddExp <= 
+RelExp . RelExp >= AddExp == 
+RelExp . RelExp >= AddExp > 
+RelExp . RelExp >= AddExp >= 
+RelExp . RelExp >= AddExp || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+EqExp EqExp . != RelExp != 
+EqExp EqExp . != RelExp && 
+EqExp EqExp . != RelExp ) 
+EqExp EqExp . != RelExp == 
+EqExp EqExp . != RelExp || 
+EqExp EqExp . == RelExp != 
+EqExp EqExp . == RelExp && 
+EqExp EqExp . == RelExp ) 
+EqExp EqExp . == RelExp == 
+EqExp EqExp . == RelExp || 
+LAndExp LAndExp && EqExp . && 
+LAndExp LAndExp && EqExp . ) 
+LAndExp LAndExp && EqExp . || 
+
+
+-----------------------------------------------------------
+EqExp RelExp . != 
+EqExp RelExp . && 
+EqExp RelExp . ) 
+EqExp RelExp . == 
+EqExp RelExp . || 
+RelExp RelExp . < AddExp != 
+RelExp RelExp . < AddExp && 
+RelExp RelExp . < AddExp ) 
+RelExp RelExp . < AddExp < 
+RelExp RelExp . < AddExp <= 
+RelExp RelExp . < AddExp == 
+RelExp RelExp . < AddExp > 
+RelExp RelExp . < AddExp >= 
+RelExp RelExp . < AddExp || 
+RelExp RelExp . <= AddExp != 
+RelExp RelExp . <= AddExp && 
+RelExp RelExp . <= AddExp ) 
+RelExp RelExp . <= AddExp < 
+RelExp RelExp . <= AddExp <= 
+RelExp RelExp . <= AddExp == 
+RelExp RelExp . <= AddExp > 
+RelExp RelExp . <= AddExp >= 
+RelExp RelExp . <= AddExp || 
+RelExp RelExp . > AddExp != 
+RelExp RelExp . > AddExp && 
+RelExp RelExp . > AddExp ) 
+RelExp RelExp . > AddExp < 
+RelExp RelExp . > AddExp <= 
+RelExp RelExp . > AddExp == 
+RelExp RelExp . > AddExp > 
+RelExp RelExp . > AddExp >= 
+RelExp RelExp . > AddExp || 
+RelExp RelExp . >= AddExp != 
+RelExp RelExp . >= AddExp && 
+RelExp RelExp . >= AddExp ) 
+RelExp RelExp . >= AddExp < 
+RelExp RelExp . >= AddExp <= 
+RelExp RelExp . >= AddExp == 
+RelExp RelExp . >= AddExp > 
+RelExp RelExp . >= AddExp >= 
+RelExp RelExp . >= AddExp || 
+
+
+-----------------------------------------------------------
+Cond LOrExp . ) 
+LOrExp LOrExp . || LAndExp ) 
+LOrExp LOrExp . || LAndExp || 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp != 
+AddExp . AddExp + MulExp && 
+AddExp . AddExp + MulExp ) 
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp < 
+AddExp . AddExp + MulExp <= 
+AddExp . AddExp + MulExp == 
+AddExp . AddExp + MulExp > 
+AddExp . AddExp + MulExp >= 
+AddExp . AddExp + MulExp || 
+AddExp . AddExp - MulExp != 
+AddExp . AddExp - MulExp && 
+AddExp . AddExp - MulExp ) 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp < 
+AddExp . AddExp - MulExp <= 
+AddExp . AddExp - MulExp == 
+AddExp . AddExp - MulExp > 
+AddExp . AddExp - MulExp >= 
+AddExp . AddExp - MulExp || 
+AddExp . MulExp != 
+AddExp . MulExp && 
+AddExp . MulExp ) 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp < 
+AddExp . MulExp <= 
+AddExp . MulExp == 
+AddExp . MulExp > 
+AddExp . MulExp >= 
+AddExp . MulExp || 
+EqExp . EqExp != RelExp != 
+EqExp . EqExp != RelExp && 
+EqExp . EqExp != RelExp ) 
+EqExp . EqExp != RelExp == 
+EqExp . EqExp != RelExp || 
+EqExp . EqExp == RelExp != 
+EqExp . EqExp == RelExp && 
+EqExp . EqExp == RelExp ) 
+EqExp . EqExp == RelExp == 
+EqExp . EqExp == RelExp || 
+EqExp . RelExp != 
+EqExp . RelExp && 
+EqExp . RelExp ) 
+EqExp . RelExp == 
+EqExp . RelExp || 
+LAndExp . EqExp && 
+LAndExp . EqExp ) 
+LAndExp . EqExp || 
+LAndExp . LAndExp && EqExp && 
+LAndExp . LAndExp && EqExp ) 
+LAndExp . LAndExp && EqExp || 
+LOrExp LOrExp || . LAndExp ) 
+LOrExp LOrExp || . LAndExp || 
+MulExp . MulExp % UnaryExp != 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp && 
+MulExp . MulExp % UnaryExp ) 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp < 
+MulExp . MulExp % UnaryExp <= 
+MulExp . MulExp % UnaryExp == 
+MulExp . MulExp % UnaryExp > 
+MulExp . MulExp % UnaryExp >= 
+MulExp . MulExp % UnaryExp || 
+MulExp . MulExp * UnaryExp != 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp && 
+MulExp . MulExp * UnaryExp ) 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp < 
+MulExp . MulExp * UnaryExp <= 
+MulExp . MulExp * UnaryExp == 
+MulExp . MulExp * UnaryExp > 
+MulExp . MulExp * UnaryExp >= 
+MulExp . MulExp * UnaryExp || 
+MulExp . MulExp / UnaryExp != 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp && 
+MulExp . MulExp / UnaryExp ) 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp < 
+MulExp . MulExp / UnaryExp <= 
+MulExp . MulExp / UnaryExp == 
+MulExp . MulExp / UnaryExp > 
+MulExp . MulExp / UnaryExp >= 
+MulExp . MulExp / UnaryExp || 
+MulExp . UnaryExp != 
+MulExp . UnaryExp % 
+MulExp . UnaryExp && 
+MulExp . UnaryExp ) 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp < 
+MulExp . UnaryExp <= 
+MulExp . UnaryExp == 
+MulExp . UnaryExp > 
+MulExp . UnaryExp >= 
+MulExp . UnaryExp || 
+PrimaryExp . ( Exp ) != 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) && 
+PrimaryExp . ( Exp ) ) 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) < 
+PrimaryExp . ( Exp ) <= 
+PrimaryExp . ( Exp ) == 
+PrimaryExp . ( Exp ) > 
+PrimaryExp . ( Exp ) >= 
+PrimaryExp . ( Exp ) || 
+PrimaryExp . Ident != 
+PrimaryExp . Ident % 
+PrimaryExp . Ident && 
+PrimaryExp . Ident ) 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident < 
+PrimaryExp . Ident <= 
+PrimaryExp . Ident == 
+PrimaryExp . Ident > 
+PrimaryExp . Ident >= 
+PrimaryExp . Ident || 
+PrimaryExp . IntConst != 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst && 
+PrimaryExp . IntConst ) 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst < 
+PrimaryExp . IntConst <= 
+PrimaryExp . IntConst == 
+PrimaryExp . IntConst > 
+PrimaryExp . IntConst >= 
+PrimaryExp . IntConst || 
+RelExp . AddExp != 
+RelExp . AddExp && 
+RelExp . AddExp ) 
+RelExp . AddExp < 
+RelExp . AddExp <= 
+RelExp . AddExp == 
+RelExp . AddExp > 
+RelExp . AddExp >= 
+RelExp . AddExp || 
+RelExp . RelExp < AddExp != 
+RelExp . RelExp < AddExp && 
+RelExp . RelExp < AddExp ) 
+RelExp . RelExp < AddExp < 
+RelExp . RelExp < AddExp <= 
+RelExp . RelExp < AddExp == 
+RelExp . RelExp < AddExp > 
+RelExp . RelExp < AddExp >= 
+RelExp . RelExp < AddExp || 
+RelExp . RelExp <= AddExp != 
+RelExp . RelExp <= AddExp && 
+RelExp . RelExp <= AddExp ) 
+RelExp . RelExp <= AddExp < 
+RelExp . RelExp <= AddExp <= 
+RelExp . RelExp <= AddExp == 
+RelExp . RelExp <= AddExp > 
+RelExp . RelExp <= AddExp >= 
+RelExp . RelExp <= AddExp || 
+RelExp . RelExp > AddExp != 
+RelExp . RelExp > AddExp && 
+RelExp . RelExp > AddExp ) 
+RelExp . RelExp > AddExp < 
+RelExp . RelExp > AddExp <= 
+RelExp . RelExp > AddExp == 
+RelExp . RelExp > AddExp > 
+RelExp . RelExp > AddExp >= 
+RelExp . RelExp > AddExp || 
+RelExp . RelExp >= AddExp != 
+RelExp . RelExp >= AddExp && 
+RelExp . RelExp >= AddExp ) 
+RelExp . RelExp >= AddExp < 
+RelExp . RelExp >= AddExp <= 
+RelExp . RelExp >= AddExp == 
+RelExp . RelExp >= AddExp > 
+RelExp . RelExp >= AddExp >= 
+RelExp . RelExp >= AddExp || 
+UnaryExp . PrimaryExp != 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp && 
+UnaryExp . PrimaryExp ) 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp < 
+UnaryExp . PrimaryExp <= 
+UnaryExp . PrimaryExp == 
+UnaryExp . PrimaryExp > 
+UnaryExp . PrimaryExp >= 
+UnaryExp . PrimaryExp || 
+
+
+-----------------------------------------------------------
+LAndExp LAndExp . && EqExp && 
+LAndExp LAndExp . && EqExp ) 
+LAndExp LAndExp . && EqExp || 
+LOrExp LOrExp || LAndExp . ) 
+LOrExp LOrExp || LAndExp . || 
+
+
+-----------------------------------------------------------
+Block { BlockItemList } . ( 
+Block { BlockItemList } . ; 
+Block { BlockItemList } . Ident 
+Block { BlockItemList } . IntConst 
+Block { BlockItemList } . if 
+Block { BlockItemList } . int 
+Block { BlockItemList } . printf 
+Block { BlockItemList } . while 
+Block { BlockItemList } . { 
+Block { BlockItemList } . } 
+
+
+-----------------------------------------------------------
+Block { . BlockItemList } ( 
+Block { . BlockItemList } ; 
+Block { . BlockItemList } Ident 
+Block { . BlockItemList } IntConst 
+Block { . BlockItemList } else 
+Block { . BlockItemList } if 
+Block { . BlockItemList } int 
+Block { . BlockItemList } printf 
+Block { . BlockItemList } while 
+Block { . BlockItemList } { 
+Block { . BlockItemList } } 
+BlockItemList . ( 
+BlockItemList . ; 
+BlockItemList . BlockItemList BlockItem ( 
+BlockItemList . BlockItemList BlockItem ; 
+BlockItemList . BlockItemList BlockItem Ident 
+BlockItemList . BlockItemList BlockItem IntConst 
+BlockItemList . BlockItemList BlockItem if 
+BlockItemList . BlockItemList BlockItem int 
+BlockItemList . BlockItemList BlockItem printf 
+BlockItemList . BlockItemList BlockItem while 
+BlockItemList . BlockItemList BlockItem { 
+BlockItemList . BlockItemList BlockItem } 
+BlockItemList . Ident 
+BlockItemList . IntConst 
+BlockItemList . if 
+BlockItemList . int 
+BlockItemList . printf 
+BlockItemList . while 
+BlockItemList . { 
+BlockItemList . } 
+
+
+-----------------------------------------------------------
+AddExp . AddExp + MulExp + 
+AddExp . AddExp + MulExp - 
+AddExp . AddExp + MulExp ; 
+AddExp . AddExp - MulExp + 
+AddExp . AddExp - MulExp - 
+AddExp . AddExp - MulExp ; 
+AddExp . MulExp + 
+AddExp . MulExp - 
+AddExp . MulExp ; 
+Block . { BlockItemList } ( 
+Block . { BlockItemList } ; 
+Block . { BlockItemList } Ident 
+Block . { BlockItemList } IntConst 
+Block . { BlockItemList } if 
+Block . { BlockItemList } int 
+Block . { BlockItemList } printf 
+Block . { BlockItemList } while 
+Block . { BlockItemList } { 
+Block . { BlockItemList } } 
+Block { BlockItemList . } ( 
+Block { BlockItemList . } ; 
+Block { BlockItemList . } Ident 
+Block { BlockItemList . } IntConst 
+Block { BlockItemList . } else 
+Block { BlockItemList . } if 
+Block { BlockItemList . } int 
+Block { BlockItemList . } printf 
+Block { BlockItemList . } while 
+Block { BlockItemList . } { 
+Block { BlockItemList . } } 
+BlockItem . Stmt ( 
+BlockItem . Stmt ; 
+BlockItem . Stmt Ident 
+BlockItem . Stmt IntConst 
+BlockItem . Stmt if 
+BlockItem . Stmt int 
+BlockItem . Stmt printf 
+BlockItem . Stmt while 
+BlockItem . Stmt { 
+BlockItem . Stmt } 
+BlockItem . VarDecl ( 
+BlockItem . VarDecl ; 
+BlockItem . VarDecl Ident 
+BlockItem . VarDecl IntConst 
+BlockItem . VarDecl if 
+BlockItem . VarDecl int 
+BlockItem . VarDecl printf 
+BlockItem . VarDecl while 
+BlockItem . VarDecl { 
+BlockItem . VarDecl } 
+BlockItemList BlockItemList . BlockItem ( 
+BlockItemList BlockItemList . BlockItem ; 
+BlockItemList BlockItemList . BlockItem Ident 
+BlockItemList BlockItemList . BlockItem IntConst 
+BlockItemList BlockItemList . BlockItem if 
+BlockItemList BlockItemList . BlockItem int 
+BlockItemList BlockItemList . BlockItem printf 
+BlockItemList BlockItemList . BlockItem while 
+BlockItemList BlockItemList . BlockItem { 
+BlockItemList BlockItemList . BlockItem } 
+Exp . AddExp ; 
+MulExp . MulExp % UnaryExp % 
+MulExp . MulExp % UnaryExp * 
+MulExp . MulExp % UnaryExp + 
+MulExp . MulExp % UnaryExp - 
+MulExp . MulExp % UnaryExp / 
+MulExp . MulExp % UnaryExp ; 
+MulExp . MulExp * UnaryExp % 
+MulExp . MulExp * UnaryExp * 
+MulExp . MulExp * UnaryExp + 
+MulExp . MulExp * UnaryExp - 
+MulExp . MulExp * UnaryExp / 
+MulExp . MulExp * UnaryExp ; 
+MulExp . MulExp / UnaryExp % 
+MulExp . MulExp / UnaryExp * 
+MulExp . MulExp / UnaryExp + 
+MulExp . MulExp / UnaryExp - 
+MulExp . MulExp / UnaryExp / 
+MulExp . MulExp / UnaryExp ; 
+MulExp . UnaryExp % 
+MulExp . UnaryExp * 
+MulExp . UnaryExp + 
+MulExp . UnaryExp - 
+MulExp . UnaryExp / 
+MulExp . UnaryExp ; 
+PrimaryExp . ( Exp ) % 
+PrimaryExp . ( Exp ) * 
+PrimaryExp . ( Exp ) + 
+PrimaryExp . ( Exp ) - 
+PrimaryExp . ( Exp ) / 
+PrimaryExp . ( Exp ) ; 
+PrimaryExp . Ident % 
+PrimaryExp . Ident * 
+PrimaryExp . Ident + 
+PrimaryExp . Ident - 
+PrimaryExp . Ident / 
+PrimaryExp . Ident ; 
+PrimaryExp . IntConst % 
+PrimaryExp . IntConst * 
+PrimaryExp . IntConst + 
+PrimaryExp . IntConst - 
+PrimaryExp . IntConst / 
+PrimaryExp . IntConst ; 
+Stmt . ; ( 
+Stmt . ; ; 
+Stmt . ; Ident 
+Stmt . ; IntConst 
+Stmt . ; if 
+Stmt . ; int 
+Stmt . ; printf 
+Stmt . ; while 
+Stmt . ; { 
+Stmt . ; } 
+Stmt . Block ( 
+Stmt . Block ; 
+Stmt . Block Ident 
+Stmt . Block IntConst 
+Stmt . Block if 
+Stmt . Block int 
+Stmt . Block printf 
+Stmt . Block while 
+Stmt . Block { 
+Stmt . Block } 
+Stmt . Exp ; ( 
+Stmt . Exp ; ; 
+Stmt . Exp ; Ident 
+Stmt . Exp ; IntConst 
+Stmt . Exp ; if 
+Stmt . Exp ; int 
+Stmt . Exp ; printf 
+Stmt . Exp ; while 
+Stmt . Exp ; { 
+Stmt . Exp ; } 
+Stmt . Ident = Exp ; ( 
+Stmt . Ident = Exp ; ; 
+Stmt . Ident = Exp ; Ident 
+Stmt . Ident = Exp ; IntConst 
+Stmt . Ident = Exp ; if 
+Stmt . Ident = Exp ; int 
+Stmt . Ident = Exp ; printf 
+Stmt . Ident = Exp ; while 
+Stmt . Ident = Exp ; { 
+Stmt . Ident = Exp ; } 
+Stmt . Ident = getint ( ) ; ( 
+Stmt . Ident = getint ( ) ; ; 
+Stmt . Ident = getint ( ) ; Ident 
+Stmt . Ident = getint ( ) ; IntConst 
+Stmt . Ident = getint ( ) ; if 
+Stmt . Ident = getint ( ) ; int 
+Stmt . Ident = getint ( ) ; printf 
+Stmt . Ident = getint ( ) ; while 
+Stmt . Ident = getint ( ) ; { 
+Stmt . Ident = getint ( ) ; } 
+Stmt . if ( Cond ) Block ( 
+Stmt . if ( Cond ) Block ; 
+Stmt . if ( Cond ) Block Ident 
+Stmt . if ( Cond ) Block IntConst 
+Stmt . if ( Cond ) Block else Block ( 
+Stmt . if ( Cond ) Block else Block ; 
+Stmt . if ( Cond ) Block else Block Ident 
+Stmt . if ( Cond ) Block else Block IntConst 
+Stmt . if ( Cond ) Block else Block if 
+Stmt . if ( Cond ) Block else Block int 
+Stmt . if ( Cond ) Block else Block printf 
+Stmt . if ( Cond ) Block else Block while 
+Stmt . if ( Cond ) Block else Block { 
+Stmt . if ( Cond ) Block else Block } 
+Stmt . if ( Cond ) Block if 
+Stmt . if ( Cond ) Block int 
+Stmt . if ( Cond ) Block printf 
+Stmt . if ( Cond ) Block while 
+Stmt . if ( Cond ) Block { 
+Stmt . if ( Cond ) Block } 
+Stmt . printf ( FormatString ExpList ) ; ( 
+Stmt . printf ( FormatString ExpList ) ; ; 
+Stmt . printf ( FormatString ExpList ) ; Ident 
+Stmt . printf ( FormatString ExpList ) ; IntConst 
+Stmt . printf ( FormatString ExpList ) ; if 
+Stmt . printf ( FormatString ExpList ) ; int 
+Stmt . printf ( FormatString ExpList ) ; printf 
+Stmt . printf ( FormatString ExpList ) ; while 
+Stmt . printf ( FormatString ExpList ) ; { 
+Stmt . printf ( FormatString ExpList ) ; } 
+Stmt . while ( Cond ) Block ( 
+Stmt . while ( Cond ) Block ; 
+Stmt . while ( Cond ) Block Ident 
+Stmt . while ( Cond ) Block IntConst 
+Stmt . while ( Cond ) Block if 
+Stmt . while ( Cond ) Block int 
+Stmt . while ( Cond ) Block printf 
+Stmt . while ( Cond ) Block while 
+Stmt . while ( Cond ) Block { 
+Stmt . while ( Cond ) Block } 
+UnaryExp . PrimaryExp % 
+UnaryExp . PrimaryExp * 
+UnaryExp . PrimaryExp + 
+UnaryExp . PrimaryExp - 
+UnaryExp . PrimaryExp / 
+UnaryExp . PrimaryExp ; 
+VarDecl . int VarDeclList ; ( 
+VarDecl . int VarDeclList ; ; 
+VarDecl . int VarDeclList ; Ident 
+VarDecl . int VarDeclList ; IntConst 
+VarDecl . int VarDeclList ; if 
+VarDecl . int VarDeclList ; int 
+VarDecl . int VarDeclList ; printf 
+VarDecl . int VarDeclList ; while 
+VarDecl . int VarDeclList ; { 
+VarDecl . int VarDeclList ; } 
+
+
+-----------------------------------------------------------
+Block { BlockItemList } . ( 
+Block { BlockItemList } . ; 
+Block { BlockItemList } . Ident 
+Block { BlockItemList } . IntConst 
+Block { BlockItemList } . else 
+Block { BlockItemList } . if 
+Block { BlockItemList } . int 
+Block { BlockItemList } . printf 
+Block { BlockItemList } . while 
+Block { BlockItemList } . { 
+Block { BlockItemList } . } 
+
+
+-----------------------------------------------------------
+Block { BlockItemList } . # 
+
+
+-----------------------------------------------------------
