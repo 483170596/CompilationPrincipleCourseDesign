@@ -3,19 +3,21 @@ package parser;
 import grammar.CFGBlock;
 import grammar.Production;
 import grammar.SymbolType;
+import lexer.Token;
 
+import java.util.List;
 import java.util.*;
 
 //LR(1)自动机
 public class LR1Automata {
     //得到文法grammar parser
-    private CFGBlock grammar = new CFGBlock();
+    public CFGBlock grammar = new CFGBlock();
 
     //文法首符集
     private HashMap<SymbolType, HashSet<SymbolType>> headerSet = new HashMap<>();
 
     //自动机项的内部的文法项 闭包内的项
-    private class Item {
+    public class Item {
         int grammarIndex;
         int point;
         HashSet<SymbolType> searchCharacter = new HashSet<>();
@@ -102,7 +104,7 @@ public class LR1Automata {
     }
 
     //自动机的项,即状态 闭包
-    private class State {
+    public class State {
         ArrayList<Item> items = new ArrayList<>();
         //<type,list<goto<X，I>>>,I是状态，X既可以是终结符，也可以是非终结符，但不能是ε
         HashMap<SymbolType, HashMap<SymbolType, Integer>> go = new HashMap<>();
@@ -154,6 +156,19 @@ public class LR1Automata {
         public String toString() {
             return "State{items = " + items + ", go = " + go + "}";
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            State state = (State) o;
+            return Objects.equals(items, state.items) && Objects.equals(go, state.go);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(items, go);
+        }
     }
 
     //自动机
@@ -187,7 +202,9 @@ public class LR1Automata {
     private HashSet<SymbolType> getFirst(SymbolType left) {
         //如果是终结符,返回
         if (left.isTerminal()) {
-            return new HashSet<>(List.of(left));
+            HashSet<SymbolType> ret = new HashSet<>();
+            ret.add(left);
+            return ret;
         }
         //否则遍历所有文法
         HashSet<SymbolType> thisFirst = new HashSet<>();
@@ -225,7 +242,7 @@ public class LR1Automata {
     }
 
     // 初始化文法和首符集集合
-    private void InitGrammarAndHeaderSet() {
+    private void initGrammarAndHeaderSet() {
         //文法
         this.grammar.initTest();
         //取每一条文法
@@ -281,58 +298,71 @@ public class LR1Automata {
         return newItems;
     }
 
+    //CLOSURE_I
+    private State CLOSURE_I(State thisState) {
+        int itemIndex = 0;  //文法编号，遍历已有项目，生成所有项目
+        while (itemIndex < thisState.items.size()) {//没有新文法项，跳出循环
+            Item thisItem = thisState.items.get(itemIndex);
+            Production thisProduction = grammar.getProduction(thisItem.grammarIndex);
+            ArrayList<SymbolType> right = thisProduction.getRight();
+
+            //X->空
+            if (right.size() == 1 && right.get(0).equals(SymbolType.EPSILON)) {
+                thisItem.point = 0;
+                itemIndex++;
+                continue;
+            }
+
+            //X->β·
+            if (thisItem.point == right.size() - 1) {
+                itemIndex++;
+                continue;
+            }
+            //X->α·Yβ
+            SymbolType thisRightItem = right.get(thisItem.point + 1);
+            if (thisRightItem.isNonTerminal()) {//非终结符，待约
+                //得到β
+                ArrayList<SymbolType> beta = new ArrayList<>(right.subList(thisItem.point + 2, right.size()));
+                //待约项添加到状态中
+                ArrayList<Item> newItems = getProductionByLeft(thisRightItem, beta, thisItem.searchCharacter);
+                for (Item newItem : newItems) {
+                    //查找状态中否已经含有新项目
+                    boolean newItemNotInThisState = true;
+                    for (Item item : thisState.items) {
+                        if (newItem.grammarIndex == item.grammarIndex && newItem.point == item.point) {
+                            newItemNotInThisState = false;
+                            item.searchCharacter.addAll(newItem.searchCharacter);//合并搜索符
+                            break;
+                        }
+                    }
+                    if (newItemNotInThisState) {//状态没有新项目，则项目加入到状态
+                        thisState.items.add(newItem);
+                    }
+                }
+            }
+            itemIndex++;
+        }
+        return thisState;
+    }
+
     //初始化自动机
     public void Init() {
-        this.InitGrammarAndHeaderSet();
+        this.initGrammarAndHeaderSet();
+
         // 先放入文法0到状态0
-        automata.put(0, new State(new ArrayList<>(List.of(new Item(0, -1, new HashSet<>(List.of(SymbolType.EOF))))), new HashMap<>()));
+        automata.put(0, new State(new ArrayList<>(), new HashMap<>()));
+        automata.get(0).items.add(new Item(0, -1, new HashSet<>()));
+        automata.get(0).items.get(0).searchCharacter.add(SymbolType.EOF);
 
         int stateIndex = 0;  //状态编号
         int newStateIndex = 1;
-        while (stateIndex < 15/*automata.size()*/) {//没有新状态，跳出循环
+        while (stateIndex < automata.size()) {//没有新状态，跳出循环
             State thisState = automata.get(stateIndex);//当前状态
 
-            int itemIndex = 0;  //文法编号，遍历已有项目，生成所有项目
-            while (itemIndex < thisState.items.size()) {//没有新文法项，跳出循环
-                Item thisItem = thisState.items.get(itemIndex);
-                Production thisProduction = grammar.getProduction(thisItem.grammarIndex);
-                ArrayList<SymbolType> right = thisProduction.getRight();
+            CLOSURE_I(thisState);
 
-                //X->空
-                if (right.size() == 1 && right.get(0).equals(SymbolType.EPSILON)) {
-                    thisItem.point = 0;
-                }
 
-                //X->β·
-                if (thisItem.point == right.size() - 1) {
-                    itemIndex++;
-                    continue;
-                }
-                //X->α·Yβ
-                SymbolType thisRightItem = right.get(thisItem.point + 1);
-                if (thisRightItem.isNonTerminal()) {//非终结符，待约
-                    //得到β
-                    ArrayList<SymbolType> beta = new ArrayList<>(right.subList(thisItem.point + 2, right.size()));
-                    //待约项添加到状态中
-                    ArrayList<Item> newItems = getProductionByLeft(thisRightItem, beta, thisItem.searchCharacter);
-                    for (Item newItem : newItems) {
-                        //查找状态中否已经含有新项目
-                        boolean newItemNotInThisState = true;
-                        for (Item item : thisState.items) {
-                            if (newItem.grammarIndex == item.grammarIndex && newItem.point == item.point) {
-                                newItemNotInThisState = false;
-                                item.searchCharacter.addAll(newItem.searchCharacter);//合并搜索符
-                                break;
-                            }
-                        }
-                        if (newItemNotInThisState) {//状态没有新项目，则项目加入到状态
-                            thisState.items.add(newItem);
-                        }
-                    }
-                }
-                itemIndex++;
-            }
-
+            HashMap<SymbolType, State> temp = new HashMap<>();//仅含有核的临时状态
             for (Item item : thisState.items) {//遍历本状态的所有项目，计算GO函数，并生成新的状态
                 Production thisProduction = grammar.getProduction(item.grammarIndex);
                 ArrayList<SymbolType> right = thisProduction.getRight();
@@ -347,16 +377,93 @@ public class LR1Automata {
                         }
                     }
                 } else {//否则计算go
-                    SymbolType next = right.get(item.point + 1);
+                    SymbolType next = right.get(item.point + 1);//箭弧标记
                     //生成新项目
                     Item newItem = new Item(item.grammarIndex, item.point + 1, item.searchCharacter);
-                    //新项目是否属于已有状态
-                    boolean newItemNotExist = true;
-                    for (Map.Entry<Integer, State> stateEntry : automata.entrySet()) {
-                        for (Item searchItem : stateEntry.getValue().items) {
-                            //Δ 注意new对象的equals问题
-                            if (searchItem.equals(newItem)/*stateEntry.getValue().items.contains(newItem)*/) {//新项目存在，计算go
+                    temp.computeIfAbsent(next, key -> new State()).items.add(newItem);
+                }
+            }
+            //根据核计算新项目
+            for (Map.Entry<SymbolType, State> tempEntry : temp.entrySet()) {
+                State newState = CLOSURE_I(tempEntry.getValue());//根据核计算新项目
+                //如果项目集中已含有新项目，直接写入go
+                boolean newStateNotExist = true;
+                for (Map.Entry<Integer, State> stateEntry : automata.entrySet()) {
+                    if (stateEntry.getValue().items.equals(newState.items)) {
+                        newStateNotExist = false;
+                        if (tempEntry.getKey().isTerminal()) {
+                            thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>()).put(tempEntry.getKey(), stateEntry.getKey());
+                        } else if (tempEntry.getKey().isNonTerminal()) {
+                            thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>()).put(tempEntry.getKey(), stateEntry.getKey());
+                        }
+                        break;
+                    }
+                }
+                if (newStateNotExist) {
+                    //如果没有要创建新状态
+                    automata.put(newStateIndex, newState);
+                    if (tempEntry.getKey().isTerminal()) {
+                        thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>()).put(tempEntry.getKey(), newStateIndex);
+                    } else if (tempEntry.getKey().isNonTerminal()) {
+                        thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>()).put(tempEntry.getKey(), newStateIndex);
+                    }
+                    newStateIndex++;
+                }
+            }
+            stateIndex++;
+        }
+    }
+
+    public static void main(String[] args) {
+        LR1Automata lr1Automata = new LR1Automata();
+        lr1Automata.Init();
+        System.out.println("------------------------------------------------------");
+        for (Map.Entry<Integer, State> stateEntry : lr1Automata.getAutomata().entrySet()) {
+            System.out.println(stateEntry.getKey());
+            for (Item item : stateEntry.getValue().items) {
+                System.out.println(lr1Automata.grammar.getProduction(item.grammarIndex) + " " + item);
+            }
+            System.out.println("\n" + stateEntry.getValue().go);
+            System.out.println("----------------------------------------");
+        }
+    }
+}
+
+/*
+* if (thisState.go.get(SymbolType.SHIFT) != null && thisState.go.get(SymbolType.SHIFT).containsKey(next)) {//shift中已含有next，则新项目添加到经next到达的状态
+                        boolean newItemNotInNextState = true;
+                        for (Item item1 : automata.get(thisState.go.get(SymbolType.SHIFT).get(next)).items) {
+                            //next到达的状态是否含有新项目
+                            if (item1.grammarIndex == newItem.grammarIndex && item1.point == newItem.point) {
+                                newItemNotInNextState = false;
+                                item1.searchCharacter.addAll(newItem.searchCharacter);
+                                break;
+                            }
+                        }
+                        if (newItemNotInNextState) {
+                            automata.get(thisState.go.get(SymbolType.SHIFT).get(next)).items.add(newItem);
+                        }
+                    } else if (thisState.go.get(SymbolType.GOTO) != null && thisState.go.get(SymbolType.GOTO).containsKey(next)) {//goto中已含有next，则新项目添加到经next到达的状态
+                        boolean newItemNotInNextState = true;
+                        for (Item item1 : automata.get(thisState.go.get(SymbolType.GOTO).get(next)).items) {
+                            //next到达的状态是否含有新项目
+                            if (item1.grammarIndex == newItem.grammarIndex && item1.point == newItem.point) {
+                                newItemNotInNextState = false;
+                                item1.searchCharacter.addAll(newItem.searchCharacter);
+                                break;
+                            }
+                        }
+                        if (newItemNotInNextState) {
+                            automata.get(thisState.go.get(SymbolType.GOTO).get(next)).items.add(newItem);
+                        }
+                    } else {
+                        //新项目是否属于已有状态
+                        boolean newItemNotExist = true;
+                        for (Map.Entry<Integer, State> stateEntry : automata.entrySet()) {
+                            //Δ
+                            if (stateEntry.getValue().items.get(0).equals(newItem)) {//新项目存在，计算go
                                 newItemNotExist = false;
+//                                stateEntry.getValue().items.get(0).searchCharacter.addAll(newItem.searchCharacter);
                                 if (next.isTerminal()) {//终结符shift
                                     thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>()).put(next, stateEntry.getKey());
                                 } else if (next.isNonTerminal()) {//非终结符goto
@@ -365,13 +472,8 @@ public class LR1Automata {
                                 break;
                             }
                         }
-                    }
-                    if (newItemNotExist) {//新项目不存在
-                        if (thisState.go.get(SymbolType.SHIFT) != null && thisState.go.get(SymbolType.SHIFT).containsKey(next)) {//但是go中已含有next，则新项目添加到经next到达的状态
-                            automata.get(thisState.go.get(SymbolType.SHIFT).get(next)).items.add(newItem);
-                        } else if (thisState.go.get(SymbolType.GOTO) != null && thisState.go.get(SymbolType.GOTO).containsKey(next)) {//但是go中已含有next，则新项目添加到经next到达的状态
-                            automata.get(thisState.go.get(SymbolType.GOTO).get(next)).items.add(newItem);
-                        } else {//否则创建新状态
+                        if (newItemNotExist) {
+                            //否则创建新状态
                             State newState = new State();
                             newState.items.add(newItem);
                             automata.put(newStateIndex, newState);
@@ -383,216 +485,4 @@ public class LR1Automata {
                             newStateIndex++;
                         }
                     }
-                }
-            }
-
-            stateIndex++;
-//            System.out.println(stateIndex);
-        }
-
-        /*int i = 0; //自动机编号
-        int newStateIndex = 1;
-        while (i < automata.size()) {
-            //当前状态
-            State thisState = automata.get(i);
-
-            int j = 0;//项编号
-            while (j < thisState.items.size()) {
-                //当前项
-                Item thisItem = thisState.items.get(j);
-                //文法
-                Production thisProduction = grammar.getProductions().get(thisItem.grammarIndex);
-                //右部
-                ArrayList<SymbolType> right = thisProduction.getRight();
-                int k = thisItem.point + 1;
-                //当前处理的右部符号，看是否待约
-                if (k < right.size()) {
-                    SymbolType thisRightItem = right.get(k);
-                    if (thisRightItem.isNonTerminal()) {
-                        ArrayList<SymbolType> beta = new ArrayList<>();
-                        for (int l = k + 1; l < right.size(); l++) {
-                            beta.add(right.get(l));
-                        }
-                        //待约项添加到状态中
-                        ArrayList<Item> newItems = getProductionByLeft(thisRightItem, beta, thisItem.searchCharacter);
-                        for (Item newItem : newItems) {
-                            //新项是否已存在,不存在才添加
-                            boolean flag = false;
-                            for (Item item : thisState.items) {
-                                //如果有则合并搜索符
-                                if (item.grammarIndex == newItem.grammarIndex && item.point == newItem.point) {
-                                    flag = true;
-                                    item.searchCharacter.addAll(newItem.searchCharacter);
-                                    break;
-                                }
-                            }
-                            if (!flag) {
-                                thisState.items.add(newItem);
-                            }
-                        }
-                    }
-                }
-                *//*while (true) {
-                    if (k >= right.size()) {
-                        break;
-                    }
-                    SymbolType thisRightItem = right.get(k);
-                    //如果是终结符，退出
-                    if (!thisRightItem.isNonTerminal()) {
-                        break;
-                    }
-                    ArrayList<SymbolType> beta = new ArrayList<>();
-                    for (int l = k + 1; l < right.size(); l++) {
-                        beta.add(right.get(l));
-                    }
-                    //待约项添加到状态中
-                    ArrayList<Item> newItems = getProductionByLeft(thisRightItem, beta, thisItem.searchCharacter);
-                    for (Item newItem : newItems) {
-                        //新项是否已存在,不存在才添加
-                        boolean flag = false;
-                        for (Item item : thisState.items) {
-                            //如果有则合并搜索符
-                            if (item.grammarIndex == newItem.grammarIndex && item.point == newItem.point) {
-                                flag = true;
-                                item.searchCharacter.addAll(newItem.searchCharacter);
-                                break;
-                            }
-                        }
-                        if (!flag) {
-                            thisState.items.add(newItem);
-                        }
-                    }
-                    k++;
-                }*//*
-                j++;
-            }
-
-            ArrayList<State> tempStates = new ArrayList<>();
-            for (Item item : thisState.items) {//遍历每条文法
-                //移进、goto的下一位
-                int nextIndex = item.point + 1;
-                ArrayList<SymbolType> right = grammar.getProductions().get(item.grammarIndex).getRight();
-                if (nextIndex >= right.size() || (right.size() == 1 && right.get(0).isEpsilon())) {
-                    //如果next大于等于右部长度，.已移到最后，则是规约项;或者是推空文法，直接规约
-                    if (item.grammarIndex == 0) {
-                        //如果是第0项文法，则是acc
-                        thisState.go.computeIfAbsent(SymbolType.ACC, key -> new HashMap<>());
-                        thisState.go.get(SymbolType.ACC).put(SymbolType.EOF, 0);
-                    } else {
-                        //则是普通规约，按搜索符
-                        for (SymbolType search : item.searchCharacter) {
-                            thisState.go.computeIfAbsent(SymbolType.REDUCE, k -> new HashMap<>());
-                            thisState.go.get(SymbolType.REDUCE).put(search, item.grammarIndex);
-                        }
-                    }
-                } else {
-                    //否则是移进、goto
-                    SymbolType nextRightItem = right.get(nextIndex);
-                    *//*if (nextRightItem.isTerminal()) {
-                        //如果是终结符,则是shift
-                        thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>());
-                        if (thisState.go.get(SymbolType.SHIFT).containsKey(nextRightItem)) {
-                            //如果该移进已存在，则将该移进的文法添加到这个已存在的状态
-                            int stateIndex = thisState.go.get(SymbolType.SHIFT).get(nextRightItem);
-                            automata.get(stateIndex).items.add(new Item(item.grammarIndex, item.point + 1, item.searchCharacter));
-                        } else {
-                            //否则创建一个新的状态，将该移进添加到这个新的状态,新的状态添加到自动机
-                            State newState = new State(new ArrayList<>(List.of(new Item(item.grammarIndex, item.point + 1, item.searchCharacter))), new HashMap<>());
-                            automata.put(newStateIndex, newState);
-                            //同时shift指向新状态
-                            thisState.go.get(SymbolType.SHIFT).put(nextRightItem, newStateIndex);
-                            newStateIndex++;
-                        }
-                    } else if (nextRightItem.isNonTerminal()) {
-                        //如果是非终结符则是GOTO
-                        thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>());
-                        if (thisState.go.get(SymbolType.GOTO).containsKey(nextRightItem)) {
-                            //如果该GOTO已存在，则将该GOTO的文法添加到这个已存在的状态
-                            int stateIndex = thisState.go.get(SymbolType.GOTO).get(nextRightItem);
-                            automata.get(stateIndex).items.add(new Item(item.grammarIndex, item.point + 1, item.searchCharacter));
-                        } else {
-                            //否则创建一个新的状态，将该移进添加到这个新的状态,新的状态添加到自动机
-                            State newState = new State(new ArrayList<>(List.of(new Item(item.grammarIndex, item.point + 1, item.searchCharacter))), new HashMap<>());
-                            automata.put(newStateIndex, newState);
-                            //同时goto指向新状态
-                            thisState.go.get(SymbolType.GOTO).put(nextRightItem, newStateIndex);
-                            newStateIndex++;
-                        }
-                    }*//*
-                    boolean flag = true;
-                    for (State state : tempStates) {
-                        Production production = grammar.getProductions().get((state.items.get(0).grammarIndex));
-                        if (production.getRight().get(state.items.get(0).point).equals(nextRightItem)) {
-                            flag = false;
-                            state.items.add(new Item(item.grammarIndex, item.point + 1, item.searchCharacter));
-                            break;
-                        }
-                    }
-                    if (flag) {
-                        State newState =
-                                new State(new ArrayList<>(List.of(new Item(item.grammarIndex, item.point + 1, item
-                                        .searchCharacter))), new HashMap<>());
-                        tempStates.add(newState);
-                    }
-                }
-            }
-
-            for (State tempState : tempStates) {
-                boolean flag = true;
-                Item tempItem = tempState.items.get(0);
-                SymbolType s = grammar.getProductions().get(tempItem.grammarIndex).getRight().get(tempItem.point);
-                for (Map.Entry<Integer, State> stateEntry : automata.entrySet()) {
-                    if (stateEntry.getValue().items.equals(tempState.items)) {
-                        flag = false;
-                        if (s.isTerminal()) {
-                            thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>());
-                            HashMap<SymbolType, Integer> newShift = new HashMap<>();
-                            newShift.put(s, stateEntry.getKey());
-                            thisState.go.put(SymbolType.SHIFT, newShift);
-                        } else if (s.isNonTerminal()) {
-                            thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>());
-                            HashMap<SymbolType, Integer> newGoto = new HashMap<>();
-                            newGoto.put(s, stateEntry.getKey());
-                            thisState.go.put(SymbolType.GOTO, newGoto);
-                        }
-                        break;
-                    }
-                }
-                if (flag) {
-                    automata.put(newStateIndex, tempState);
-                    if (s.isTerminal()) {
-                        thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>());
-                        HashMap<SymbolType, Integer> newShift = new HashMap<>();
-                        newShift.put(s, newStateIndex);
-                        thisState.go.put(SymbolType.SHIFT, newShift);
-                    } else if (s.isNonTerminal()) {
-                        thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>());
-                        HashMap<SymbolType, Integer> newGoto = new HashMap<>();
-                        newGoto.put(s, newStateIndex);
-                        thisState.go.put(SymbolType.GOTO, newGoto);
-                    }
-                    newStateIndex++;
-                }
-            }
-
-            System.out.println(automata);
-            i++;
-        }*/
-    }
-
-    public static void main(String[] args) {
-        LR1Automata lr1Automata = new LR1Automata();
-        lr1Automata.Init();
-        for (Map.Entry<Integer, State> stateEntry : lr1Automata.getAutomata().entrySet()) {
-            System.out.println(stateEntry.getKey());
-            for (Item item : stateEntry.getValue().items) {
-                System.out.println(lr1Automata.grammar.getProduction(item.grammarIndex) + " " + item);
-            }
-            System.out.println("\n" + stateEntry.getValue().go);
-            System.out.println("----------------------------------------");
-        }
-        System.out.println(lr1Automata.getAutomata().get(5));
-        System.out.println(lr1Automata.getAutomata().get(10));
-        System.out.println(lr1Automata.getAutomata().get(5).items.equals(lr1Automata.getAutomata().get(10).items));
-    }
-}
+* */

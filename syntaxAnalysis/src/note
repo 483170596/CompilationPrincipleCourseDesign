@@ -1,0 +1,835 @@
+[0,LBRACE]=s2
+[0,<Block>]=1
+[1,EOF]=acc
+[2,SEMICN]=r3
+[2,INTTK]=r3
+[2,IDENFR]=r3
+[2,<BlockItemList>]=3
+[2,LBRACE]=r3
+[2,PRINTFTK]=r3
+[2,IFTK]=r3
+[2,INTCON]=r3
+[2,LPARENT]=r3
+[2,RBRACE]=r3
+[2,WHILETK]=r3
+[3,IDENFR]=s9
+[3,<BlockItem>]=5
+[3,LBRACE]=s2
+[3,<Exp>]=10
+[3,<Stmt>]=7
+[3,<Block>]=12
+[3,INTCON]=s21
+[3,<MulExp>]=17
+[3,LPARENT]=s20
+[3,<PrimaryExp>]=19
+[3,SEMICN]=s11
+[3,INTTK]=s8
+[3,<AddExp>]=16
+[3,PRINTFTK]=s15
+[3,IFTK]=s13
+[3,RBRACE]=s4
+[3,WHILETK]=s14
+[3,<VarDecl>]=6
+[3,<UnaryExp>]=18
+[4,SEMICN]=r1
+[4,INTTK]=r1
+[4,IDENFR]=r1
+[4,EOF]=r1
+[4,LBRACE]=r1
+[4,PRINTFTK]=r1
+[4,IFTK]=r1
+[4,INTCON]=r1
+[4,LPARENT]=r1
+[4,RBRACE]=r1
+[4,WHILETK]=r1
+[5,SEMICN]=r2
+[5,INTTK]=r2
+[5,IDENFR]=r2
+[5,LBRACE]=r2
+[5,PRINTFTK]=r2
+[5,IFTK]=r2
+[5,INTCON]=r2
+[5,LPARENT]=r2
+[5,RBRACE]=r2
+[5,WHILETK]=r2
+[6,SEMICN]=r4
+[6,INTTK]=r4
+[6,IDENFR]=r4
+[6,LBRACE]=r4
+[6,PRINTFTK]=r4
+[6,IFTK]=r4
+[6,INTCON]=r4
+[6,LPARENT]=r4
+[6,RBRACE]=r4
+[6,WHILETK]=r4
+[7,SEMICN]=r5
+[7,INTTK]=r5
+[7,IDENFR]=r5
+[7,LBRACE]=r5
+[7,PRINTFTK]=r5
+[7,IFTK]=r5
+[7,INTCON]=r5
+[7,LPARENT]=r5
+[7,RBRACE]=r5
+[7,WHILETK]=r5
+[8,IDENFR]=s24
+[8,<VarDeclList>]=22
+[8,<VarDef>]=23
+[9,SEMICN]=r25
+[9,ASSIGN]=s25
+[10,SEMICN]=s26
+[11,SEMICN]=r13
+[11,INTTK]=r13
+[11,IDENFR]=r13
+[11,LBRACE]=r13
+[11,PRINTFTK]=r13
+[11,IFTK]=r13
+[11,INTCON]=r13
+[11,LPARENT]=r13
+[11,RBRACE]=r13
+[11,WHILETK]=r13
+[12,SEMICN]=r14
+[12,INTTK]=r14
+[12,IDENFR]=r14
+[12,LBRACE]=r14
+[12,PRINTFTK]=r14
+[12,IFTK]=r14
+[12,INTCON]=r14
+[12,LPARENT]=r14
+[12,RBRACE]=r14
+[12,WHILETK]=r14
+[13,LPARENT]=s27
+[14,LPARENT]=s28
+[15,LPARENT]=s29
+[16,SEMICN]=r22
+[16,PLUS]=s30
+[16,MINU]=s31
+[17,SEMICN]=r32
+[17,MOD]=s34
+[17,PLUS]=r32
+[17,DIV]=s33
+[17,MINU]=r32
+[17,MULT]=s32
+[18,SEMICN]=r28
+[18,MOD]=r28
+[18,DIV]=r28
+[18,MULT]=r28
+[19,SEMICN]=r27
+[20,IDENFR]=s36
+[20,<AddExp>]=16
+[20,<Exp>]=35
+[20,INTCON]=s21
+[20,<MulExp>]=17
+[20,LPARENT]=s20
+[20,<PrimaryExp>]=19
+[20,<UnaryExp>]=18
+[21,SEMICN]=r26
+[21,RPARENT]=r26
+[22,SEMICN]=s37
+[22,COMMA]=s38
+[23,SEMICN]=r8
+[23,COMMA]=r8
+[24,SEMICN]=r9
+[24,ASSIGN]=s39
+[24,COMMA]=r9
+[25,IDENFR]=s36
+[25,<AddExp>]=16
+[25,<Exp>]=40
+[25,GETINTTK]=s41
+[25,INTCON]=s21
+[25,<MulExp>]=17
+[25,LPARENT]=s20
+[25,<PrimaryExp>]=19
+[25,<UnaryExp>]=18
+[26,SEMICN]=r12
+[26,INTTK]=r12
+[26,IDENFR]=r12
+[26,LBRACE]=r12
+[26,PRINTFTK]=r12
+[26,IFTK]=r12
+[26,INTCON]=r12
+[26,LPARENT]=r12
+[26,RBRACE]=r12
+[26,WHILETK]=r12
+[27,<LAndExp>]=44
+[27,IDENFR]=s36
+[27,<AddExp>]=47
+[27,<Cond>]=42
+[27,<LOrExp>]=43
+[27,<RelExp>]=46
+[27,INTCON]=s21
+[27,<MulExp>]=17
+[27,LPARENT]=s20
+[27,<PrimaryExp>]=19
+[27,<EqExp>]=45
+[27,<UnaryExp>]=18
+[28,<LAndExp>]=44
+[28,IDENFR]=s36
+[28,<AddExp>]=47
+[28,<Cond>]=48
+[28,<LOrExp>]=43
+[28,<RelExp>]=46
+[28,INTCON]=s21
+[28,<MulExp>]=17
+[28,LPARENT]=s20
+[28,<PrimaryExp>]=19
+[28,<EqExp>]=45
+[28,<UnaryExp>]=18
+[29,STRCON]=s49
+[30,IDENFR]=s36
+[30,INTCON]=s21
+[30,<MulExp>]=50
+[30,LPARENT]=s20
+[30,<PrimaryExp>]=19
+[30,<UnaryExp>]=18
+[31,IDENFR]=s36
+[31,INTCON]=s21
+[31,<MulExp>]=51
+[31,LPARENT]=s20
+[31,<PrimaryExp>]=19
+[31,<UnaryExp>]=18
+[32,IDENFR]=s36
+[32,INTCON]=s21
+[32,LPARENT]=s20
+[32,<PrimaryExp>]=19
+[32,<UnaryExp>]=52
+[33,IDENFR]=s36
+[33,INTCON]=s21
+[33,LPARENT]=s20
+[33,<PrimaryExp>]=19
+[33,<UnaryExp>]=53
+[34,IDENFR]=s36
+[34,INTCON]=s21
+[34,LPARENT]=s20
+[34,<PrimaryExp>]=19
+[34,<UnaryExp>]=54
+[35,RPARENT]=s55
+[36,IDENFR]=r25
+[36,LBRACE]=r25
+[36,MOD]=r25
+[36,INTCON]=r25
+[36,MINU]=r25
+[36,LPARENT]=r25
+[36,SEMICN]=r25
+[36,INTTK]=r25
+[36,PRINTFTK]=r25
+[36,IFTK]=r25
+[36,PLUS]=r25
+[36,DIV]=r25
+[36,RBRACE]=r25
+[36,MULT]=r25
+[36,RPARENT]=r25
+[36,WHILETK]=r25
+[37,SEMICN]=r6
+[37,INTTK]=r6
+[37,IDENFR]=r6
+[37,LBRACE]=r6
+[37,PRINTFTK]=r6
+[37,IFTK]=r6
+[37,INTCON]=r6
+[37,LPARENT]=r6
+[37,RBRACE]=r6
+[37,WHILETK]=r6
+[38,IDENFR]=s24
+[38,<VarDef>]=56
+[39,IDENFR]=s36
+[39,<AddExp>]=16
+[39,<Exp>]=57
+[39,INTCON]=s21
+[39,<MulExp>]=17
+[39,LPARENT]=s20
+[39,<PrimaryExp>]=19
+[39,<UnaryExp>]=18
+[40,SEMICN]=r11
+[40,INTTK]=r11
+[40,IDENFR]=r11
+[40,LBRACE]=r11
+[40,PRINTFTK]=r11
+[40,IFTK]=r11
+[40,INTCON]=r11
+[40,LPARENT]=r11
+[40,RBRACE]=r11
+[40,WHILETK]=r11
+[41,LPARENT]=s58
+[42,RPARENT]=s59
+[43,RPARENT]=r23
+[43,OR]=s60
+[44,AND]=s61
+[44,RPARENT]=r45
+[44,OR]=r45
+[45,NEQ]=s63
+[45,AND]=r43
+[45,RPARENT]=r43
+[45,EQL]=s62
+[46,GEQ]=s67
+[46,LEQ]=s66
+[46,NEQ]=r40
+[46,GRE]=s65
+[46,LSS]=s64
+[46,RPARENT]=r40
+[46,EQL]=r40
+[47,GEQ]=r35
+[47,LEQ]=r35
+[47,GRE]=r35
+[47,PLUS]=s30
+[47,LSS]=r35
+[47,MINU]=s31
+[47,RPARENT]=r35
+[48,RPARENT]=s68
+[49,<ExpList>]=69
+[49,COMMA]=r21
+[49,RPARENT]=r21
+[50,IDENFR]=r33
+[50,LBRACE]=r33
+[50,MOD]=s34
+[50,INTCON]=r33
+[50,MINU]=r33
+[50,LPARENT]=r33
+[50,SEMICN]=r33
+[50,INTTK]=r33
+[50,PRINTFTK]=r33
+[50,IFTK]=r33
+[50,PLUS]=r33
+[50,DIV]=s33
+[50,COMMA]=r33
+[50,RBRACE]=r33
+[50,MULT]=s32
+[50,RPARENT]=r33
+[50,WHILETK]=r33
+[51,IDENFR]=r34
+[51,LBRACE]=r34
+[51,MOD]=s34
+[51,INTCON]=r34
+[51,MINU]=r34
+[51,LPARENT]=r34
+[51,SEMICN]=r34
+[51,INTTK]=r34
+[51,PRINTFTK]=r34
+[51,IFTK]=r34
+[51,PLUS]=r34
+[51,DIV]=s33
+[51,COMMA]=r34
+[51,RBRACE]=r34
+[51,MULT]=s32
+[51,RPARENT]=r34
+[51,WHILETK]=r34
+[52,IDENFR]=r29
+[52,LBRACE]=r29
+[52,MOD]=r29
+[52,INTCON]=r29
+[52,MINU]=r29
+[52,LPARENT]=r29
+[52,SEMICN]=r29
+[52,INTTK]=r29
+[52,PRINTFTK]=r29
+[52,IFTK]=r29
+[52,DIV]=r29
+[52,PLUS]=r29
+[52,COMMA]=r29
+[52,MULT]=r29
+[52,RBRACE]=r29
+[52,RPARENT]=r29
+[52,WHILETK]=r29
+[53,IDENFR]=r30
+[53,LBRACE]=r30
+[53,MOD]=r30
+[53,INTCON]=r30
+[53,MINU]=r30
+[53,LPARENT]=r30
+[53,SEMICN]=r30
+[53,INTTK]=r30
+[53,PRINTFTK]=r30
+[53,IFTK]=r30
+[53,DIV]=r30
+[53,PLUS]=r30
+[53,COMMA]=r30
+[53,MULT]=r30
+[53,RBRACE]=r30
+[53,RPARENT]=r30
+[53,WHILETK]=r30
+[54,IDENFR]=r31
+[54,LBRACE]=r31
+[54,MOD]=r31
+[54,INTCON]=r31
+[54,MINU]=r31
+[54,LPARENT]=r31
+[54,SEMICN]=r31
+[54,INTTK]=r31
+[54,PRINTFTK]=r31
+[54,IFTK]=r31
+[54,DIV]=r31
+[54,PLUS]=r31
+[54,COMMA]=r31
+[54,MULT]=r31
+[54,RBRACE]=r31
+[54,RPARENT]=r31
+[54,WHILETK]=r31
+[55,IDENFR]=r24
+[55,LBRACE]=r24
+[55,MOD]=r24
+[55,INTCON]=r24
+[55,MINU]=r24
+[55,LPARENT]=r24
+[55,SEMICN]=r24
+[55,INTTK]=r24
+[55,PRINTFTK]=r24
+[55,IFTK]=r24
+[55,PLUS]=r24
+[55,DIV]=r24
+[55,COMMA]=r24
+[55,RBRACE]=r24
+[55,MULT]=r24
+[55,RPARENT]=r24
+[55,WHILETK]=r24
+[56,SEMICN]=r7
+[56,COMMA]=r7
+[57,SEMICN]=r10
+[57,COMMA]=r10
+[58,RPARENT]=s70
+[59,LBRACE]=s2
+[59,<Block>]=71
+[60,<LAndExp>]=72
+[60,IDENFR]=s36
+[60,<AddExp>]=47
+[60,<RelExp>]=46
+[60,INTCON]=s21
+[60,<MulExp>]=17
+[60,LPARENT]=s20
+[60,<PrimaryExp>]=19
+[60,<EqExp>]=45
+[60,<UnaryExp>]=18
+[61,IDENFR]=s36
+[61,<AddExp>]=47
+[61,<RelExp>]=46
+[61,INTCON]=s21
+[61,<MulExp>]=17
+[61,LPARENT]=s20
+[61,<PrimaryExp>]=19
+[61,<EqExp>]=73
+[61,<UnaryExp>]=18
+[62,IDENFR]=s36
+[62,<AddExp>]=47
+[62,<RelExp>]=74
+[62,INTCON]=s21
+[62,<MulExp>]=17
+[62,LPARENT]=s20
+[62,<PrimaryExp>]=19
+[62,<UnaryExp>]=18
+[63,IDENFR]=s36
+[63,<AddExp>]=47
+[63,<RelExp>]=75
+[63,INTCON]=s21
+[63,<MulExp>]=17
+[63,LPARENT]=s20
+[63,<PrimaryExp>]=19
+[63,<UnaryExp>]=18
+[64,IDENFR]=s36
+[64,<AddExp>]=76
+[64,INTCON]=s21
+[64,<MulExp>]=17
+[64,LPARENT]=s20
+[64,<PrimaryExp>]=19
+[64,<UnaryExp>]=18
+[65,IDENFR]=s36
+[65,<AddExp>]=77
+[65,INTCON]=s21
+[65,<MulExp>]=17
+[65,LPARENT]=s20
+[65,<PrimaryExp>]=19
+[65,<UnaryExp>]=18
+[66,IDENFR]=s36
+[66,<AddExp>]=78
+[66,INTCON]=s21
+[66,<MulExp>]=17
+[66,LPARENT]=s20
+[66,<PrimaryExp>]=19
+[66,<UnaryExp>]=18
+[67,IDENFR]=s36
+[67,<AddExp>]=79
+[67,INTCON]=s21
+[67,<MulExp>]=17
+[67,LPARENT]=s20
+[67,<PrimaryExp>]=19
+[67,<UnaryExp>]=18
+[68,IDENFR]=s9
+[68,LBRACE]=s2
+[68,<Exp>]=10
+[68,<Stmt>]=80
+[68,<Block>]=12
+[68,INTCON]=s21
+[68,<MulExp>]=17
+[68,LPARENT]=s20
+[68,<PrimaryExp>]=19
+[68,SEMICN]=s11
+[68,<AddExp>]=16
+[68,PRINTFTK]=s15
+[68,IFTK]=s13
+[68,WHILETK]=s14
+[68,<UnaryExp>]=18
+[69,COMMA]=s82
+[69,RPARENT]=s81
+[70,SEMICN]=s83
+[71,SEMICN]=r15
+[71,INTTK]=r15
+[71,IDENFR]=r15
+[71,LBRACE]=r15
+[71,PRINTFTK]=r15
+[71,ELSETK]=s84
+[71,IFTK]=r15
+[71,INTCON]=r15
+[71,LPARENT]=r15
+[71,RBRACE]=r15
+[71,WHILETK]=r15
+[72,AND]=s61
+[72,RPARENT]=r46
+[72,OR]=r46
+[73,NEQ]=s63
+[73,AND]=r44
+[73,RPARENT]=r44
+[73,OR]=r44
+[73,EQL]=s62
+[74,GEQ]=s67
+[74,LEQ]=s66
+[74,NEQ]=r41
+[74,GRE]=s65
+[74,LSS]=s64
+[74,AND]=r41
+[74,RPARENT]=r41
+[74,EQL]=r41
+[74,OR]=r41
+[75,GEQ]=s67
+[75,LEQ]=s66
+[75,NEQ]=r42
+[75,GRE]=s65
+[75,LSS]=s64
+[75,AND]=r42
+[75,RPARENT]=r42
+[75,EQL]=r42
+[75,OR]=r42
+[76,GEQ]=r36
+[76,LEQ]=r36
+[76,GRE]=r36
+[76,NEQ]=r36
+[76,PLUS]=s30
+[76,LSS]=r36
+[76,MINU]=s31
+[76,AND]=r36
+[76,RPARENT]=r36
+[76,OR]=r36
+[76,EQL]=r36
+[77,GEQ]=r37
+[77,LEQ]=r37
+[77,GRE]=r37
+[77,NEQ]=r37
+[77,PLUS]=s30
+[77,LSS]=r37
+[77,MINU]=s31
+[77,AND]=r37
+[77,RPARENT]=r37
+[77,OR]=r37
+[77,EQL]=r37
+[78,GEQ]=r38
+[78,LEQ]=r38
+[78,GRE]=r38
+[78,NEQ]=r38
+[78,PLUS]=s30
+[78,LSS]=r38
+[78,MINU]=s31
+[78,AND]=r38
+[78,RPARENT]=r38
+[78,OR]=r38
+[78,EQL]=r38
+[79,GEQ]=r39
+[79,LEQ]=r39
+[79,GRE]=r39
+[79,NEQ]=r39
+[79,PLUS]=s30
+[79,LSS]=r39
+[79,MINU]=s31
+[79,AND]=r39
+[79,RPARENT]=r39
+[79,OR]=r39
+[79,EQL]=r39
+[80,SEMICN]=r17
+[80,INTTK]=r17
+[80,IDENFR]=r17
+[80,LBRACE]=r17
+[80,PRINTFTK]=r17
+[80,IFTK]=r17
+[80,INTCON]=r17
+[80,LPARENT]=r17
+[80,RBRACE]=r17
+[80,WHILETK]=r17
+[81,SEMICN]=s85
+[82,IDENFR]=s36
+[82,<AddExp>]=16
+[82,<Exp>]=86
+[82,INTCON]=s21
+[82,<MulExp>]=17
+[82,LPARENT]=s20
+[82,<PrimaryExp>]=19
+[82,<UnaryExp>]=18
+[83,SEMICN]=r18
+[83,INTTK]=r18
+[83,IDENFR]=r18
+[83,LBRACE]=r18
+[83,PRINTFTK]=r18
+[83,IFTK]=r18
+[83,INTCON]=r18
+[83,LPARENT]=r18
+[83,RBRACE]=r18
+[83,WHILETK]=r18
+[84,LBRACE]=s2
+[84,<Block>]=87
+[85,SEMICN]=r19
+[85,INTTK]=r19
+[85,IDENFR]=r19
+[85,LBRACE]=r19
+[85,PRINTFTK]=r19
+[85,IFTK]=r19
+[85,INTCON]=r19
+[85,LPARENT]=r19
+[85,RBRACE]=r19
+[85,WHILETK]=r19
+[86,COMMA]=r20
+[86,RPARENT]=r20
+[87,SEMICN]=r16
+[87,INTTK]=r16
+[87,IDENFR]=r16
+[87,LBRACE]=r16
+[87,PRINTFTK]=r16
+[87,IFTK]=r16
+[87,INTCON]=r16
+[87,LPARENT]=r16
+[87,RBRACE]=r16
+[87,WHILETK]=r16
+
+
+进程已结束,退出代码0
+
+
+//新项目是否属于已有状态
+/*boolean newItemNotExist = true;
+                    for (Map.Entry<Integer, State> stateEntry : automata.entrySet()) {
+                        for (Item searchItem : stateEntry.getValue().items) {
+                            //Δ 注意new对象的equals问题
+                            if (searchItem.equals(newItem)) {//新项目存在，计算go
+                                newItemNotExist = false;
+                                if (next.isTerminal()) {//终结符shift
+                                    thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>()).put(next, stateEntry.getKey());
+                                } else if (next.isNonTerminal()) {//非终结符goto
+                                    thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>()).put(next, stateEntry.getKey());
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    if (newItemNotExist) {//新项目不存在
+                        if (thisState.go.get(SymbolType.SHIFT) != null && thisState.go.get(SymbolType.SHIFT).containsKey(next)) {//go中已含有next，则新项目添加到经next到达的状态
+                            automata.get(thisState.go.get(SymbolType.SHIFT).get(next)).items.add(newItem);
+                        } else if (thisState.go.get(SymbolType.GOTO) != null && thisState.go.get(SymbolType.GOTO).containsKey(next)) {//go中已含有next，则新项目添加到经next到达的状态
+                            automata.get(thisState.go.get(SymbolType.GOTO).get(next)).items.add(newItem);
+                        } else {//否则创建新状态
+                            State newState = new State();
+                            newState.items.add(newItem);
+                            automata.put(newStateIndex, newState);
+                            if (next.isTerminal()) {
+                                thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>()).put(next, newStateIndex);
+                            } else if (next.isNonTerminal()) {
+                                thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>()).put(next, newStateIndex);
+                            }
+                            newStateIndex++;
+                        }
+                    }*/
+/*int i = 0; //自动机编号
+        int newStateIndex = 1;
+        while (i < automata.size()) {
+            //当前状态
+            State thisState = automata.get(i);
+
+            int j = 0;//项编号
+            while (j < thisState.items.size()) {
+                //当前项
+                Item thisItem = thisState.items.get(j);
+                //文法
+                Production thisProduction = grammar.getProductions().get(thisItem.grammarIndex);
+                //右部
+                ArrayList<SymbolType> right = thisProduction.getRight();
+                int k = thisItem.point + 1;
+                //当前处理的右部符号，看是否待约
+                if (k < right.size()) {
+                    SymbolType thisRightItem = right.get(k);
+                    if (thisRightItem.isNonTerminal()) {
+                        ArrayList<SymbolType> beta = new ArrayList<>();
+                        for (int l = k + 1; l < right.size(); l++) {
+                            beta.add(right.get(l));
+                        }
+                        //待约项添加到状态中
+                        ArrayList<Item> newItems = getProductionByLeft(thisRightItem, beta, thisItem.searchCharacter);
+                        for (Item newItem : newItems) {
+                            //新项是否已存在,不存在才添加
+                            boolean flag = false;
+                            for (Item item : thisState.items) {
+                                //如果有则合并搜索符
+                                if (item.grammarIndex == newItem.grammarIndex && item.point == newItem.point) {
+                                    flag = true;
+                                    item.searchCharacter.addAll(newItem.searchCharacter);
+                                    break;
+                                }
+                            }
+                            if (!flag) {
+                                thisState.items.add(newItem);
+                            }
+                        }
+                    }
+                }
+                */
+/*while (true) {
+                    if (k >= right.size()) {
+                        break;
+                    }
+                    SymbolType thisRightItem = right.get(k);
+                    //如果是终结符，退出
+                    if (!thisRightItem.isNonTerminal()) {
+                        break;
+                    }
+                    ArrayList<SymbolType> beta = new ArrayList<>();
+                    for (int l = k + 1; l < right.size(); l++) {
+                        beta.add(right.get(l));
+                    }
+                    //待约项添加到状态中
+                    ArrayList<Item> newItems = getProductionByLeft(thisRightItem, beta, thisItem.searchCharacter);
+                    for (Item newItem : newItems) {
+                        //新项是否已存在,不存在才添加
+                        boolean flag = false;
+                        for (Item item : thisState.items) {
+                            //如果有则合并搜索符
+                            if (item.grammarIndex == newItem.grammarIndex && item.point == newItem.point) {
+                                flag = true;
+                                item.searchCharacter.addAll(newItem.searchCharacter);
+                                break;
+                            }
+                        }
+                        if (!flag) {
+                            thisState.items.add(newItem);
+                        }
+                    }
+                    k++;
+                }*/
+/*
+                j++;
+            }
+
+            ArrayList<State> tempStates = new ArrayList<>();
+            for (Item item : thisState.items) {//遍历每条文法
+                //移进、goto的下一位
+                int nextIndex = item.point + 1;
+                ArrayList<SymbolType> right = grammar.getProductions().get(item.grammarIndex).getRight();
+                if (nextIndex >= right.size() || (right.size() == 1 && right.get(0).isEpsilon())) {
+                    //如果next大于等于右部长度，.已移到最后，则是规约项;或者是推空文法，直接规约
+                    if (item.grammarIndex == 0) {
+                        //如果是第0项文法，则是acc
+                        thisState.go.computeIfAbsent(SymbolType.ACC, key -> new HashMap<>());
+                        thisState.go.get(SymbolType.ACC).put(SymbolType.EOF, 0);
+                    } else {
+                        //则是普通规约，按搜索符
+                        for (SymbolType search : item.searchCharacter) {
+                            thisState.go.computeIfAbsent(SymbolType.REDUCE, k -> new HashMap<>());
+                            thisState.go.get(SymbolType.REDUCE).put(search, item.grammarIndex);
+                        }
+                    }
+                } else {
+                    //否则是移进、goto
+                    SymbolType nextRightItem = right.get(nextIndex);
+                    */
+/*if (nextRightItem.isTerminal()) {
+                        //如果是终结符,则是shift
+                        thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>());
+                        if (thisState.go.get(SymbolType.SHIFT).containsKey(nextRightItem)) {
+                            //如果该移进已存在，则将该移进的文法添加到这个已存在的状态
+                            int stateIndex = thisState.go.get(SymbolType.SHIFT).get(nextRightItem);
+                            automata.get(stateIndex).items.add(new Item(item.grammarIndex, item.point + 1, item.searchCharacter));
+                        } else {
+                            //否则创建一个新的状态，将该移进添加到这个新的状态,新的状态添加到自动机
+                            State newState = new State(new ArrayList<>(List.of(new Item(item.grammarIndex, item.point + 1, item.searchCharacter))), new HashMap<>());
+                            automata.put(newStateIndex, newState);
+                            //同时shift指向新状态
+                            thisState.go.get(SymbolType.SHIFT).put(nextRightItem, newStateIndex);
+                            newStateIndex++;
+                        }
+                    } else if (nextRightItem.isNonTerminal()) {
+                        //如果是非终结符则是GOTO
+                        thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>());
+                        if (thisState.go.get(SymbolType.GOTO).containsKey(nextRightItem)) {
+                            //如果该GOTO已存在，则将该GOTO的文法添加到这个已存在的状态
+                            int stateIndex = thisState.go.get(SymbolType.GOTO).get(nextRightItem);
+                            automata.get(stateIndex).items.add(new Item(item.grammarIndex, item.point + 1, item.searchCharacter));
+                        } else {
+                            //否则创建一个新的状态，将该移进添加到这个新的状态,新的状态添加到自动机
+                            State newState = new State(new ArrayList<>(List.of(new Item(item.grammarIndex, item.point + 1, item.searchCharacter))), new HashMap<>());
+                            automata.put(newStateIndex, newState);
+                            //同时goto指向新状态
+                            thisState.go.get(SymbolType.GOTO).put(nextRightItem, newStateIndex);
+                            newStateIndex++;
+                        }
+                    }*/
+/*
+                    boolean flag = true;
+                    for (State state : tempStates) {
+                        Production production = grammar.getProductions().get((state.items.get(0).grammarIndex));
+                        if (production.getRight().get(state.items.get(0).point).equals(nextRightItem)) {
+                            flag = false;
+                            state.items.add(new Item(item.grammarIndex, item.point + 1, item.searchCharacter));
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        State newState =
+                                new State(new ArrayList<>(List.of(new Item(item.grammarIndex, item.point + 1, item
+                                        .searchCharacter))), new HashMap<>());
+                        tempStates.add(newState);
+                    }
+                }
+            }
+
+            for (State tempState : tempStates) {
+                boolean flag = true;
+                Item tempItem = tempState.items.get(0);
+                SymbolType s = grammar.getProductions().get(tempItem.grammarIndex).getRight().get(tempItem.point);
+                for (Map.Entry<Integer, State> stateEntry : automata.entrySet()) {
+                    if (stateEntry.getValue().items.equals(tempState.items)) {
+                        flag = false;
+                        if (s.isTerminal()) {
+                            thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>());
+                            HashMap<SymbolType, Integer> newShift = new HashMap<>();
+                            newShift.put(s, stateEntry.getKey());
+                            thisState.go.put(SymbolType.SHIFT, newShift);
+                        } else if (s.isNonTerminal()) {
+                            thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>());
+                            HashMap<SymbolType, Integer> newGoto = new HashMap<>();
+                            newGoto.put(s, stateEntry.getKey());
+                            thisState.go.put(SymbolType.GOTO, newGoto);
+                        }
+                        break;
+                    }
+                }
+                if (flag) {
+                    automata.put(newStateIndex, tempState);
+                    if (s.isTerminal()) {
+                        thisState.go.computeIfAbsent(SymbolType.SHIFT, key -> new HashMap<>());
+                        HashMap<SymbolType, Integer> newShift = new HashMap<>();
+                        newShift.put(s, newStateIndex);
+                        thisState.go.put(SymbolType.SHIFT, newShift);
+                    } else if (s.isNonTerminal()) {
+                        thisState.go.computeIfAbsent(SymbolType.GOTO, key -> new HashMap<>());
+                        HashMap<SymbolType, Integer> newGoto = new HashMap<>();
+                        newGoto.put(s, newStateIndex);
+                        thisState.go.put(SymbolType.GOTO, newGoto);
+                    }
+                    newStateIndex++;
+                }
+            }
+
+            System.out.println(automata);
+            i++;
+        }*/

@@ -1,40 +1,29 @@
-LBRACE {
-IDENFR x
+<BlockItemList>
+IDENFR m
 ASSIGN =
-INTCON 10
+INTCON 2
+<PrimaryExp>
+<MulExp>
+<AddExp>
+PLUS +
+INTCON 3
+<PrimaryExp>
+<MulExp>
+MULT *
+INTCON 4
+<PrimaryExp>
+<MulExp>
+<AddExp>
 SEMICN ;
-IDENFR y
-ASSIGN =
-INTCON 20
-SEMICN ;
+<Stmt>
+<BlockItemList>
 PRINTFTK printf
 LPARENT (
-STRCON "x=%d,y=%d\n"
+STRCON "m=%d\n"
 COMMA ,
-IDENFR x
-COMMA ,
-IDENFR y
+IDENFR m
 RPARENT )
 SEMICN ;
-IFTK if
-LPARENT (
-IDENFR x
-LSS <
-IDENFR y
-RPARENT )
-LBRACE {
-PRINTFTK printf
-LPARENT (
-STRCON "x<y\n"
-RPARENT )
-SEMICN ;
-RBRACE }
-ELSETK else
-LBRACE {
-PRINTFTK printf
-LPARENT (
-STRCON "x>y\n"
-RPARENT )
-SEMICN ;
-RBRACE }
-RBRACE }
+<Stmt>
+<BlockItemList>
+<CompUnit>

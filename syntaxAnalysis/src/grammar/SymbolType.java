@@ -2,9 +2,9 @@ package grammar;
 
 public enum SymbolType {
     // terminals
-    IDENFR("IDENFR"),    //identifer
-    INTCON("INTCON"),    //int const
-    STRCON("STRCON"),    //string const
+    IDENFR("IDENFR"),    //Ident
+    INTCON("INTCON"),    //IntConst
+    STRCON("STRCON"),    //FormatString
     MAINTK("MAINTK"),    //main
     CONSTTK("CONSTTK"),    //const
     INTTK("INTTK"),        //int
@@ -40,7 +40,9 @@ public enum SymbolType {
     RBRACK("RBRACK"),    //]
     LBRACE("LBRACE"),    //{
     RBRACE("RBRACE"),    //}
-    EOF("EOF"),        //#, end of file
+    EOF("EOF"),        //#
+
+
     NOTE("NOTE"),        //comment
     UNKNOWN("UNKNOWN"), //unkonwn character
 

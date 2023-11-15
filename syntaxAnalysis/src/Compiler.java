@@ -1,28 +1,37 @@
 import lexer.*;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 import grammar.SymbolType;
+import parser.LRTable;
 
 public class Compiler {
     public static void main(String[] args) {
         Lexer lexer = Lexer.getInstance();
         String string = readFile("testfile.txt");
         lexer.init(string);
-        StringBuffer buffer = new StringBuffer();
+
+//        输入串
+        LinkedList<Token> tokens = new LinkedList<>();
+        StringBuffer lexicalBuffer = new StringBuffer();
         Token token = lexer.nextToken();
         while (token != null) {
-            if (token.getType() != SymbolType.UNKNOWN && token.getType() != SymbolType.NOTE)
-                buffer.append(token + "\n");
+            if (token.getType() != SymbolType.UNKNOWN && token.getType() != SymbolType.NOTE) {
+                tokens.offer(token);
+                lexicalBuffer.append(token + "\n");
+            }
             token = lexer.nextToken();
         }
-        if (buffer.length() > 0) {
-            buffer.deleteCharAt(buffer.length() - 1);
+        if (lexicalBuffer.length() > 0) {
+            lexicalBuffer.deleteCharAt(lexicalBuffer.length() - 1);
         }
-        // buffer 是词法分析结果 TODO 根据LR(1)分析表和词法分析结果 进行语法分析
+        // tokens 是词法分析结果 TODO 根据LR(1)分析表和词法分析结果 进行语法分析
+        StringBuffer syntaxBuffer = new LRTable().syntaxAnalysis(tokens);
 
-        writeFile("output.txt", buffer.toString());
-        System.out.println(buffer.toString());
+        writeFile("output.txt", syntaxBuffer.toString());
+        System.out.println(syntaxBuffer.toString());
     }
 
     public static String readFile(String path) {
