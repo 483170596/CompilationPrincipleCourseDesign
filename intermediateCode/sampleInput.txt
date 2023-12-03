@@ -1,3 +1,0 @@
-//simple test
-m=2+3*4;
-printf("m=%d\n",m);
