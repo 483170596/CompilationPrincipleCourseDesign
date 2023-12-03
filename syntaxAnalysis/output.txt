@@ -1,29 +1,104 @@
+LBRACE {
 <BlockItemList>
-IDENFR m
+IDENFR x
 ASSIGN =
-INTCON 2
+INTCON 10
 <PrimaryExp>
+<UnaryExp>
 <MulExp>
 <AddExp>
-PLUS +
-INTCON 3
-<PrimaryExp>
-<MulExp>
-MULT *
-INTCON 4
-<PrimaryExp>
-<MulExp>
-<AddExp>
+<Exp>
 SEMICN ;
 <Stmt>
+<BlockItem>
+<BlockItemList>
+IDENFR y
+ASSIGN =
+INTCON 20
+<PrimaryExp>
+<UnaryExp>
+<MulExp>
+<AddExp>
+<Exp>
+SEMICN ;
+<Stmt>
+<BlockItem>
 <BlockItemList>
 PRINTFTK printf
 LPARENT (
-STRCON "m=%d\n"
+STRCON "x=%d,y=%d\n"
+<ExpList>
 COMMA ,
-IDENFR m
+IDENFR x
+<PrimaryExp>
+<UnaryExp>
+<MulExp>
+<AddExp>
+<Exp>
+<ExpList>
+COMMA ,
+IDENFR y
+<PrimaryExp>
+<UnaryExp>
+<MulExp>
+<AddExp>
+<Exp>
+<ExpList>
 RPARENT )
 SEMICN ;
 <Stmt>
+<BlockItem>
 <BlockItemList>
+IFTK if
+LPARENT (
+IDENFR x
+<PrimaryExp>
+<UnaryExp>
+<MulExp>
+<AddExp>
+<RelExp>
+LSS <
+IDENFR y
+<PrimaryExp>
+<UnaryExp>
+<MulExp>
+<AddExp>
+<RelExp>
+<EqExp>
+<LAndExp>
+<LOrExp>
+<Cond>
+RPARENT )
+LBRACE {
+<BlockItemList>
+PRINTFTK printf
+LPARENT (
+STRCON "x<y\n"
+<ExpList>
+RPARENT )
+SEMICN ;
+<Stmt>
+<BlockItem>
+<BlockItemList>
+RBRACE }
+<Block>
+ELSETK else
+LBRACE {
+<BlockItemList>
+PRINTFTK printf
+LPARENT (
+STRCON "x>y\n"
+<ExpList>
+RPARENT )
+SEMICN ;
+<Stmt>
+<BlockItem>
+<BlockItemList>
+RBRACE }
+<Block>
+<Stmt>
+<BlockItem>
+<BlockItemList>
+RBRACE }
+<Block>
 <CompUnit>

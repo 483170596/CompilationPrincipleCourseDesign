@@ -410,8 +410,7 @@ public class LR1Automata {
                     newStateIndex++;
                 }
             }
-
-/*            System.out.println("------------------------------------------------------");
+            System.out.println("------------------------------------------------------");
             for (Map.Entry<Integer, State> stateEntry : automata.entrySet()) {
                 System.out.println(stateEntry.getKey());
                 for (Item item : stateEntry.getValue().items) {
@@ -419,8 +418,7 @@ public class LR1Automata {
                 }
                 System.out.println("\n" + stateEntry.getValue().go);
                 System.out.println("----------------------------------------");
-            }*/
-
+            }
             stateIndex++;
         }
     }

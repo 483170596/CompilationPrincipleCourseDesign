@@ -1,3 +1,0 @@
-C:/Users/djm18/Desktop/classes/CompilationPrincipleCourseDesign/syntaxTemple/cmake-build-debug/CMakeFiles/syntaxTemple.dir
-C:/Users/djm18/Desktop/classes/CompilationPrincipleCourseDesign/syntaxTemple/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/djm18/Desktop/classes/CompilationPrincipleCourseDesign/syntaxTemple/cmake-build-debug/CMakeFiles/rebuild_cache.dir

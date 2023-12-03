@@ -1,0 +1,6 @@
+0:	T1=3*4
+1:	T2=2+T1
+2:	m=T2
+3:	param "m=%d\n"
+4:	param m
+5:	call printf,2

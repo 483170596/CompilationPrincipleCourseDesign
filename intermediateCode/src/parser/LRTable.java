@@ -3,11 +3,10 @@ package parser;
 import grammar.*;
 import lexer.Token;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Stack;
 
 public class LRTable {
     private HashMap<Integer, HashMap<SymbolType, LRTableEntry>> table;
@@ -57,32 +56,6 @@ public class LRTable {
                     addItem(stateEntry.getKey(), entry.getKey(), new LRTableEntry(c, entry.getValue()));
                 }
             }
-        }
-    }
-
-    public void init_B() {
-        this.grammar = new CFGBlock();
-        grammar.init();
-        int row, state;
-        char action;
-        SymbolType column;
-        // 使用 try-with-resources 语句确保在操作完成后自动关闭资源
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/parser/LR_table.txt"))) {
-            // 逐行读取文件内容
-            String line;
-            while (!(line = reader.readLine()).equals("EOF")) {
-                String[] words = line.split(" ");
-//                System.out.println(Arrays.toString(words));
-//                System.exit(0);
-                row = Integer.parseInt(words[0]);
-                column = SymbolType.valueOf(words[1]);
-                action = words[2].charAt(0);
-                state = Integer.parseInt(words[3]);
-                addItem(row, column, new LRTableEntry(action, state));
-            }
-        } catch (IOException e) {
-            // 处理异常
-            e.printStackTrace();
         }
     }
 
@@ -199,9 +172,44 @@ public class LRTable {
         addItem(35, SymbolType.IDENFR, new LRTableEntry('r', 4));
     }
 
+    //临时变量
+    private class tempVar {
+        int index;
+
+        public tempVar() {
+        }
+
+        public tempVar(int index) {
+            this.index = index;
+        }
+
+        /**
+         * 获取
+         *
+         * @return index
+         */
+        public int getIndex() {
+            return index;
+        }
+
+        /**
+         * 设置
+         *
+         * @param index
+         */
+        public void setIndex(int index) {
+            this.index = index;
+        }
+
+        public String toString() {
+            return "T" + index;
+        }
+    }
+
+    //语法分析
     public StringBuffer syntaxAnalysis(LinkedList<Token> tokens) {
         tokens.offer(new Token(SymbolType.EOF, "#", tokens.size() + 1));
-        init_B();
+        init();
         StringBuffer syntaxBuffer = new StringBuffer();
 
         //状态栈
@@ -217,7 +225,6 @@ public class LRTable {
             if (newEntry == null) {
                 throw new NullPointerException(stateStack + " " + symbolStack + "\n---\n" + syntaxBuffer);
             }
-            System.out.println(stateStack + " " + symbolStack + " " + nextToken + " " + newEntry + "\n---\n");
             /*
             m为状态栈顶，a为当前输入符号，$|ε| = 0$
             1. *初始*：0入状态栈，#入符号栈
@@ -245,13 +252,7 @@ public class LRTable {
                 }
                 symbolStack.push(thisProduct.getLeft());
                 syntaxBuffer.append(thisProduct.getLeft() + "\n");
-                try {
-                    stateStack.push(get(stateStack.peek(), symbolStack.peek()).getState());
-                } catch (NullPointerException e) {
-                    System.out.println(thisProduct.getRight().size());
-                    System.out.println(stateStack + " " + symbolStack + "\n------------\n" + syntaxBuffer + "\n->" + nextToken);
-                    System.exit(1);
-                }
+                stateStack.push(get(stateStack.peek(), symbolStack.peek()).getState());
                 continue;
             }
             if (newEntry.getAction() == 'a') {
@@ -261,7 +262,6 @@ public class LRTable {
         }
         return syntaxBuffer;
     }
-
 
     public void addItem(int row, SymbolType column, LRTableEntry entry) {
         HashMap<SymbolType, LRTableEntry> tmp = null;
@@ -294,9 +294,7 @@ public class LRTable {
 
     public static void main(String[] args) {
         LRTable lrTable = new LRTable();
-//        String currentDirectory = System.getProperty("user.dir");
-//        System.out.println("Current working directory: " + currentDirectory);
-        lrTable.init_B();
+        lrTable.init();
         System.out.println(lrTable);
     }
 }

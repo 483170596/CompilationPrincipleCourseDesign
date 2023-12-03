@@ -94,7 +94,7 @@ public class CFGBlock extends CFG {
         p = new Production(SymbolType.VarDef, SymbolType.IDENFR, SymbolType.ASSIGN, SymbolType.Exp);
         addProduction(p);
         //11) Stmt → Ident '=' Exp ';'
-        p = new Production(SymbolType.Stmt, SymbolType.IDENFR, SymbolType.ASSIGN, SymbolType.Exp, SymbolType.SEMICN);
+        p = new Production(SymbolType.Stmt, SymbolType.IDENFR, SymbolType.ASSIGN, SymbolType.Exp);
         addProduction(p);
         //12) Stmt → Exp ';'
         p = new Production(SymbolType.Stmt, SymbolType.Exp, SymbolType.SEMICN);
@@ -206,7 +206,7 @@ public class CFGBlock extends CFG {
         addProduction(p);
     }
 
-    public void initTest() {
+    public void initTest(){
         this.setStartSymbol(SymbolType.CompUnit);
         Production p = null;
 
@@ -223,7 +223,7 @@ public class CFGBlock extends CFG {
         addProduction(p);
 
         //4)T->TF
-        p = new Production(SymbolType.T, SymbolType.T, SymbolType.F);
+        p = new Production(SymbolType.T, SymbolType.T,SymbolType.F);
         addProduction(p);
 
         //5) T->F
@@ -243,11 +243,11 @@ public class CFGBlock extends CFG {
         addProduction(p);
 
         //9)F->b
-        p = new Production(SymbolType.F, SymbolType.b);
+        p =  new Production(SymbolType.F, SymbolType.b);
         addProduction(p);
     }
 
-    public void initTest1() {
+    public void initTest1(){
         this.setStartSymbol(SymbolType.CompUnit);
         Production p = null;
 
@@ -256,11 +256,11 @@ public class CFGBlock extends CFG {
         addProduction(p);
 
         //1)S->aAd
-        p = new Production(SymbolType.S, SymbolType.a, SymbolType.A, SymbolType.d);
+        p = new Production(SymbolType.S, SymbolType.a, SymbolType.A,SymbolType.d);
         addProduction(p);
 
         //2)S->bAc
-        p = new Production(SymbolType.S, SymbolType.b, SymbolType.A, SymbolType.c);
+        p = new Production(SymbolType.S, SymbolType.b, SymbolType.A,SymbolType.c);
         addProduction(p);
 
         //3)S->aec

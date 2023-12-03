@@ -1,3 +1,28 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFile {
+    public static void main(String[] args) {
+        // 指定要读取的文件路径
+        String filePath = "path/to/your/file.txt";
+
+        // 使用 try-with-resources 语句确保在操作完成后自动关闭资源
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            // 逐行读取文件内容
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // 在这里处理每一行读取到的内容，例如打印出来
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            // 处理异常
+            e.printStackTrace();
+        }
+    }
+}
+
+
 [0,LBRACE]=s2
 [0,<Block>]=1
 [1,EOF]=acc
