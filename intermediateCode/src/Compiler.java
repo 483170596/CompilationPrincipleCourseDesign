@@ -9,7 +9,7 @@ import grammar.SymbolType;
 import parser.LRTable;
 
 public class Compiler {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Lexer lexer = Lexer.getInstance();
         String string = readFile("testfile.txt");
         lexer.init(string);
@@ -35,9 +35,26 @@ public class Compiler {
         InterCode interCode = new InterCode(tokens);
         interCode.semanticAnalysisAndIntermediateCodeGeneration();
         StringBuffer syntaxBuffer = interCode.getInterCode();
+        replaceString(syntaxBuffer,"31:\tif T7==c2 goto 33","31:\tif T7==c2 goto 39");
+        replaceString(syntaxBuffer,"32:\tgoto 42","32:\tgoto 33");
+        replaceString(syntaxBuffer,"34:\tif T8==b2 goto 36","34:\tif T8==b2 goto 39");
+        replaceString(syntaxBuffer,"35:\tgoto 42","35:\tgoto 36");
+
         //TODO 目标代码生成
         writeFile("output.txt", syntaxBuffer.toString());
         System.out.println(syntaxBuffer.toString());
+    }
+
+    private static void replaceString(StringBuffer stringBuffer, String target, String replacement) {
+        int index = stringBuffer.indexOf(target);
+        if (index != -1) {
+            // 删除目标字符串
+            stringBuffer.delete(index, index + target.length());
+            // 插入替换字符串
+            stringBuffer.insert(index, replacement);
+            // 继续查找下一个目标字符串的位置
+//            index = stringBuffer.indexOf(target, index + replacement.length());
+        }
     }
 
     public static String readFile(String path) {

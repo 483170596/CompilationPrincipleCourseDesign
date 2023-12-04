@@ -7,6 +7,7 @@ import lexer.Token;
 import parser.LRTable;
 import parser.LRTableEntry;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -83,7 +84,7 @@ public class InterCode {
     private boolean whileFlag = false;//用来判断是否进入了else语句的flag
 
     //构造方法
-    public InterCode(List<Token> tokens) {
+    public InterCode(List<Token> tokens) throws IOException {
         this.tokens = tokens;
         int line = tokens.get(tokens.size() - 1).getLine();
         line++;
