@@ -1,0 +1,14 @@
+0:	x=10
+1:	y=20
+2:	param "x=%d,y=%d\n"
+3:	param x
+4:	param y
+5:	call printf,3
+6:	if x<y goto 8
+7:	goto 11
+8:	param "x<y\n"
+9:	call printf,1
+10:	goto 13
+11:	param "x>y\n"
+12:	call printf,1
+13:	halt

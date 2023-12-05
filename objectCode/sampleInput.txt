@@ -1,0 +1,11 @@
+{
+	//simple test
+	x=10;
+	y=20;
+	printf("x=%d,y=%d\n",x,y);
+	if(x<y){
+		printf("x<y\n");
+	}else{
+		printf("x>y\n");
+	}
+}
