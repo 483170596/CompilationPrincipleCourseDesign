@@ -1,0 +1,68 @@
+.data
+str0: .asciiz "x="
+str1: .asciiz ",y="
+str2: .asciiz "\n"
+str3: .asciiz "x<y\n"
+str4: .asciiz "x>y\n"
+
+.text
+main:
+L0: #x=10
+li $t0, 10
+sw $t0, x
+
+L1: #y=20
+li $t0, 20
+sw $t0, y
+
+L2: #param "x=%d,y=%d\n"
+L3: #param x
+L4: #param y
+L5: #call printf,3
+la $a0, str0
+li $v0, 4
+syscall
+lw $a0, x
+li $v0, 1
+syscall
+la $a0, str1
+li $v0, 4
+syscall
+lw $a0, y
+li $v0, 1
+syscall
+la $a0, str2
+li $v0, 4
+syscall
+
+L6: #if x<y goto 8
+lw $t1, x
+lw $t2, y
+blt $t1, $t2, L8
+
+L7: #goto 11
+b L11
+
+L8: #param "x<y\n"
+L9: #call printf,1
+la $a0, str3
+li $v0, 4
+syscall
+
+L10: #goto 13
+b L13
+
+L11: #param "x>y\n"
+L12: #call printf,1
+la $a0, str4
+li $v0, 4
+syscall
+
+L13: #halt
+li $v0, 10
+syscall
+
+
+.data
+x: .word 0
+y: .word 0

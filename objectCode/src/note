@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+We got "general triangle" when we expected "right triangle" at line 2.
 public class ReadFile {
     public static void main(String[] args) {
         // 指定要读取的文件路径

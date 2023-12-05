@@ -1,14 +1,67 @@
-0:	x=10
-1:	y=20
-2:	param "x=%d,y=%d\n"
-3:	param x
-4:	param y
-5:	call printf,3
-6:	if x<y goto 8
-7:	goto 11
-8:	param "x<y\n"
-9:	call printf,1
-10:	goto 13
-11:	param "x>y\n"
-12:	call printf,1
-13:	halt
+.data
+output_format: .asciiz "x=%d, y=%d\n"
+x_less_than_y: .asciiz "x<y\n"
+x_greater_than_y: .asciiz "x>y\n"
+
+.text
+main:
+    # 0: x = 10
+    li $t0, 10
+    sw $t0, x
+
+    # 1: y = 20
+    li $t1, 20
+    sw $t1, y
+
+    # 2: param "x=%d, y=%d\n"
+    la $a0, output_format
+    li $v0, 4
+    syscall
+
+    # 3: param x
+    lw $a0, x
+
+    # 4: param y
+    lw $a1, y
+
+    # 5: call printf, 3
+    li $v0, 4
+    syscall
+
+    # 6: if x < y goto 8
+    lw $t2, x
+    lw $t3, y
+    bge $t2, $t3, else_branch
+
+    # 7: goto 11
+    j end_if
+else_branch:
+    # 8: param "x<y\n"
+    la $a0, x_less_than_y
+    li $v0, 4
+    syscall
+
+    # 9: call printf, 1
+    li $v0, 4
+    syscall
+
+    # 10: goto 13
+    j end_if
+
+end_if:
+    # 11: param "x>y\n"
+    la $a0, x_greater_than_y
+    li $v0, 4
+    syscall
+
+    # 12: call printf, 1
+    li $v0, 4
+    syscall
+
+    # 13: halt
+    li $v0, 10
+    syscall
+
+.data
+x: .word 0
+y: .word 0

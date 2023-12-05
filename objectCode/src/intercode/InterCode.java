@@ -84,7 +84,7 @@ public class InterCode {
     private boolean whileFlag = false;//用来判断是否进入了else语句的flag
 
     //构造方法
-    public InterCode(List<Token> tokens) throws IOException {
+    public InterCode(List<Token> tokens) {
         this.tokens = tokens;
         int line = tokens.get(tokens.size() - 1).getLine();
         line++;
@@ -98,7 +98,7 @@ public class InterCode {
     }
 
     /*TODO 分析*/
-    public void semanticAnalysisAndIntermediateCodeGeneration() {
+    private void semanticAnalysisAndIntermediateCodeGeneration() {
         int currentIndex = 0; // 当前处理的输入符号索引
         while (currentIndex < tokens.size()) {
             //状态栈栈顶
@@ -176,9 +176,6 @@ public class InterCode {
         Production firstproduction = CFG.getProduction(0);
         SymbolType leftSymbol = firstproduction.getLeft();
         buffer.append(leftSymbol).append("\n");
-    }
-
-    public StringBuffer getInterCode() {
         for (Quaternion quaternion : interCode) {
             if (quaternion.getOp().equals("j")) {
                 if (!quaternion.getResult().equals("")) {
@@ -188,10 +185,19 @@ public class InterCode {
                 }
             }
         }
+    }
+
+    public StringBuffer getInterCodeString() {
+        semanticAnalysisAndIntermediateCodeGeneration();
         for (int i = 0; i < interCode.size(); i++) {
             syntaxBuffer.append(i).append(":\t").append(interCode.get(i).toTAC()).append('\n');
         }
         return syntaxBuffer;
+    }
+
+    public List<Quaternion> getInterCodeList() {
+        semanticAnalysisAndIntermediateCodeGeneration();
+        return interCode;
     }
 
     //生成临时变量
@@ -745,135 +751,5 @@ public class InterCode {
                 tokenStack.push(new Token(leftSymbol, strCode, left.getLine()));
             }
         };
-    }
-
-    //四元式
-    private static class Quaternion {
-        private String op;
-        private String arg1;
-        private String arg2;
-        private String result;
-
-        public String toTAC() {
-            if (op.equals("=")) {
-                return result + "=" + arg1;
-            } else if (op.equals("<")) {
-                return result + "<" + arg1;
-            } else if (op.equals(">")) {
-                return result + ">" + arg1;
-            } else if (op.equals("<=")) {
-                return result + "<=" + arg1;
-            } else if (op.equals(">=")) {
-                return result + ">=" + arg1;
-            } else if (op.equals("==")) {
-                return result + "==" + arg1;
-            } else if (op.equals("!=")) {
-                return result + "!=" + arg1;
-            } else if (op.equals("&&")) {
-                return result + "&&" + arg1;
-            } else if (op.equals("||")) {
-                return result + "||" + arg1;
-            } else if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/") || op.equals("%")) {
-                return result + "=" + arg1 + op + arg2;
-
-            } else if (op.equals("j")) {
-                return "goto " + result;
-            } else if (op.equals("jq")) {
-                return "if " + arg1 + " goto " + result;
-            } else if (op.equals("param")) {
-                return "param " + result;
-            } else if (op.equals("call")) {
-                return "call " + arg1 + "," + result;
-            } else if (op.equals("halt")) {
-                return "halt";
-            }
-            throw new IllegalArgumentException("Unsupported operation: " + op);
-        }
-
-        public Quaternion() {
-        }
-
-        public Quaternion(String op, String arg1, String arg2, String result) {
-            this.op = op;
-            this.arg1 = arg1;
-            this.arg2 = arg2;
-            this.result = result;
-        }
-
-        /**
-         * 获取
-         *
-         * @return op
-         */
-        public String getOp() {
-            return op;
-        }
-
-        /**
-         * 设置
-         *
-         * @param op
-         */
-        public void setOp(String op) {
-            this.op = op;
-        }
-
-        /**
-         * 获取
-         *
-         * @return arg1
-         */
-        public String getArg1() {
-            return arg1;
-        }
-
-        /**
-         * 设置
-         *
-         * @param arg1
-         */
-        public void setArg1(String arg1) {
-            this.arg1 = arg1;
-        }
-
-        /**
-         * 获取
-         *
-         * @return arg2
-         */
-        public String getArg2() {
-            return arg2;
-        }
-
-        /**
-         * 设置
-         *
-         * @param arg2
-         */
-        public void setArg2(String arg2) {
-            this.arg2 = arg2;
-        }
-
-        /**
-         * 获取
-         *
-         * @return result
-         */
-        public String getResult() {
-            return result;
-        }
-
-        /**
-         * 设置
-         *
-         * @param result
-         */
-        public void setResult(String result) {
-            this.result = result;
-        }
-
-        public String toString() {
-            return "Quaternion{op = " + op + ", arg1 = " + arg1 + ", arg2 = " + arg2 + ", result = " + result + "}";
-        }
     }
 }

@@ -1,14 +1,71 @@
-0:	x=10
-1:	y=20
-2:	param "x=%d,y=%d\n"
-3:	param x
-4:	param y
-5:	call printf,3
-6:	if x<y goto 8
-7:	goto 11
-8:	param "x<y\n"
-9:	call printf,1
-10:	goto 13
-11:	param "x>y\n"
-12:	call printf,1
-13:	halt
+# java -jar Mars.jar sampleOutput.txt
+
+.data
+str0: .asciiz "x="
+str1: .asciiz ", y="
+str2: .asciiz "\n"
+
+x_less_than_y: .asciiz "x<y\n"
+x_greater_y: .asciiz "x>y\n"
+
+.text
+main:
+    # 0: x = 10
+    li $t0, 10
+    # 存储 x 的值到内存
+    sw $t0, x
+
+    # 1: y = 20
+    li $t1, 20
+    # 存储 y 的值到内存
+    sw $t1, y
+
+    # 2: param "x="
+    la $a0, str0
+    li $v0, 4
+    syscall
+
+    # 3: param x
+    lw $a0, x
+    li $v0, 1
+    syscall
+
+    la $a0, str1
+    li $v0, 4
+    syscall
+
+    lw $t1, y
+    move $a0, $t1
+    li $v0, 1
+    syscall
+
+    la $a0, str2
+    li $v0, 4
+    syscall
+
+    # 6: if x < y goto x_less_than_y
+    bge $t0, $t1, x_greater_than_y
+
+    # 7: param "x<y\n"
+    la $a0, x_less_than_y
+    li $v0, 4
+    syscall
+
+    # 9: goto end_if
+    j end_if
+
+x_greater_than_y:
+    # 10: param "x>y\n"
+    la $a0, x_greater_y
+    li $v0, 4
+    syscall
+
+end_if:
+    # 12: halt
+    li $v0, 10
+    syscall
+
+.data
+x: .word 0
+y: .word 0
+

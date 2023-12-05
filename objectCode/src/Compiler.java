@@ -1,12 +1,13 @@
 import intercode.InterCode;
+import intercode.Quaternion;
 import lexer.*;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 import grammar.SymbolType;
-import parser.LRTable;
+import objectCode.ObjectCode;
 
 public class Compiler {
     public static void main(String[] args) throws IOException {
@@ -31,18 +32,20 @@ public class Compiler {
 
         // tokens 是词法分析结果 TODO 根据LR(1)分析表和词法分析结果 进行语法分析
 //        StringBuffer syntaxBuffer = new LRTable().syntaxAnalysis(tokens);
-        //TODO 语义分析和中间代码生成
-        InterCode interCode = new InterCode(tokens);
-        interCode.semanticAnalysisAndIntermediateCodeGeneration();
-        StringBuffer syntaxBuffer = interCode.getInterCode();
+/*        //TODO 语义分析和中间代码生成
+        StringBuffer syntaxBuffer = new InterCode(tokens).getInterCodeString();
         replaceString(syntaxBuffer,"31:\tif T7==c2 goto 33","31:\tif T7==c2 goto 39");
         replaceString(syntaxBuffer,"32:\tgoto 42","32:\tgoto 33");
         replaceString(syntaxBuffer,"34:\tif T8==b2 goto 36","34:\tif T8==b2 goto 39");
-        replaceString(syntaxBuffer,"35:\tgoto 42","35:\tgoto 36");
+        replaceString(syntaxBuffer,"35:\tgoto 42","35:\tgoto 36");*/
 
         //TODO 目标代码生成
-        writeFile("output.txt", syntaxBuffer.toString());
+        StringBuffer syntaxBuffer = new ObjectCode(tokens).getObjectCode();
+        writeFile("mips.txt", syntaxBuffer.toString());
         System.out.println(syntaxBuffer.toString());
+        List<Quaternion> list = new InterCode(tokens).getInterCodeList();
+        System.out.println(list.size());
+        System.out.println(list);
     }
 
     private static void replaceString(StringBuffer stringBuffer, String target, String replacement) {
