@@ -1,68 +1,123 @@
 .data
-str0: .asciiz "x="
-str1: .asciiz ",y="
+str0: .asciiz "m="
+str1: .asciiz ",n="
 str2: .asciiz "\n"
-str3: .asciiz "x<y\n"
-str4: .asciiz "x>y\n"
+str3: .asciiz "gcd="
+str4: .asciiz "\n"
 
 .text
 main:
-L0: #x=10
-li $t0, 10
-sw $t0, x
+L0: #m=getint()
+li $v0, 5
+syscall
+sw $v0, m
 
-L1: #y=20
-li $t0, 20
-sw $t0, y
+L1: #n=getint()
+li $v0, 5
+syscall
+sw $v0, n
 
-L2: #param "x=%d,y=%d\n"
-L3: #param x
-L4: #param y
+L2: #param "m=%d,n=%d\n"
+L3: #param m
+L4: #param n
 L5: #call printf,3
 la $a0, str0
 li $v0, 4
 syscall
-lw $a0, x
+lw $a0, m
 li $v0, 1
 syscall
 la $a0, str1
 li $v0, 4
 syscall
-lw $a0, y
+lw $a0, n
 li $v0, 1
 syscall
 la $a0, str2
 li $v0, 4
 syscall
 
-L6: #if x<y goto 8
-lw $t1, x
-lw $t2, y
+L6: #if m<n goto 8
+lw $t1, m
+lw $t2, n
 blt $t1, $t2, L8
 
 L7: #goto 11
 b L11
 
-L8: #param "x<y\n"
-L9: #call printf,1
+L8: #t=m
+lw $t0, m
+sw $t0, t
+
+L9: #m=n
+lw $t0, n
+sw $t0, m
+
+L10: #n=t
+lw $t0, t
+sw $t0, n
+
+L11: #T1=m%n
+lw $t2, n
+lw $t1, m
+rem $t0, $t1, $t2
+sw $t0, T1
+
+L12: #r=T1
+lw $t0, T1
+sw $t0, r
+
+L13: #if r!=0 goto 15
+lw $t1, r
+li $t2, 0
+bne $t1, $t2, L15
+
+L14: #goto 20
+b L20
+
+L15: #m=n
+lw $t0, n
+sw $t0, m
+
+L16: #n=r
+lw $t0, r
+sw $t0, n
+
+L17: #T2=m%n
+lw $t2, n
+lw $t1, m
+rem $t0, $t1, $t2
+sw $t0, T2
+
+L18: #r=T2
+lw $t0, T2
+sw $t0, r
+
+L19: #goto 13
+b L13
+
+L20: #param "gcd=%d\n"
+L21: #param n
+L22: #call printf,2
 la $a0, str3
 li $v0, 4
 syscall
-
-L10: #goto 13
-b L13
-
-L11: #param "x>y\n"
-L12: #call printf,1
+lw $a0, n
+li $v0, 1
+syscall
 la $a0, str4
 li $v0, 4
 syscall
 
-L13: #halt
+L23: #halt
 li $v0, 10
 syscall
 
 
 .data
-x: .word 0
-y: .word 0
+m: .word 0
+n: .word 0
+t: .word 0
+T1: .word 0
+r: .word 0
+T2: .word 0
